@@ -1,0 +1,374 @@
+id,name,shortName,buildingName,capacitate,computers
+0,,,0,0,0
+8,C001,C001,C,42,0
+9,C002,C002,C,42,0
+10,C004,C004,C,21,0
+11,C005,C005,C,21,0
+12,C007,C007,C,0,0
+13,C101,C101,C,30,0
+14,C102,C102,C,29,0
+15,C103,C103,C,30,0
+16,C104,C104,C,21,0
+17,C105,C105,C,21,0
+19,C107,C107,C,21,0
+20,C108,C108,C,0,0
+21,C109,C109,C,19,0
+22,C201,C201,C,28,0
+23,C202,C202,C,28,0
+24,C203,C203,C,28,0
+25,C204,C204,C,21,0
+26,C205,C205,C,0,0
+27,C206,C206,C,0,0
+28,C207,C207,C,21,14
+29,C208,C208,C,0,0
+30,C209,C209,C,19,0
+31,C301,C301,C,28,0
+32,C302,C302,C,28,0
+33,C303,C303,C,28,0
+34,C304,C304,C,21,0
+35,C305,C305,C,21,0
+37,C307,C307,C,0,0
+38,D001,D001,D,0,0
+39,D002,D002,D,0,0
+40,D003,D003,D,0,0
+41,D004,D004,D,0,0
+43,D005,D005,D,0,0
+44,D006,D006,D,18,0
+45,D007,D007,D,14,0
+46,D008,D008,D,14,0
+47,D009,D009,D,14,0
+48,D011,D011,D,21,0
+49,D101,D101,D,36,0
+51,D103,D103,D,0,0
+52,D104a,D104a,D,0,0
+53,D105,D105,D,0,0
+54,D106,D106,D,14,0
+55,D107,D107,D,14,0
+56,D108,D108,D,0,0
+57,D109,D109,D,0,0
+58,D111,D111,D,0,0
+60,D205,D205,D,14,0
+61,D207,D207,D,0,0
+63,amf. Dragomir Hurmuzescu,D Amf. DH,D,36,0
+65,amf. Nicolae Boţan,D Amf. NB,D,36,0
+66,amf. Remus Radulet,D Amf. RR,D,36,0
+70,A018 Laborator Gamificarea Ed,A018,A,12,0
+71,A022 Centru Resurse ET,A022,A,20,0
+72,C306,C306,C,21,0
+73,Amf. Emanuel Diaconescu,FIM2,B,0,0
+74,B302 Tehnica dentara-Protetica,B302,B,0,0
+81,ED004,ED004,E,0,0
+82,E213,E213,E,0,0
+83,E210,E210,E,0,0
+84,E205,E205,E,0,0
+85,E223,E223,E,0,0
+90,B304,B304,B,0,0
+92,B305 Laborator Fizica,B305 Lab Fiz,B,0,0
+93,B307 Sala Curs,B307 Sala Curs,B,0,0
+94,B310 Sala Curs,B310 Sala Curs,B,0,0
+95,FIM B312,B312,B,0,0
+96,B006 Laborator Mec Fluide,B006 Lab MF,B,0,0
+97,B008 Laborator Termotehnica,B008 Lab TMT,B,0,0
+102,B209 Laborator Mecanica,B209 Lab Mec,B,0,0
+104,B213 Laborator Rezistenta,B213 Lab RM,B,0,0
+106,B202 Laborator Desen Tehnic,B202 Lab DT+GD,B,0,0
+107,B301 Tehnica dentara-protetica,B301,B,0,0
+108,B303 Laborator microbiologie,B303,B,0,0
+110,B308 Laborator Sisteme Mecatr,B308 Lab SMCT,B,0,0
+111,B309 Laborator Proiectare Asis,B309 Lab PAC+MN,B,0,0
+112,Laborator TM,Lab TM,B,0,0
+113,Laborator ROBOTI,Lab Roboti,B,0,0
+115,ED001,ED001,E,0,0
+116,E209,E209,E,0,0
+117,Obs2 Lab. Testare Psihologică,Obs.2,Obs.,0,0
+118,G101,G101,G,0,0
+120,B101 Nutriție și Metabolism,B101,B,0,0
+122,B011 Laborator Dispozitive ,B011 Lab DispTeh,B,0,0
+123,B012 Laborator Prelucr def,B012 Lab PDPR,B,0,0
+124,B013 Laborator Tehn de Fabr,B013 Lab TehnFab,B,0,0
+125,B014 Laborator Concep Fabr,B014 Lab CFAC,B,0,0
+126,B005 Laborator TT,B005 LabTT,B,0,0
+128,B203 Laborator Stiinta IngMat ,B203 Lab SIM,B,0,0
+129,Sala sport,S. Sport,Sala,0,0
+130,C003,C003,C,21,0
+132,Obs. 1 - Sală mare,Obs.1,Obs.,0,0
+133,B007 Laborator Masini Unelte,B007 Lab MU,B,0,0
+135,Amf E129,E Amf E129,E,0,0
+136,E230,E230,E,0,0
+137,A114 (A53),A114,A,0,0
+140,A121 - laborator,A121,A,0,0
+141,E206,E206,E,0,0
+144,Sala Club,Sala Club,Camin,0,0
+147,Sala Stadion Areni,Sala Areni,A,0,0
+150,E216,E216,E,0,0
+151,Teren  sintetic,T.S.,,0,0
+153,E003,E003,E,0,0
+154,Lectoratul Francez,A120,A,20,0
+155,E219,E219,E,0,0
+156,E005,E005,E,31,0
+157,E006,E006,E,0,0
+158,B201 Laborator Infografica,B201 Lab GAC+IG,B,0,0
+159,A20,A20,A,0,0
+160,K102 Laborator fizioterapie,K102,K,0,0
+162,amf. Dimitrie Leonida,D Amf. DL,D,43,0
+163,Laborator Limbi Moderne,A108,A,20,0
+164,Sala Eugeniu Coşeriu,A111,A,60,0
+165,A024,A024,A,0,0
+167,Amfiteatrul Eugen Lovinescu,A115,A,110,0
+168,Laborator Multimedia ProLang,A119,A,20,0
+169,Lectoratul Italian,A122,A,20,0
+170,Lectoratul Spaniol,A203,A,0,0
+172,Sala Studii Anglo-Americane,A206,A,40,0
+173,Centrul de Reusita Universitar,A302,A,0,0
+174,Laborator Media,LB2,,20,0
+176,Sală An pregătitor,LB1,,20,0
+178,Lectoratul German,A204,A,0,0
+182,E120,E120,E,0,0
+184,P.Bucovina 4,PB4,PB,0,0
+185,P.Bucovina 11bis,PB11bis,PB,0,0
+186, E220,E220,E,0,0
+187,A038,A038,A,0,0
+192,E201,E201,E,0,0
+193,E123,E123,E,10,0
+194,ED024,ED024,E,0,0
+195,ED016,ED016,E,0,0
+196,FIM1,FIM1,B,0,0
+197,E101,E101,E,31,0
+200,ED011,ED011,E,0,0
+201,E233,E233,E,31,0
+203,ED028-30,ED028-30,E,0,0
+207,E 224,E224,E,0,0
+209,Casa alba DPPD,CA DPPD,C.A.,0,0
+213,E126,E126,E,0,0
+214,Sala Senat,Sala Senat,H,0,0
+215,Catedra de Franceza,A128,A,0,0
+216,A112 - sala DSPP,A112,A,0,0
+218,E119,E119,E,0,0
+222,ED015,ED015,E,0,0
+224,Sala curs LB3,LB3,,0,0
+225,A033,A033,A,16,0
+227,D110,D110,D,0,0
+230,E118,E118,E,0,0
+233,B004 Laborator Chimie,B004 Lab Ch,B,0,0
+234,K210,K210,K,0,0
+235,A113(A52),A113,A,0,0
+238,K 107 - Laborator BFKT,K107,K,0,0
+239,Bazin de înot,Bazin,K,0,0
+240,Stadion Areni,Stadion,Stadion,0,0
+242,Laborator de Etnografie,A039,A,36,0
+246,Lectoratul Ucrainean,A205,A,10,0
+249,Birou Comunicare,A127,A,0,0
+250,Catedra de Română,A125,A,0,0
+251,Catedra de Engleza,A040,A,0,0
+252,L201 - Sală Forță,S. Forta,A,0,0
+303,E007,E007,E,0,0
+304,E010,E010,E,0,0
+305,E012,E012,E,0,0
+306,E013,E013,E,0,0
+307,E132,E132,E,0,0
+308,E113 Laborator,E113,E,0,0
+309,E110,E110,E,0,0
+310,E109 Laborator,E109,E,0,0
+311,E106 Sala calculatoare,E106,E,0,0
+312,E105,E105,E,0,0
+313,E227,E227,E,0,0
+314,E032,E032,E,0,0
+315,E034,E034,E,0,0
+316,E036,E036,E,0,0
+318,E026,E026,E,0,0
+319,A116,A116,A,0,0
+320,A117,A117,A,0,0
+321,A004,A004,A,0,0
+322,E218,E218,E,0,0
+323,J6,J6,J,20,0
+325,E217,E217,E,0,0
+326,C4-Microcantina,C4-cantina,Camin,0,0
+327,A 034,A 034,A,0,0
+328,A109,A109,A,13,0
+330,A013,A013,A,0,0
+332,A110,A110,A,16,0
+333,S1,S1,A,0,0
+334,E039,E039,E,0,0
+341,Catedra de Română2,A126,A,0,0
+342,Birou Doctorat+CADISS,A202,A,0,0
+343,Epigon,A105,A,0,0
+344,Lab DSP,Lab DSP,,0,0
+345,Bazin (culuar 1),Bazin (c1),K,0,0
+346,Bazin (culuar 2),Bazin (c2),K,0,0
+347,Bazin (culuar 3),Bazin (c3),K,0,0
+348,Bazin (culuar 4),Bazin (c4),K,0,0
+349,Bazin (culuar 5),Bazin (c5),K,0,0
+350,Bazin (culuar 6),Bazin (c6),K,0,0
+363,A036a,A036a,A,16,0
+366,H103,H103,H,0,0
+367,H102,H102,H,0,0
+368,H306,H306,H,0,0
+369,H301,H301,H,6,0
+370,E221,E221,E,0,0
+371,H304,H304,H,0,0
+373,H206,H206,H,0,0
+376,H205,H205,H,0,0
+377,H108,H108,H,0,0
+378,H105,H105,H,6,0
+379,A006,A006,A,0,0
+380,E124,E124,E,0,0
+381,H203,H203,H,0,0
+382,H303,H303,H,0,0
+383,H002,H002,H,0,0
+384,H109,H109,H,0,0
+386,ED003,ED003,E,0,0
+387,Birou It.+Sp.+Ucr. ,A301,A,0,0
+388,E235,E235,E,0,0
+389,H207,H207,H,0,0
+390,H104,H104,H,0,0
+391,Consiliu Judetean,Cons. Jud.,H,0,0
+393,Birou Director CSUD,E002,E,0,0
+398,ED010,ED010,E,0,0
+400,ED013,ED013,E,0,0
+401,ED012,ED012,E,0,0
+402,Laborator cercetare E.A.,ED006,E,0,0
+403,A118,A118,A,0,0
+404,E 208 Catedra,E 208,E,0,0
+406,E 228 Catedra,E 228,E,0,0
+407,Birou E 203 Catedra,E 203,E,0,0
+409,E 212 Catedra,E 212,E,0,0
+411,E 229 Catedra,E 229,E,0,0
+412,A 31 Catedra Centrul de Studii,A 31,A,0,0
+413,E 0010 Prorectorat Relatii Int,E 0010,E,0,0
+414,E211 Filosofie,E211,E,0,0
+418,E232 Filosofie,E232,E,0,0
+427,B216 Birou CD,B216 Birou CD,B,0,0
+431,B207 Birou CD,B207 Birou CD,B,0,0
+442,H110,H110,H,0,0
+443,H204,H204,H,0,0
+446,E238,E238,E,0,0
+447,E204,E204,E,0,0
+448,E207,E207,E,0,0
+449,E231,E231,E,0,0
+450,E214,E214,E,0,0
+453,Catedra1 FSE,A019,A,0,0
+454,Catedra2 FSE,A008,A,0,0
+455,E234,E234,E,0,0
+460,H001,H001,H,0,0
+461,S62,S62,A,0,0
+462,B104 Laborator OM+Trib,B104 Lab OM+Trib,B,0,0
+472,E 015,E 015,E,0,0
+476,Birou A 7 Doctorat Istorie,A 7,A,0,0
+484,H202,H202,H,0,0
+485,E125,E125,E,0,0
+487,E222,E222,E,0,0
+488,H305,H305,H,0,0
+489,Birou Scoala doctorala,A017,A,0,0
+490,C408,C408,C,0,0
+491,Scoala Doctorala,C401a,C,0,0
+492,C402,C402,C,0,0
+493,C404,C404,C,15,0
+495,C401b,C401b,C,15,0
+497,Birou Doctorat RN,A201,A,0,0
+498,Birou Doctorat MAD,A010,A,0,0
+501,H107,H107,H,0,0
+502,L104 - Sala Fitness,S. Fitness,A,0,0
+503,B212 Laborator Tolerante,B212 Lab Tol,B,0,0
+506,B108 Laborator Mecanisme,B108 Lab Mecs+DS,B,0,0
+510,B112 Laborator Mectr auto,B112 Lab MA+DA,B,0,0
+512,H101,H101,H,0,0
+516,H201,H201,H,0,0
+519,A026 - birou,A026,A,0,0
+520,Restaurant USV,Restaurant,Restaur,0,0
+521,Aula E,Aula E,E,38,0
+522,C409,C409,C,0,0
+524,ED022,ED022,E,0,0
+525,A. Aula,Aula,A,46,0
+526,Decanat FLSC A002,A002,A,0,0
+529,E011A Secretariat FMSB,E011A,E,0,0
+530,C5-108,C5-108,Camin,0,0
+536,108,108,Camin,0,0
+537,Incubator de afaceri,INCUBAF,Cămin,0,0
+548,D102,D102,D,0,0
+549,E215,E215,E,0,0
+550,Sustinere teza doctorat,doar 4 nov,D,0,0
+551,Lab Act,LabAct,B,0,0
+554,C405,C405,C,0,0
+555,Decanat,A003,A,0,0
+556,Birou,A209,A,0,0
+557,Corp K,Corp K,K,0,0
+558,,E225,E,0,0
+559,A016 - birou,A016,A,0,0
+560,E237,E237,E,0,0
+561,A009 - birou,A009,A,0,0
+562,C401d,C401d,C,15,0
+563,Birou A210,A210,A,0,0
+567,A027 - birou,A027,A,0,0
+570,J1,J1,J,16,0
+571,Laborator Scule Aschietoare,B102,B,0,0
+573,B206a Birou CD,B206a Birou CD,B,0,0
+575,Birou 110,B110,B,0,0
+577,E240,E240,E,0,0
+578,Auditorium,Auditorium,F,0,0
+582,E236,E236,E,0,0
+584,D104b,D104b,D,0,0
+587,Sala Consiliu,SC,H,0,0
+590,B206b,B206b,B,0,0
+592,A032,A032,A,0,0
+593,E239,E239,,0,0
+594,P.Bucovina 3,PB3,PB,0,0
+595,P.Bucovina 6,PB6,PB,0,0
+596,P.Bucovina 7,PB7,PB,0,0
+598,"Foaier, Auditorium, corp F ","Foaier, F",F,0,0
+600,PB2,PB2,PB,0,0
+604,C406,C406,C,0,0
+607,PB5,PB5,PB,0,0
+608,P. Bucovina 201,PB201,PB,0,0
+609,P.Bucovina 202,PB202,PB,0,0
+611,Lab Dinamica/Vibratii,B215 LabVibratii,B,0,0
+612,N108,N108,N,0,0
+613,A 012,A 012,A,0,0
+618,PB002,PB002,PB,0,0
+620,037a,037a,A,0,0
+622,Bicom 2,Bicom 2,Bicom,0,0
+624,_on-line,_online,,999,0
+628,C407,C407,C,20,0
+633,B110a Laborator Sist de act,B110a Lab SAHP,B,0,0
+634,P. Bucovina 301,PB301,PB,0,0
+635,037b,037b,A,0,0
+641,ED005,ED005,E,0,0
+645,ED007,ED007,,0,0
+646,ED026,ED026,,0,0
+655,P.Bucovina 302,PB302,PB,0,0
+656,A035,A035,A,0,0
+657,Corp CH - CreativeHUB 3,CH 3,,0,0
+658,CreativeHUB 1,CH1,CH,0,0
+659,CreativeHUB 2,CH2,CH,0,0
+661,CreativeHUB 4,CH4,CH,0,0
+662,Bazele Ing Autovehic,B113 Lab BIA,B,0,0
+666,LB4,LB4,,0,0
+667,corp F - Sala 110 Radio USV,Radio USV,F,18,0
+672,BookCafe,BookCafe,,0,0
+673,B103 Laborator Sist Rob AV,B103 Lab SRA,B,0,0
+674,E116 Director Biblioteca,E116,E,0,0
+675,B206c Birou CD,B206c Birou CD,B,0,0
+676,A208 Birou,A208,A,0,0
+677,Centru de practică,C practica,,0,0
+680,C401e,C401e,C,0,0
+681,Centru Media,ED042,E,0,0
+683,CNI Spiru Haret - Sala II.5,CL1 - Sala II.5,,30,0
+685,CNI Spiru Haret - Sala II.4,CL2 - Sala II.4,,30,0
+689,CNI Spiru Haret - Sala II.6,CL3 - Sala II.6,,30,0
+690,Sala lectura,SL (A103),A,90,0
+691,Sala periodice Biblioteca USV,SPB (A047),A,30,0
+692,B313,B313,B,30,0
+698,Metrologie Avansată ,Lab MA,B,0,0
+699,C410,C410,C,2,0
+701,H302,H302,H,0,0
+706,PB401,PB401,,0,0
+709,Sectii clinice SCJSV,Spital,,0,0
+710,D101a,D101a,D,25,0
+714,J7,J7,J,30,0
+717,Ambulator SCJU/Sectii clinice,Ambulator SCJU,,0,0
+722,B102 Laborator Proiect Scule,B102 Lab PSA,B,0,0
+723,B113 Laborator Transmisii auto,B113 Lab BIA+TA,,0,0
+724,Rectorat,Rectorat,E,0,0
+726,Lab biologie moleculara SCJUSV,Lab BM SCJUSV,,0,0
+727,Clinici,Clinici,,0,0
+728,Patinoar,Patinoar,,0,0
+730,D011a,D011a,D,0,0

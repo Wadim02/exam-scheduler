@@ -1,10 +1,10 @@
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from models import Base  # Acum funcționează
 
-SQLALCHEMY_DATABASE_URL = "postgresql://user:password@localhost:5432/exam_db"
+DATABASE_URL = "postgresql://postgres:ad12min34@localhost:5432/exam_scheduler"
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-Base = declarative_base()
+def init_db():
+    Base.metadata.create_all(bind=engine)
