@@ -1,136 +1,28 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Autentificare Platformă Examene</title>
-    <style>
-        #google-signin-container {
-            margin: 2rem auto;
-            width: 240px;
-            text-align: center;
-        }
-        .loading-message {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-        .google-signin-button {
-            margin: 0 auto;
-        }
-    </style>
-</head>
-<body>
-    <div id="google-signin-container">
-        <p class="loading-message">Se încarcă sistemul de autentificare...</p>
-        <div class="google-signin-button"></div>
-    </div>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 
-    <script>
-        // 1. Încarcă scriptul Google Sign-In
-        function loadGoogleAuthScript() {
-            return new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = 'https://accounts.google.com/gsi/client';
-                script.async = true;
-                script.defer = true;
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
-            });
-        }
+<div id="g_id_onload"
+     data-client_id="916798165835-86eqcj4m9333a8m9idsp5unk2d4cbhge.apps.googleusercontent.com"
+     data-context="signin"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
 
-        // 2. Inițializează Google Sign-In
-        function initializeGoogleSignIn() {
-            const loadingElement = document.querySelector('.loading-message');
-            if (loadingElement) loadingElement.style.display = 'none';
+<div class="g_id_signin" data-type="standard"></div>
 
-            const origin = window.location.origin;
-
-            google.accounts.id.initialize({
-                client_id: "916798165835-86eqcj4m9333a8m9idsp5unk2d4cbhge.apps.googleusercontent.com",
-                callback: handleGoogleResponse
-            });
-
-            google.accounts.id.renderButton(
-                document.querySelector('.google-signin-button'),
-                {
-                    type: 'standard',
-                    theme: 'outline',
-                    size: 'large',
-                    text: 'signin_with',
-                    width: '240'
-                }
-            );
-        }
-
-        // 3. Trimite token-ul Google la backend
-        function handleGoogleResponse(response) {
-    fetch('/token', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ token: response.credential })
-    })
-    .then(res => {
-        console.log("Response status:", res.status);
-        return res.json();
-    })
-    .then(data => {
-    localStorage.setItem('jwt_token', data.access_token);
-
-    // În loc de redirect, încarcă conținutul dashboard-ului dinamic
-    fetch('/dashboard', {
-        headers: {
-            'Authorization': `Bearer ${data.access_token}`
-        }
-    })
-    .then(response => {
-        if (!response.ok) throw new Error("Acces respins");
-        return response.json();
-    })
-    .then(data => {
-        // Afișează mesajul în body
-        document.body.innerHTML = `
-            <h1 style="text-align:center;">${data.message}</h1>
-            <p style="text-align:center;"><button onclick="logout()">Logout</button></p>
-        `;
-    });
-})
-    .catch(error => {
-        console.error('Eroare autentificare:', error);
-        alert('Autentificare eșuată: ' + error.message);
-    });
-}
-        // 4. Interceptor pentru verificare token JWT
-        window.addEventListener('DOMContentLoaded', () => {
-            loadGoogleAuthScript()
-                .then(initializeGoogleSignIn)
-                .catch(error => {
-                    console.error('Eroare la încărcarea scriptului Google:', error);
-                    document.getElementById('google-signin-container').innerHTML =
-                        '<p style="color: red">Eroare la conectarea cu serviciile Google</p>';
-                });
-
-            const token = localStorage.getItem('jwt_token');
-            if (token && window.location.pathname === '/dashboard') {
-                fetch('/dashboard', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        localStorage.removeItem('jwt_token');
-                        window.location.href = '/login';
-                    }
-                });
+<script>
+    function handleCredentialResponse(response) {
+        fetch("/token", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ token: response.credential })
+        }).then(res => {
+            if (res.redirected) {
+                window.location.href = res.url;
+            } else {
+                res.json().then(data => alert("Login e?uat: " + data.detail));
             }
         });
-        function logout() {
-    localStorage.removeItem('jwt_token');
-    window.location.reload();
-}
-    </script>
-</body>
-</html>
+    }
+</script>
