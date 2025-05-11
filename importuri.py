@@ -1,117 +1,60 @@
 import pandas as pd
 from sqlalchemy import create_engine, text
 
-# Conexiune
+# Conexiune la baza de date
 engine = create_engine("postgresql://postgres:ad12min34@localhost:5432/exam_scheduler")
+with engine.begin() as conn:
+    print("🧹 Golesc datele existente...")
+    conn.execute(text("DELETE FROM propuneri_examene;"))
+    conn.execute(text("DELETE FROM subgrupe_discipline;"))
+    conn.execute(text("DELETE FROM discipline;"))
+    conn.execute(text("DELETE FROM sefgrupe;"))
+    conn.execute(text("DELETE FROM subgrupe;"))
+    conn.execute(text("DELETE FROM cadre;"))
+    conn.execute(text("DELETE FROM sali;"))
+    conn.execute(text("DELETE FROM facultati;"))
+    conn.execute(text("DELETE FROM admin;"))
+    conn.execute(text("DELETE FROM secretariat;"))
+    conn.execute(text("DELETE FROM discipline;"))
+    print("✔ Tabele golite.")
+# Configurație per tabel: numele coloanelor acceptate
+TABLE_COLUMNS = {
+    "facultati": ["id", "shortName", "longName"],
+    "sali": ["id", "name", "shortName", "buildingName"],
+    "subgrupe": ["id", "facultyId", "studyYear", "groupName", "subgroupIndex"],
+    "cadre": ["id", "lastName", "firstName", "emailAddress", "phoneNumber", "facultyName", "departmentName"],
+    "sefgrupe": ["id", "lastName", "firstName", "emailAddress", "phoneNumber", "id_facultate", "id_subgrupe"],
+    "admin": ["id", "lastName", "firstName", "emailAddress", "phoneNumber", "facultyName", "departmentName"],
+    "secretariat": ["id", "lastName", "firstName", "emailAddress", "phoneNumber", "facultyName", "departmentName"],
+    "discipline": ["id", "id_cadru", "id_subgrupa", "topic"],
+}
 
-# 1. Creare tabele
-with engine.connect() as conn:
-    conn.execute(text("""
-        DROP TABLE IF EXISTS subgrupe, sali, cadre, facultati, sefgrupe, admin, secretariat CASCADE;
+# Funcție de import sigur
+def safe_import_csv(file_path, table_name):
+    try:
+        # Citește doar coloanele permise
+        valid_cols = TABLE_COLUMNS[table_name]
+        df = pd.read_csv(file_path, usecols=lambda col: col in valid_cols)
 
-        CREATE TABLE facultati (
-            id SERIAL PRIMARY KEY,
-            shortName VARCHAR(50),
-            longName VARCHAR(255)
-        );
-        CREATE TABLE sefgrupe (
-            id SERIAL PRIMARY KEY,
-            lastName VARCHAR(100),
-            firstName VARCHAR(100),
-            emailAddress VARCHAR(100),
-            phoneNumber VARCHAR(20),
-            facultyName VARCHAR(255),
-            departmentName VARCHAR(255),
-            grupa VARCHAR(100),
-            an INTEGER
-        );
-        CREATE TABLE admin (
-            id SERIAL PRIMARY KEY,
-            lastName VARCHAR(100),
-            firstName VARCHAR(100),
-            emailAddress VARCHAR(100),
-            phoneNumber VARCHAR(20),
-            facultyName VARCHAR(255),
-            departmentName VARCHAR(255)
-        );
-        CREATE TABLE secretariat (
-            id SERIAL PRIMARY KEY,
-            lastName VARCHAR(100),
-            firstName VARCHAR(100),
-            emailAddress VARCHAR(100),
-            phoneNumber VARCHAR(20),
-            facultyName VARCHAR(255),
-            departmentName VARCHAR(255)
-        );
-        CREATE TABLE cadre (
-            id SERIAL PRIMARY KEY,
-            lastName VARCHAR(100),
-            firstName VARCHAR(100),
-            emailAddress VARCHAR(100) UNIQUE,
-            phoneNumber VARCHAR(20),
-            facultyName VARCHAR(255),
-            departmentName VARCHAR(255)
-        );
-        CREATE TABLE sali (
-            id SERIAL PRIMARY KEY,
-            name VARCHAR(100) NOT NULL,
-            shortName VARCHAR(50),
-            buildingName VARCHAR(255),
-            capacitate INTEGER,
-            computers BOOLEAN
-        );
-        CREATE TABLE subgrupe (
-            id SERIAL PRIMARY KEY,
-            type VARCHAR(50),
-            facultyId INTEGER REFERENCES facultati(id) ON DELETE CASCADE,
-            specializationShortName VARCHAR(255),
-            studyYear INTEGER,
-            groupName VARCHAR(50),
-            subgroupIndex VARCHAR(10),
-            isModular BOOLEAN,
-            orarId INTEGER
-        );
-    """))
-    print("✔ Tabele create cu succes")
+        # Inserare
+        df.to_sql(table_name, engine, index=False, if_exists="append")
+        print(f"✔ Import reușit: {table_name} ({len(df)} rânduri)")
 
-# 2. Funcția de import CSV
-def import_csv_to_table(filename, table_name, convert_bools=None):
-    df = pd.read_csv(filename)
+    except Exception as e:
+        print(f"[✘] Eroare la importul {file_path} → {table_name}: {e}")
 
-    # Curățare specifică
-    if table_name == "facultati":
-        df = df.dropna(subset=["shortName"])
-    elif table_name == "cadre":
-        df = df.dropna(subset=["lastName", "emailAddress"])
-        df = df.drop_duplicates(subset=["emailAddress"])
-    elif table_name == "sali":
-        df = df.dropna(subset=["name"])
-    elif table_name == "subgrupe":
-        df = df[df["facultyId"].notna()]
-        df = df[df["facultyId"] != 0]
+# Lista fișierelor și tabelului asociat
+import_list = [
+    ("csv_output/facultati.csv", "facultati"),
+    ("csv_output/sali.csv", "sali"),
+    ("csv_output/subgrupe.csv", "subgrupe"),
+    ("csv_output/cadre.csv", "cadre"),
+    ("csv_output/sefgrupe.csv", "sefgrupe"),
+    ("csv_output/admin.csv", "admin"),
+    ("csv_output/secretariat.csv", "secretariat"),
+    ("csv_output/discipline.csv", "discipline"),
+]
 
-    # Convertire booleene
-    if convert_bools:
-        for col in convert_bools:
-            if col in df.columns:
-                df[col] = df[col].astype(bool)
-
-    # Golire tabel cu ordonare
-    with engine.begin() as conn:
-        if table_name == "facultati":
-            conn.execute(text("DELETE FROM subgrupe;"))
-        conn.execute(text(f"DELETE FROM {table_name};"))
-        print(f"🧹 Tabelul {table_name} a fost golit")
-
-    # Inserare
-    df.to_sql(table_name, engine, if_exists="append", index=False)
-    print(f"✔ {table_name} populat cu {len(df)} rânduri")
-
-# 3. Apeluri import
-import_csv_to_table("csv_output/facultati.csv", "facultati")
-import_csv_to_table("csv_output/cadre.csv", "cadre")
-import_csv_to_table("csv_output/sali.csv", "sali", convert_bools=["computers"])
-import_csv_to_table("csv_output/subgrupe.csv", "subgrupe", convert_bools=["isModular"])
-import_csv_to_table("csv_output/sefgrupe.csv", "sefgrupe")
-import_csv_to_table("csv_output/admin.csv", "admin")
-import_csv_to_table("csv_output/secretariat.csv", "secretariat")
+# Execuție import
+for filepath, table in import_list:
+    safe_import_csv(filepath, table)

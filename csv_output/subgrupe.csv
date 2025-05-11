@@ -1,6 +1,4 @@
 id,type,facultyId,specializationShortName,studyYear,groupName,subgroupIndex,isModular,orarId
-0,1,0,,0,,,0,0
-2388,0,0,Rezervări,0,grupa 1,,1,340
 29,1,1,AIA,1,3211,a,0,9
 30,1,1,AIA,1,3211,b,0,9
 921,1,1,AIA,1,3212,a,0,9

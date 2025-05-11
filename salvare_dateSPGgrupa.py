@@ -3,7 +3,7 @@ import pandas as pd
 import json
 
 # URL provided by the user
-url = "https://orar.usv.ro/orar/vizualizare/data/orarSPG.php?ID=1028&mod=grupa&json"
+url = "https://orar.usv.ro/orar/vizualizare/data/orarSPG.php?ID=938&mod=grupa&json"
 
 # Send a request to fetch the data
 response = requests.get(url)
@@ -41,7 +41,7 @@ if response.status_code == 200:
         df.loc[df['ID'] == class_id, 'AdditionalInfo'] = ', '.join(info)
     
     # Save the DataFrame to an Excel file
-    excel_path = "vizualizare_date/orar_dataSPGgrupa.xlsx"
+    excel_path = "vizualizare_date/orar_dataSPGgrupa938.xlsx"
     df.to_excel(excel_path, index=False, engine="openpyxl")
     
     print(f"Data saved to {excel_path}")

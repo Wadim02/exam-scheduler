@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar Examene</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .fc-event {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calendar propuneri examene</h2>
+    <label for="disciplina">Alege disciplina:</label>
+    <select id="disciplina"></select>
+    <div id="calendar"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            const response1 = await fetch('/sefgrupa/discipline');
+            const discipline = await response1.json();
+            const select = document.getElementById("disciplina");
+            discipline.forEach(d => {
+                const opt = document.createElement("option");
+                opt.value = d.id;
+                opt.textContent = d.topic;
+                select.appendChild(opt);
+            });
+
+            const response2 = await fetch('/sefgrupa/ocupare-calendar');
+            const ocupat = await response2.json();
+
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'timeGridWeek',
+                slotMinTime: "08:00:00",
+                slotMaxTime: "18:00:00",
+                allDaySlot: false,
+                selectable: true,
+                height: "auto",
+                locale: 'ro',
+                events: ocupat.map(p => ({
+                    title: p.status.toUpperCase(),
+                    start: p.data,
+                    end: new Date(new Date(p.data).getTime() + p.durata * 60 * 60 * 1000).toISOString(),
+                    color: p.status === "acceptata" ? "green" : "orange"
+                })),
+                select: async function (info) {
+                    const disciplinaId = document.getElementById("disciplina").value;
+                    const data = info.startStr;
+                    const confirmare = confirm(`Propui examen pe ${data} pentru 2 ore?`);
+                    if (confirmare) {
+                        const r = await fetch("/sefgrupa/propunere", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                disciplina_id: parseInt(disciplinaId),
+                                data: data,
+                                durata: 2
+                            })
+                        });
+
+                        if (r.ok) {
+    alert("Propunere trimisă!");
+    window.location.reload();
+} else {
+    let errMsg;
+    try {
+        const err = await r.json();
+        errMsg = err.detail || JSON.stringify(err);
+    } catch (e) {
+        errMsg = await r.text();
+    }
+    alert("Eroare: " + errMsg);
+}
+                    }
+                }
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>

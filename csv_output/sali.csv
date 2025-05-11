@@ -1,5 +1,4 @@
 id,name,shortName,buildingName,capacitate,computers
-0,,,0,0,0
 8,C001,C001,C,42,0
 9,C002,C002,C,42,0
 10,C004,C004,C,21,0
@@ -292,7 +291,6 @@ id,name,shortName,buildingName,capacitate,computers
 555,Decanat,A003,A,0,0
 556,Birou,A209,A,0,0
 557,Corp K,Corp K,K,0,0
-558,,E225,E,0,0
 559,A016 - birou,A016,A,0,0
 560,E237,E237,E,0,0
 561,A009 - birou,A009,A,0,0

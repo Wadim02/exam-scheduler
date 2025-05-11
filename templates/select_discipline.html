@@ -1,0 +1,9 @@
+<form method="get" action="/sefgrupa/calendar">
+  <label for="disciplina">Alege disciplina:</label>
+  <select name="disciplina_id" id="disciplina" required>
+    {% for d in discipline %}
+      <option value="{{ d.id }}">{{ d.topic }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit">Continuă</button>
+</form>
