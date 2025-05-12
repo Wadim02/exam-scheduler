@@ -4,7 +4,7 @@ Fiecare clasă reprezintă o tabelă în baza de date PostgreSQL.
 """
 
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Text
 from sqlalchemy.orm import relationship
 
 # Baza pentru toate modelele ORM
@@ -150,10 +150,11 @@ class PropunereExamen(Base):
     id = Column(Integer, primary_key=True, index=True)
     id_disciplina = Column(Integer, ForeignKey("discipline.id"), nullable=False)
     id_sefgrupa = Column(Integer, ForeignKey("sefgrupe.id"), nullable=False)
-    id_sala = Column(Integer, ForeignKey("sali.id"), nullable=True)  # poate fi setată doar la validare
-    data = Column(String, nullable=False)  # alternativ DateTime dacă vrei
-    durata = Column(Integer, nullable=False)  # în ore
-    status = Column(String, default="trimisa")  # trimisa, acceptata, respinsa
+    id_sala = Column(Integer, ForeignKey("sali.id"), nullable=True)
+    data = Column(DateTime, nullable=False)
+    durata = Column(Integer, nullable=False)
+    status = Column(String, default="trimisa")
+    motiv_respingere = Column(Text, nullable=True)
 
     # Relații
     disciplina = relationship("Disciplina", backref="propuneri")

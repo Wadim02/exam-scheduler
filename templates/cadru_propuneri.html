@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmare propuneri examene</title>
+    <style>
+    select {
+        font-size: 1em;
+        padding: 6px;
+        margin-top: 4px;
+        margin-bottom: 8px;
+    }
+</style>
+</head>
+<body>
+    <h2>Bine ai venit, {{ cadru.firstName }} {{ cadru.lastName }}</h2>
+    <h3>Propuneri de examene de confirmat</h3>
+
+    {% if propuneri %}
+        <ul>
+        {% for p in propuneri %}
+            <li>
+                <strong>{{ p.disciplina.nume }}</strong> – {{ p.data }} ({{ p.durata }}h)<br>
+                <form action="/cadru/propuneri/accepta" method="post" style="display:inline;">
+                    <input type="hidden" name="id_propunere" value="{{ p.id }}">
+                    <label>Sala:
+<select name="id_sala" style="min-width: 200px; padding: 4px;">
+    {% if sali_disponibile[p.id] %}
+        {% for sala in sali_disponibile[p.id] %}
+            <option value="{{ sala.id }}">{{ sala.name }}</option>
+        {% endfor %}
+    {% else %}
+        <option disabled selected>Nu există săli disponibile</option>
+    {% endif %}
+</select>
+                    </label>
+                    <button type="submit">Acceptă</button>
+                </form>
+               <form action="/cadru/propuneri/respinge" method="post" style="display:inline;">
+    <input type="hidden" name="id_propunere" value="{{ p.id }}">
+    <label for="motiv">Motiv:</label>
+    <input type="text" name="motiv" style="width: 200px;" placeholder="ex: dată nepotrivită">
+    <button type="submit">Respinge</button>
+</form>
+            </li>
+            <hr>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nu există propuneri de confirmat.</p>
+    {% endif %}
+</body>
+</html>

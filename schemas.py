@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from datetime import datetime
 
 class UserBase(BaseModel):
     email: str
@@ -12,3 +13,8 @@ class User(UserBase):
 
     class Config:
         from_attributes = True
+
+class PropunereCreate(BaseModel):
+    disciplina_id: int
+    data: datetime
+    durata: int

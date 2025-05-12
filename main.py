@@ -14,7 +14,7 @@ from sqlalchemy.orm import Session
 from google.oauth2 import id_token
 from google.auth.transport.requests import Request as GoogleRequest
 from datetime import datetime, timedelta
-from models import User, Facultati, Cadre, Secretariat, Admin, Sefgrupe, Disciplina, Subgrupe, PropunereExamen
+from models import User, Facultati, Cadre, Secretariat, Admin, Sefgrupe, Disciplina, Subgrupe, PropunereExamen, Sali
 from database import SessionLocal, engine, Base
 from fastapi.templating import Jinja2Templates
 import pandas as pd
@@ -24,6 +24,9 @@ import time
 from io import BytesIO
 from typing import Optional
 from fastapi import Form
+from schemas import PropunereCreate
+from datetime import timedelta, timedelta
+from sqlalchemy import select
 
 
 app = FastAPI()
@@ -364,7 +367,7 @@ async def discipline_sef_grupa(current_user: User = Depends(get_current_user), d
 
     discipline = db.query(Disciplina).filter(
         Disciplina.id_subgrupa == sef.id_subgrupe,
-        ~Disciplina.id.in_(subquery)
+        ~Disciplina.id.in_(select(subquery))
     ).all()
 
     return [{"id": d.id, "topic": d.topic, "cadru": d.cadru.firstName + " " + d.cadru.lastName} for d in discipline]
@@ -414,9 +417,7 @@ async def propunere_form(request: Request, current_user: User = Depends(get_curr
 
 @app.post("/sefgrupa/propunere")
 async def trimite_propunere(
-    disciplina_id: int = Form(...),
-    data: str = Form(...),
-    durata: int = Form(...),
+    propunere: PropunereCreate,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
 ):
@@ -425,28 +426,33 @@ async def trimite_propunere(
 
     sef = db.query(Sefgrupe).filter(Sefgrupe.emailAddress == current_user.email).first()
 
-    # Verificare conflicte
-    conflict = db.query(PropunereExamen).filter(
-        PropunereExamen.data == data,
-        PropunereExamen.id_subgrupa == sef.id_subgrupe,
-        PropunereExamen.status.in_(["trimisa", "acceptata"])
-    ).first()
+    start = propunere.data.replace(tzinfo=None)
+    end = start + timedelta(hours=propunere.durata)
 
-    if conflict:
-        raise HTTPException(status_code=409, detail="Există deja o propunere în acel interval")
+    propuneri_existente = db.query(PropunereExamen).join(Disciplina).filter(
+        Disciplina.id_subgrupa == sef.id_subgrupe,
+        PropunereExamen.status.in_(["trimisa", "acceptata"])
+    ).all()
+
+    for p in propuneri_existente:
+        p_start = p.data.replace(tzinfo=None)
+        p_end = p_start + timedelta(hours=p.durata)
+
+        if start < p_end and end > p_start:
+            raise HTTPException(status_code=409, detail="Intervalul propus se suprapune cu alt examen.")
 
     prop = PropunereExamen(
-        id_disciplina=disciplina_id,
+        id_disciplina=propunere.disciplina_id,
         id_sefgrupa=sef.id,
-        id_subgrupa=sef.id_subgrupe,
-        data=data,
-        durata=durata,
+        data=propunere.data,
+        durata=propunere.durata,
         status="trimisa"
     )
     db.add(prop)
     db.commit()
 
     return RedirectResponse("/sefgrupa/propunere", status_code=303)
+
 
 @app.get("/sefgrupa/ocupare-calendar")
 async def ocupare_calendar(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
@@ -456,15 +462,15 @@ async def ocupare_calendar(current_user: User = Depends(get_current_user), db: S
     sef = db.query(Sefgrupe).filter(Sefgrupe.emailAddress == current_user.email).first()
 
     propuneri = db.query(PropunereExamen).join(Disciplina).filter(
-        Disciplina.id_subgrupa == sef.id_subgrupe,
-        PropunereExamen.status.in_(["trimisa", "acceptata"])
+        Disciplina.id_subgrupa == sef.id_subgrupe
     ).all()
 
     return [
         {
             "data": p.data,
             "durata": p.durata,
-            "status": p.status
+            "status": p.status,
+            "motiv": getattr(p, "motiv_respingere", None)
         }
         for p in propuneri
     ]
@@ -474,3 +480,132 @@ async def afiseaza_calendar(request: Request, current_user: User = Depends(get_c
         raise HTTPException(status_code=403, detail="Acces interzis")
     
     return templates.TemplateResponse("calendar.html", {"request": request})
+
+@app.get("/cadru/propuneri", response_class=HTMLResponse)
+async def afiseaza_propuneri_cadru(request: Request, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    if current_user.role != "cadru":
+        raise HTTPException(status_code=403, detail="Acces permis doar cadrelor didactice")
+
+    cadru = db.query(Cadre).filter(Cadre.emailAddress == current_user.email).first()
+    if not cadru:
+        raise HTTPException(status_code=404, detail="Cadru didactic nu găsit")
+
+    propuneri = db.query(PropunereExamen).join(Disciplina).filter(
+        Disciplina.id_cadru == cadru.id,
+        PropunereExamen.status == "trimisa"
+    ).all()
+
+    # Sali disponibile per propunere
+    sali_disponibile = {}
+
+    toate_sali = db.query(Sali).all()
+
+    for prop in propuneri:
+        start = prop.data.replace(tzinfo=None)
+        end = start + timedelta(hours=prop.durata)
+
+        ocupate = db.query(PropunereExamen).filter(
+            PropunereExamen.id_sala.isnot(None),
+            PropunereExamen.id_sala.in_([s.id for s in toate_sali]),
+            PropunereExamen.status.in_(["acceptata"]),
+            PropunereExamen.data >= start - timedelta(hours=4),
+            PropunereExamen.data < end + timedelta(hours=4)
+        ).all()
+
+        sali_ocupate_ids = set()
+
+        for p in ocupate:
+            p_start = p.data.replace(tzinfo=None)
+            p_end = p_start + timedelta(hours=p.durata)
+            if start < p_end and end > p_start:
+                sali_ocupate_ids.add(p.id_sala)
+
+        disponibile = [s for s in toate_sali if s.id not in sali_ocupate_ids]
+        sali_disponibile[prop.id] = disponibile
+    
+
+    return templates.TemplateResponse("cadru_propuneri.html", {
+        "request": request,
+        "propuneri": propuneri,
+        "cadru": cadru,
+        "sali_disponibile": sali_disponibile
+    })
+
+@app.post("/cadru/propuneri/accepta")
+async def accepta_propunere(
+    id_propunere: int = Form(...),
+    id_sala: int = Form(...),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != "cadru":
+        raise HTTPException(status_code=403, detail="Acces permis doar cadrelor didactice")
+
+    cadru = db.query(Cadre).filter(Cadre.emailAddress == current_user.email).first()
+    if not cadru:
+        raise HTTPException(status_code=404, detail="Cadru didactic nu găsit")
+
+    prop = db.query(PropunereExamen).filter(PropunereExamen.id == id_propunere).first()
+    if not prop:
+        raise HTTPException(status_code=404, detail="Propunerea nu există")
+
+    disciplina = db.query(Disciplina).filter(Disciplina.id == prop.id_disciplina).first()
+    if not disciplina or disciplina.id_cadru != cadru.id:
+        raise HTTPException(status_code=403, detail="Nu ești titularul acestei discipline")
+
+    # Confirmăm propunerea
+    prop.status = "acceptata"
+    prop.id_sala = id_sala
+    db.commit()
+
+    return RedirectResponse("/cadru/propuneri", status_code=303)
+
+@app.post("/cadru/propuneri/respinge")
+async def respinge_propunere(
+    id_propunere: int = Form(...),
+    motiv: str = Form(...),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    cadru = db.query(Cadre).filter(Cadre.emailAddress == current_user.email).first()
+    prop = db.query(PropunereExamen).filter(PropunereExamen.id == id_propunere).first()
+
+    if not prop:
+        raise HTTPException(status_code=404, detail="Propunerea nu a fost găsită")
+
+    disciplina = db.query(Disciplina).filter(Disciplina.id == prop.id_disciplina).first()
+
+    if not disciplina or disciplina.id_cadru != cadru.id:
+        raise HTTPException(status_code=403, detail="Nu ai voie să respingi această propunere")
+
+    prop.status = "respinsa"
+    prop.motiv_respingere = motiv  # ← aici se salvează motivul
+    db.commit()
+
+    return RedirectResponse(url="/cadru/propuneri", status_code=303)
+
+
+@app.post("/cadru/propunere/{id}/refuza")
+async def respinge_propunere(
+    id: int,
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if current_user.role != "cadru":
+        raise HTTPException(status_code=403, detail="Doar cadrele didactice pot respinge propuneri")
+
+    cadru = db.query(Cadre).filter(Cadre.emailAddress == current_user.email).first()
+    propunere = db.query(PropunereExamen).filter_by(id=id).first()
+
+    if not propunere:
+        raise HTTPException(status_code=404, detail="Propunerea nu există")
+
+    disciplina = db.query(Disciplina).filter_by(id=propunere.id_disciplina).first()
+    if not disciplina or disciplina.id_cadru != cadru.id:
+        raise HTTPException(status_code=403, detail="Nu ești titularul acestei discipline")
+
+    # Actualizează statusul propunerii
+    propunere.status = "respinsa"
+    db.commit()
+
+    return RedirectResponse(url="/cadru/propuneri", status_code=303)
