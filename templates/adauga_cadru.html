@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adaugă Cadru Didactic</title>
+</head>
+<body>
+    <h2>Adaugă Cadru Didactic</h2>
+    <form method="post" action="/admin/adauga-cadru">
+        <label>Nume:</label><br>
+        <input type="text" name="lastName" required><br>
+
+        <label>Prenume:</label><br>
+        <input type="text" name="firstName" required><br>
+
+        <label>Email (@usm.ro):</label><br>
+        <input type="email" name="emailAddress" required><br>
+
+        <label>Telefon:</label><br>
+        <input type="text" name="phoneNumber"><br>
+
+        <label>Facultate:</label><br>
+        <label for="faculty">Facultate:</label>
+<select id="faculty" name="facultyName" required onchange="incarcaDepartamente(this.value)">
+    <option value="">-- Selectează facultatea --</option>
+    {% for f in facultati %}
+        <option value="{{ f.longName }}">{{ f.shortName }} - {{ f.longName }}</option>
+    {% endfor %}
+</select>
+
+<br><br>
+
+<label for="department">Departament:</label>
+<select id="department" name="departmentName" required>
+    <option value="">-- Selectează mai întâi facultatea --</option>
+</select>
+    <script>
+    async function incarcaDepartamente(facultate) {
+        const raspuns = await fetch(`/api/departamente?facultate=${encodeURIComponent(facultate)}`);
+        const departamente = await raspuns.json();
+
+        const departamentSelect = document.getElementById("department");
+        departamentSelect.innerHTML = "";  // Golește opțiunile
+
+        if (departamente.length === 0) {
+            departamentSelect.innerHTML = "<option value=''>Niciun departament găsit</option>";
+            return;
+        }
+
+        for (const d of departamente) {
+            const opt = document.createElement("option");
+            opt.value = d;
+            opt.textContent = d;
+            departamentSelect.appendChild(opt);
+        }
+    }
+</script>
+
+        <button type="submit">Adaugă</button>
+    </form>
+</body>
+</html>

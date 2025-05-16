@@ -1,49 +1,62 @@
-import requests
 import pandas as pd
-import json
+import requests
+import os
+import time
 
-# URL provided by the user
-url = "https://orar.usv.ro/orar/vizualizare/data/orarSPG.php?ID=938&mod=grupa&json"
+def extrage_cursuri_unice_din_orar(
+    excel_path="vizualizare_date/subgrupe.xlsx",
+    output_path="vizualizare_date/discipline.xlsx"
+):
+    os.makedirs("vizualizare_date", exist_ok=True)
 
-# Send a request to fetch the data
-response = requests.get(url)
+    try:
+        df_ids = pd.read_excel(excel_path)
+    except Exception as e:
+        print(f"❌ Eroare la citirea fișierului Excel: {e}")
+        return
 
-# Check if the request was successful
-if response.status_code == 200:
-    # Load JSON data
-    data = response.json()
-    
-    # Initialize lists to store processed data
-    processed_data = []
+    if "id" not in df_ids.columns:
+        print("❌ Coloana 'id' nu există în fișierul Excel!")
+        return
 
-    # Process the first part of the JSON (class data)
-    class_data = data[0]
-    for class_info in class_data:
-        processed_data.append({
-            "ID": class_info.get("id"),
-            "Type": class_info.get("typeLongName"),
-            "Teacher": f"{class_info.get('teacherFirstName')} {class_info.get('teacherLastName')}",
-            "Room": class_info.get("roomShortName"),
-            "Topic": class_info.get("topicLongName"),
-            "WeekDay": class_info.get("weekDay"),
-            "StartHour": class_info.get("startHour"),
-            "Duration": class_info.get("duration"),
-            "Parity": class_info.get("parity"),
-            "OtherInfo": class_info.get("otherInfo")
-        })
+    id_subgrupe = df_ids["id"].dropna().astype(int).tolist()
+    data = []
 
-    # Convert the processed data into a DataFrame
-    df = pd.DataFrame(processed_data)
+    for i, id_subgrupa in enumerate(id_subgrupe, 1):
+        url = f"https://orar.usv.ro/orar/vizualizare/data/orarSPG.php?ID={id_subgrupa}&mod=grupa&json"
+        print(f"🔄 ({i}/{len(id_subgrupe)}) Procesare ID: {id_subgrupa}")
 
-    # Process the second part of the JSON (additional metadata, like year)
-    metadata = data[1]
-    for class_id, info in metadata.items():
-        df.loc[df['ID'] == class_id, 'AdditionalInfo'] = ', '.join(info)
-    
-    # Save the DataFrame to an Excel file
-    excel_path = "vizualizare_date/orar_dataSPGgrupa938.xlsx"
-    df.to_excel(excel_path, index=False, engine="openpyxl")
-    
-    print(f"Data saved to {excel_path}")
-else:
-    print("Failed to fetch data from the URL")
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+            json_data = response.json()
+
+            if not isinstance(json_data, list):
+                print(f"⚠️ Răspuns invalid pentru ID {id_subgrupa}")
+                continue
+
+            for sublist in json_data:
+                if isinstance(sublist, list):
+                    for cls in sublist:
+                        if isinstance(cls, dict) and cls.get("typeShortName") == "curs":
+                            data.append({
+                                "id": cls.get("id", ""),
+                                "id_cadru": cls.get("teacherID", ""),
+                                "id_subgrupa": id_subgrupa,
+                                "topic": cls.get("topicLongName", "")
+                            })
+        except Exception as e:
+            print(f"❌ Eroare la ID {id_subgrupa}: {e}")
+
+        time.sleep(0.05)
+
+    df = pd.DataFrame(data)
+
+    # Eliminăm duplicatele după subgrupă + topic (păstrăm primul rând)
+    df_unique = df.drop_duplicates(subset=["id_subgrupa", "topic"])
+    df_unique.to_excel(output_path, index=False)
+
+    print(f"\n✅ Fișierul cu **cursuri unice pe subgrupă** a fost salvat în: {output_path}")
+
+# Executăm
+extrage_cursuri_unice_din_orar()

@@ -1,19 +1,3772 @@
-id,id_cadru,id_subgrupa,topic
-255982,138,29,Arhitectura calculatoarelor
-256791,31,29,Electrotehnica
-256879,20,29,Matematici speciale
-256898,808,29,Programarea calculatoarelor si limbaje de programare II
-256904,410,29,Fizica I
-257705,149,29,Pedagogie I
-256907,26,938,Domotica si cladiri inteligente
-256727,67,938,Recunoasterea formelor
-255793,114,938,Internetul obiectelor
-255770,13,938,Circuite VLSI
-255767,75,938,Arhitecturi si prelucrari paralele
-258332,149,2083,Pedagogie I
-256387,552,2083,Informatica aplicata
-256139,124,2083,Mecanica
-256138,1693,2083,Tehnologia materialelor 1
-254958,104,2083,Metode numerice
-254957,111,2083,Desen tehnic si infografica 1
-254956,118,2083,"Algebra liniara, geometrie analitica si diferentiala"
+id_cadru,id_subgrupa,topic,id
+529,368,Matematici aplicate in economie,1
+353,368,Management,2
+526,368,Contabilitate,3
+453,368,Economie 2,4
+391,368,Informatică,5
+207,368,Pedagogie I,6
+529,699,Matematici aplicate in economie,7
+353,699,Management,8
+526,699,Contabilitate,9
+453,699,Economie 2,10
+391,699,Informatică,11
+207,699,Pedagogie I,12
+529,2229,Matematici aplicate in economie,13
+353,2229,Management,14
+526,2229,Contabilitate,15
+453,2229,Economie 2,16
+391,2229,Informatică,17
+207,2229,Pedagogie I,18
+529,964,Matematici aplicate in economie,19
+353,964,Management,20
+526,964,Contabilitate,21
+453,964,Economie 2,22
+391,964,Informatică,23
+207,964,Pedagogie I,24
+529,1204,Matematici aplicate in economie,25
+353,1204,Management,26
+526,1204,Contabilitate,27
+453,1204,Economie 2,28
+391,1204,Informatică,29
+207,1204,Pedagogie I,30
+529,702,Matematici aplicate in economie,31
+353,702,Management,32
+526,702,Contabilitate,33
+453,702,Economie 2,34
+391,702,Informatică,35
+207,702,Pedagogie I,36
+389,372,Marketing internaţional,37
+528,372,Managementul calitatii,38
+810,372,Comerţ electronic,39
+540,372,Management financiar,40
+540,372,Economie monetară şi financiară,41
+531,372,Pieţe de capital,42
+342,372,Tehnici şi operaţiuni bancare,43
+389,2350,Marketing internaţional,44
+528,2350,Managementul calitatii,45
+810,2350,Comerţ electronic,46
+540,2350,Management financiar,47
+540,2350,Economie monetară şi financiară,48
+531,2350,Pieţe de capital,49
+342,2350,Tehnici şi operaţiuni bancare,50
+389,1202,Marketing internaţional,51
+528,1202,Managementul calitatii,52
+810,1202,Comerţ electronic,53
+540,1202,Management financiar,54
+540,1202,Economie monetară şi financiară,55
+531,1202,Pieţe de capital,56
+342,1202,Tehnici şi operaţiuni bancare,57
+206,1202,Didactica specialităţii,58
+389,2351,Marketing internaţional,59
+528,2351,Managementul calitatii,60
+810,2351,Comerţ electronic,61
+540,2351,Management financiar,62
+540,2351,Economie monetară şi financiară,63
+531,2351,Pieţe de capital,64
+342,2351,Tehnici şi operaţiuni bancare,65
+206,2351,Didactica specialităţii,66
+353,376,Tranzactii si tehnici comerciale,67
+380,376,Contabilitate managerială,68
+523,376,Fiscalitate,69
+539,376,Contabilitatea grupurilor de societăţi,70
+377,376,Baze de date,71
+532,376,Etică în afaceri,72
+384,376,Managementul producţiei,73
+353,2352,Tranzactii si tehnici comerciale,74
+380,2352,Contabilitate managerială,75
+523,2352,Fiscalitate,76
+539,2352,Contabilitatea grupurilor de societăţi,77
+377,2352,Baze de date,78
+532,2352,Etică în afaceri,79
+384,2352,Managementul producţiei,80
+353,1118,Tranzactii si tehnici comerciale,81
+380,1118,Contabilitate managerială,82
+523,1118,Fiscalitate,83
+539,1118,Contabilitatea grupurilor de societăţi,84
+377,1118,Baze de date,85
+532,1118,Etică în afaceri,86
+384,1118,Managementul producţiei,87
+353,2353,Tranzactii si tehnici comerciale,88
+380,2353,Contabilitate managerială,89
+523,2353,Fiscalitate,90
+539,2353,Contabilitatea grupurilor de societăţi,91
+377,2353,Baze de date,92
+532,2353,Etică în afaceri,93
+384,2353,Managementul producţiei,94
+529,378,Matematici aplicate in economie,95
+353,378,Management,96
+171,378,Marketing,97
+453,378,Economie 2,98
+1032,378,Contabilitate,99
+529,735,Matematici aplicate in economie,100
+353,735,Management,101
+171,735,Marketing,102
+453,735,Economie 2,103
+1032,735,Contabilitate,104
+380,381,Contabilitate financiară,105
+389,381,Marketing internaţional,106
+531,381,Economie si politici internationale,107
+530,381,Analiză economico-financiară,108
+436,381,Statistică,109
+206,381,Didactica specialităţii,110
+380,1212,Contabilitate financiară,111
+389,1212,Marketing internaţional,112
+531,1212,Economie si politici internationale,113
+530,1212,Analiză economico-financiară,114
+436,1212,Statistică,115
+206,1212,Didactica specialităţii,116
+419,383,Asigurări internaţionale,117
+581,383,Gestiunea crizelor,118
+397,383,Investiţii internaţionale,119
+172,383,Negociere in afaceri internationale,120
+453,383,Geopolitică,121
+534,383,Burse internationale de marfuri,122
+206,383,Managementul clasei de elevi,123
+419,1214,Asigurări internaţionale,124
+581,1214,Gestiunea crizelor,125
+397,1214,Investiţii internaţionale,126
+172,1214,Negociere in afaceri internationale,127
+453,1214,Geopolitică,128
+534,1214,Burse internationale de marfuri,129
+206,1214,Managementul clasei de elevi,130
+138,29,Arhitectura calculatoarelor,131
+31,29,Electrotehnică,132
+20,29,Matematici speciale,133
+808,29,Programarea calculatoarelor şi limbaje de programare II,134
+410,29,Fizică I,135
+149,29,Pedagogie I,136
+138,30,Arhitectura calculatoarelor,137
+31,30,Electrotehnică,138
+20,30,Matematici speciale,139
+808,30,Programarea calculatoarelor şi limbaje de programare II,140
+410,30,Fizică I,141
+138,921,Arhitectura calculatoarelor,142
+31,921,Electrotehnică,143
+20,921,Matematici speciale,144
+808,921,Programarea calculatoarelor şi limbaje de programare II,145
+410,921,Fizică I,146
+13,39,Electronică digitală,147
+11,39,Circuite electronice liniare II,148
+14,39,Teoria sistemelor II,149
+36,39,Masurari si Traductoare,150
+877,39,Limbaje de asamblare,151
+19,39,Metode numerice,152
+183,39,Didactica specializării,153
+13,38,Electronică digitală,154
+11,38,Circuite electronice liniare II,155
+14,38,Teoria sistemelor II,156
+36,38,Masurari si Traductoare,157
+877,38,Limbaje de asamblare,158
+19,38,Metode numerice,159
+183,38,Didactica specializării,160
+18,47,Prelucrarea semnalelor,161
+136,47,Sisteme de conducere a proceselor tehnologice,162
+11,47,Echipamente de automatizare electrice și electronice,163
+70,47,Baze de date,164
+43,47,Mașini electrice și acționări,165
+19,47,Optimizări,166
+18,924,Prelucrarea semnalelor,167
+136,924,Sisteme de conducere a proceselor tehnologice,168
+11,924,Echipamente de automatizare electrice și electronice,169
+70,924,Baze de date,170
+43,924,Mașini electrice și acționări,171
+19,924,Optimizări,172
+13,53,Circuite logice programabile,173
+135,53,Circuite logice programabile,174
+114,53,Internetul obiectelor,175
+136,53,Fiabilitate şi diagnoză,176
+19,53,Automate si microprogramare,177
+18,53,Sisteme de comanda si reglare a actionarilor electrice,178
+13,984,Circuite logice programabile,179
+135,984,Circuite logice programabile,180
+114,984,Internetul obiectelor,181
+136,984,Fiabilitate şi diagnoză,182
+19,984,Automate si microprogramare,183
+18,984,Sisteme de comanda si reglare a actionarilor electrice,184
+138,2329,Arhitectura calculatoarelor,185
+31,2329,Electrotehnică,186
+20,2329,Matematici speciale,187
+808,2329,Programarea calculatoarelor şi limbaje de programare II,188
+410,2329,Fizică I,189
+355,385,Finanţe publice,190
+541,385,Informatică,191
+172,385,Management Public,192
+988,385,Planificare strategica,193
+342,385,Economie 2,194
+207,385,Pedagogie I,195
+355,970,Finanţe publice,196
+541,970,Informatică,197
+172,970,Management Public,198
+988,970,Planificare strategica,199
+342,970,Economie 2,200
+207,970,Pedagogie I,201
+380,387,Contabilitate financiară,202
+377,387,Baze de date,203
+526,387,Contabilitatea instituţiilor publice,204
+355,387,Drept financiar şi fiscal,205
+389,387,Managementul cunostintelor,206
+349,387,Drept administrativ,207
+380,1137,Contabilitate financiară,208
+377,1137,Baze de date,209
+526,1137,Contabilitatea instituţiilor publice,210
+355,1137,Drept financiar şi fiscal,211
+389,1137,Managementul cunostintelor,212
+349,1137,Drept administrativ,213
+353,1225,Tranzactii si tehnici comerciale,214
+379,1225,Managementul IMM-urilor,215
+388,1225,Metodologia elaborarii lucrarii de licenta,216
+530,1225,Analiză economico-financiară,217
+427,1225,Control financiar,218
+349,1225,Drept constituţional. Parte generală,219
+353,1226,Tranzactii si tehnici comerciale,220
+379,1226,Managementul IMM-urilor,221
+388,1226,Metodologia elaborarii lucrarii de licenta,222
+530,1226,Analiză economico-financiară,223
+427,1226,Control financiar,224
+349,1226,Drept constituţional. Parte generală,225
+652,1169,Interpretarea analizelor de laborator,226
+652,1169,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",227
+652,1169,Igiena,228
+843,1169,Biologie celulară și moleculară,229
+1124,1169,Fiziologie,230
+995,1169,Comunicare medicala,231
+367,1169,Anatomie patologica,232
+652,1170,Interpretarea analizelor de laborator,233
+652,1170,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",234
+652,1170,Igiena,235
+843,1170,Biologie celulară și moleculară,236
+1124,1170,Fiziologie,237
+995,1170,Comunicare medicala,238
+367,1170,Anatomie patologica,239
+652,2038,Interpretarea analizelor de laborator,240
+652,2038,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",241
+652,2038,Igiena,242
+843,2038,Biologie celulară și moleculară,243
+1124,2038,Fiziologie,244
+995,2038,Comunicare medicala,245
+367,2038,Anatomie patologica,246
+207,2038,Pedagogie 1,247
+652,1172,Interpretarea analizelor de laborator,248
+652,1172,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",249
+652,1172,Igiena,250
+843,1172,Biologie celulară și moleculară,251
+1124,1172,Fiziologie,252
+995,1172,Comunicare medicala,253
+367,1172,Anatomie patologica,254
+207,1172,Pedagogie 1,255
+652,2315,Interpretarea analizelor de laborator,256
+652,2315,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",257
+652,2315,Igiena,258
+843,2315,Biologie celulară și moleculară,259
+1124,2315,Fiziologie,260
+995,2315,Comunicare medicala,261
+367,2315,Anatomie patologica,262
+207,2315,Pedagogie 1,263
+1558,1245,Medicina interna si specialitati medicale,264
+792,1245,Ingrijiri calificate in chirurgie,265
+743,1245,Deontologie medicala. Bioetica,266
+1642,1245,Ingrijiri calificate in medicina interna,267
+824,1245,Chirurgie generala si specialitati chirurgicale,268
+1712,1245,Nursing clinic I,269
+1003,1245,Semiologie medicala II,270
+1558,1246,Medicina interna si specialitati medicale,271
+792,1246,Ingrijiri calificate in chirurgie,272
+743,1246,Deontologie medicala. Bioetica,273
+1642,1246,Ingrijiri calificate in medicina interna,274
+824,1246,Chirurgie generala si specialitati chirurgicale,275
+1712,1246,Nursing clinic I,276
+1003,1246,Semiologie medicala II,277
+1558,1247,Medicina interna si specialitati medicale,278
+792,1247,Ingrijiri calificate in chirurgie,279
+743,1247,Deontologie medicala. Bioetica,280
+1642,1247,Ingrijiri calificate in medicina interna,281
+824,1247,Chirurgie generala si specialitati chirurgicale,282
+1712,1247,Nursing clinic I,283
+1003,1247,Semiologie medicala II,284
+1558,1248,Medicina interna si specialitati medicale,285
+792,1248,Ingrijiri calificate in chirurgie,286
+743,1248,Deontologie medicala. Bioetica,287
+1642,1248,Ingrijiri calificate in medicina interna,288
+824,1248,Chirurgie generala si specialitati chirurgicale,289
+1712,1248,Nursing clinic I,290
+1003,1248,Semiologie medicala II,291
+1558,2282,Medicina interna si specialitati medicale,292
+792,2282,Ingrijiri calificate in chirurgie,293
+743,2282,Deontologie medicala. Bioetica,294
+1642,2282,Ingrijiri calificate in medicina interna,295
+824,2282,Chirurgie generala si specialitati chirurgicale,296
+1712,2282,Nursing clinic I,297
+1003,2282,Semiologie medicala II,298
+1558,2283,Medicina interna si specialitati medicale,299
+792,2283,Ingrijiri calificate in chirurgie,300
+743,2283,Deontologie medicala. Bioetica,301
+1642,2283,Ingrijiri calificate in medicina interna,302
+824,2283,Chirurgie generala si specialitati chirurgicale,303
+1712,2283,Nursing clinic I,304
+1003,2283,Semiologie medicala II,305
+1124,2087,Puericultura si pediatrie,306
+1124,2087,Ingrijiri calificate in puericultura si pediatrie,307
+646,2087,Nutritie si dietetica,308
+825,2087,"Ingrijiri calificate in endocrinologie, diabet si boli de nutritie",309
+1516,2087,Ingrijirea mamei si a nou-nascutului,310
+1728,2087,Ingrijirea pacientului cu tulburari in sfera sanatatii mintale,311
+1728,2087,Psihiatrie,312
+206,2087,Managementul Clasei de Elevi,313
+1124,2086,Puericultura si pediatrie,314
+1124,2086,Ingrijiri calificate in puericultura si pediatrie,315
+646,2086,Nutritie si dietetica,316
+825,2086,"Ingrijiri calificate in endocrinologie, diabet si boli de nutritie",317
+1516,2086,Ingrijirea mamei si a nou-nascutului,318
+1728,2086,Ingrijirea pacientului cu tulburari in sfera sanatatii mintale,319
+1728,2086,Psihiatrie,320
+1124,2088,Puericultura si pediatrie,321
+1124,2088,Ingrijiri calificate in puericultura si pediatrie,322
+646,2088,Nutritie si dietetica,323
+825,2088,"Ingrijiri calificate in endocrinologie, diabet si boli de nutritie",324
+1516,2088,Ingrijirea mamei si a nou-nascutului,325
+1728,2088,Ingrijirea pacientului cu tulburari in sfera sanatatii mintale,326
+1728,2088,Psihiatrie,327
+1124,2273,Puericultura si pediatrie,328
+1124,2273,Ingrijiri calificate in puericultura si pediatrie,329
+646,2273,Nutritie si dietetica,330
+825,2273,"Ingrijiri calificate in endocrinologie, diabet si boli de nutritie",331
+1516,2273,Ingrijirea mamei si a nou-nascutului,332
+1728,2273,Ingrijirea pacientului cu tulburari in sfera sanatatii mintale,333
+1728,2273,Psihiatrie,334
+1124,2272,Puericultura si pediatrie,335
+1124,2272,Ingrijiri calificate in puericultura si pediatrie,336
+646,2272,Nutritie si dietetica,337
+825,2272,"Ingrijiri calificate in endocrinologie, diabet si boli de nutritie",338
+1516,2272,Ingrijirea mamei si a nou-nascutului,339
+1728,2272,Ingrijirea pacientului cu tulburari in sfera sanatatii mintale,340
+1728,2272,Psihiatrie,341
+1124,2155,Puericultura si pediatrie,342
+1124,2155,Ingrijiri calificate in puericultura si pediatrie,343
+646,2155,Nutritie si dietetica,344
+825,2155,"Ingrijiri calificate in endocrinologie, diabet si boli de nutritie",345
+1516,2155,Ingrijirea mamei si a nou-nascutului,346
+1728,2155,Ingrijirea pacientului cu tulburari in sfera sanatatii mintale,347
+1728,2155,Psihiatrie,348
+749,2164,Ingrijiri calificate in boli infectioase,349
+1558,2164,Ingrijiri calificate in specialitati medicale: nefrologie si dializa,350
+1517,2164,Ingrijiri calificate in medicina de familie,351
+1517,2164,Ingrijirea bolnavului la domiciliu. Nursing comunitar,352
+548,2164,Promovarea sanatatii si educatiei pentru sanatate,353
+367,2164,Aspecte juridice ale profesiei. Legislatie sociala si sanatate,354
+1850,2164,Sanatate publica. Management sanitar,355
+749,2165,Ingrijiri calificate in boli infectioase,356
+1558,2165,Ingrijiri calificate in specialitati medicale: nefrologie si dializa,357
+1517,2165,Ingrijiri calificate in medicina de familie,358
+1517,2165,Ingrijirea bolnavului la domiciliu. Nursing comunitar,359
+548,2165,Promovarea sanatatii si educatiei pentru sanatate,360
+367,2165,Aspecte juridice ale profesiei. Legislatie sociala si sanatate,361
+1850,2165,Sanatate publica. Management sanitar,362
+749,2167,Ingrijiri calificate in boli infectioase,363
+1558,2167,Ingrijiri calificate in specialitati medicale: nefrologie si dializa,364
+1517,2167,Ingrijiri calificate in medicina de familie,365
+1517,2167,Ingrijirea bolnavului la domiciliu. Nursing comunitar,366
+548,2167,Promovarea sanatatii si educatiei pentru sanatate,367
+367,2167,Aspecte juridice ale profesiei. Legislatie sociala si sanatate,368
+1850,2167,Sanatate publica. Management sanitar,369
+749,2166,Ingrijiri calificate in boli infectioase,370
+1558,2166,Ingrijiri calificate in specialitati medicale: nefrologie si dializa,371
+1517,2166,Ingrijiri calificate in medicina de familie,372
+1517,2166,Ingrijirea bolnavului la domiciliu. Nursing comunitar,373
+548,2166,Promovarea sanatatii si educatiei pentru sanatate,374
+367,2166,Aspecte juridice ale profesiei. Legislatie sociala si sanatate,375
+1850,2166,Sanatate publica. Management sanitar,376
+749,2269,Ingrijiri calificate in boli infectioase,377
+1558,2269,Ingrijiri calificate in specialitati medicale: nefrologie si dializa,378
+1517,2269,Ingrijiri calificate in medicina de familie,379
+1517,2269,Ingrijirea bolnavului la domiciliu. Nursing comunitar,380
+548,2269,Promovarea sanatatii si educatiei pentru sanatate,381
+367,2269,Aspecte juridice ale profesiei. Legislatie sociala si sanatate,382
+1850,2269,Sanatate publica. Management sanitar,383
+749,2319,Ingrijiri calificate in boli infectioase,384
+1558,2319,Ingrijiri calificate in specialitati medicale: nefrologie si dializa,385
+1517,2319,Ingrijiri calificate in medicina de familie,386
+1517,2319,Ingrijirea bolnavului la domiciliu. Nursing comunitar,387
+548,2319,Promovarea sanatatii si educatiei pentru sanatate,388
+367,2319,Aspecte juridice ale profesiei. Legislatie sociala si sanatate,389
+1850,2319,Sanatate publica. Management sanitar,390
+345,391,Management public,391
+363,391,Drept administrativ II,392
+363,391,Sisteme administrative comparate,393
+1053,391,Drepturi reale,394
+358,391,Drept constituțional,395
+257,391,Corespondență și tehnici de secretariat,396
+1010,391,Comunicarea în administrația publică,397
+207,391,Pedagogie 1,398
+345,967,Management public,399
+363,967,Drept administrativ II,400
+363,967,Sisteme administrative comparate,401
+1053,967,Drepturi reale,402
+358,967,Drept constituțional,403
+257,967,Corespondență și tehnici de secretariat,404
+1010,967,Comunicarea în administrația publică,405
+207,967,Pedagogie 1,406
+345,392,Management public,407
+363,392,Drept administrativ II,408
+363,392,Sisteme administrative comparate,409
+1053,392,Drepturi reale,410
+358,392,Drept constituțional,411
+257,392,Corespondență și tehnici de secretariat,412
+1010,392,Comunicarea în administrația publică,413
+207,392,Pedagogie 1,414
+345,1159,Management public,415
+363,1159,Drept administrativ II,416
+363,1159,Sisteme administrative comparate,417
+1053,1159,Drepturi reale,418
+358,1159,Drept constituțional,419
+257,1159,Corespondență și tehnici de secretariat,420
+1010,1159,Comunicarea în administrația publică,421
+257,393,Managementul resurselor umane în administrația publică,422
+361,393,Sisteme juridice comparate,423
+391,393,Informatică și sisteme informaționale în administrația publică,424
+743,393,Sociologie,425
+743,393,Metodologia cercetării științifice,426
+358,393,Abuzul de drept,427
+362,393,Drept în protecția mediului și dezvoltare durabilă,428
+206,393,Didactica specialitatii,429
+257,1161,Managementul resurselor umane în administrația publică,430
+361,1161,Sisteme juridice comparate,431
+391,1161,Informatică și sisteme informaționale în administrația publică,432
+743,1161,Sociologie,433
+743,1161,Metodologia cercetării științifice,434
+358,1161,Abuzul de drept,435
+362,1161,Drept în protecția mediului și dezvoltare durabilă,436
+206,1161,Didactica specialitatii,437
+257,968,Managementul resurselor umane în administrația publică,438
+361,968,Sisteme juridice comparate,439
+391,968,Informatică și sisteme informaționale în administrația publică,440
+743,968,Sociologie,441
+743,968,Metodologia cercetării științifice,442
+358,968,Abuzul de drept,443
+362,968,Drept în protecția mediului și dezvoltare durabilă,444
+206,968,Didactica specialitatii,445
+257,1162,Managementul resurselor umane în administrația publică,446
+361,1162,Sisteme juridice comparate,447
+391,1162,Informatică și sisteme informaționale în administrația publică,448
+743,1162,Sociologie,449
+743,1162,Metodologia cercetării științifice,450
+358,1162,Abuzul de drept,451
+362,1162,Drept în protecția mediului și dezvoltare durabilă,452
+206,1162,Didactica specialitatii,453
+257,1107,Managementul resurselor umane în administrația publică,454
+361,1107,Sisteme juridice comparate,455
+391,1107,Informatică și sisteme informaționale în administrația publică,456
+743,1107,Sociologie,457
+743,1107,Metodologia cercetării științifice,458
+358,1107,Abuzul de drept,459
+362,1107,Drept în protecția mediului și dezvoltare durabilă,460
+206,1107,Didactica specialitatii,461
+257,395,Politici publice,462
+743,395,Etică și integritate academică,463
+359,395,Arhivistică și documentaristică,464
+363,395,Dreptul material si institutional al UE,465
+345,395,Evidența și controlul relațiilor de muncă,466
+345,395,Acte de stare civilă,467
+369,395,Achiziții publice,468
+206,395,Mnagementul Clasei de Elevi,469
+257,990,Politici publice,470
+743,990,Etică și integritate academică,471
+359,990,Arhivistică și documentaristică,472
+363,990,Dreptul material si institutional al UE,473
+345,990,Evidența și controlul relațiilor de muncă,474
+345,990,Acte de stare civilă,475
+369,990,Achiziții publice,476
+206,990,Mnagementul Clasei de Elevi,477
+257,2338,Politici publice,478
+743,2338,Etică și integritate academică,479
+359,2338,Arhivistică și documentaristică,480
+363,2338,Dreptul material si institutional al UE,481
+345,2338,Evidența și controlul relațiilor de muncă,482
+345,2338,Acte de stare civilă,483
+369,2338,Achiziții publice,484
+206,2338,Mnagementul Clasei de Elevi,485
+118,1234,Algebră şi Geometrie Analitică şi Diferenţială,486
+111,1234,Desen Tehnic și Infografică (1),487
+104,1234,Metode Numerice,488
+124,1234,Mecanică,489
+1693,1234,Tehnologia Materialelor,490
+552,1234,Informatică Aplicată,491
+118,1235,Algebră şi Geometrie Analitică şi Diferenţială,492
+111,1235,Desen Tehnic și Infografică (1),493
+104,1235,Metode Numerice,494
+124,1235,Mecanică,495
+1693,1235,Tehnologia Materialelor,496
+552,1235,Informatică Aplicată,497
+118,1236,Algebră şi Geometrie Analitică şi Diferenţială,498
+111,1236,Desen Tehnic și Infografică (1),499
+104,1236,Metode Numerice,500
+124,1236,Mecanică,501
+1693,1236,Tehnologia Materialelor,502
+552,1236,Informatică Aplicată,503
+106,2106,Rezistenta Materialelor 2,504
+344,2106,Metoda Elemetului Finit,505
+103,2106,Termotehnică,506
+42,2106,Electrotehnica si Masini Electrice (2),507
+1535,2106,Electronica Aplicata,508
+963,2106,Bazele Ingineriei Autovehiculelor,509
+106,2247,Rezistenta Materialelor 2,510
+344,2247,Metoda Elemetului Finit,511
+103,2247,Termotehnică,512
+42,2247,Electrotehnica si Masini Electrice (2),513
+1535,2247,Electronica Aplicata,514
+963,2247,Bazele Ingineriei Autovehiculelor,515
+106,2366,Rezistenta Materialelor 2,516
+344,2366,Metoda Elemetului Finit,517
+103,2366,Termotehnică,518
+42,2366,Electrotehnica si Masini Electrice (2),519
+1535,2366,Electronica Aplicata,520
+963,2366,Bazele Ingineriei Autovehiculelor,521
+104,2195,Tribologie,522
+256,2195,Actionari Hidraulice si Pneumatice,523
+1082,2195,Sisteme de Control Auto,524
+43,2195,Echipament Electric si Electronic al Autovehiculelor,525
+409,2195,Combustibili Lubrifianti si Materiale Speciale,526
+124,2195,Dinamica Autovehiculelor (2),527
+104,2196,Tribologie,528
+256,2196,Actionari Hidraulice si Pneumatice,529
+1082,2196,Sisteme de Control Auto,530
+43,2196,Echipament Electric si Electronic al Autovehiculelor,531
+409,2196,Combustibili Lubrifianti si Materiale Speciale,532
+124,2196,Dinamica Autovehiculelor (2),533
+42,2249,Autovehicule Electrice și Hibride,534
+1693,2249,Dinamica Accidentelor de Circulație,535
+1530,2249,Telematică Rutieră,536
+963,2249,Calculul și Construcția Autovehiculelor,537
+1693,2249,Diagnosticarea autovehiculelor,538
+42,2250,Autovehicule Electrice și Hibride,539
+1693,2250,Dinamica Accidentelor de Circulație,540
+1530,2250,Telematică Rutieră,541
+963,2250,Calculul și Construcția Autovehiculelor,542
+1693,2250,Diagnosticarea autovehiculelor,543
+169,121,Psihologie socială,544
+83,121,Organizarea si managementul serviciilor de AS,545
+1673,121,Tehnici de comunicare în AS,546
+1545,121,Teorii si metode de interventie in AS,547
+1513,121,Drept si legislatie in asistenta sociala,548
+66,121,Politici de incluziune socială,549
+149,121,Pedagogie I,550
+169,124,Psihologie socială,551
+83,124,Organizarea si managementul serviciilor de AS,552
+1673,124,Tehnici de comunicare în AS,553
+1545,124,Teorii si metode de interventie in AS,554
+1513,124,Drept si legislatie in asistenta sociala,555
+66,124,Politici de incluziune socială,556
+149,124,Pedagogie I,557
+206,122,Didactica specialitatii,558
+139,122,Servicii de protectie a copilului ,559
+1611,122,Manag.  şi eval. programelor de AS,560
+385,122,Consiliere în asistenţa socială,561
+385,122,Intervenția în criză ,562
+581,122,Prelucrarea statistica a datelor ,563
+206,1020,Didactica specialitatii,564
+139,1020,Servicii de protectie a copilului ,565
+1611,1020,Manag.  şi eval. programelor de AS,566
+385,1020,Consiliere în asistenţa socială,567
+385,1020,Intervenția în criză ,568
+581,1020,Prelucrarea statistica a datelor ,569
+72,123,Deontologie profesională,570
+385,123,Asistenta sociala a persoanelor cu dizabilitati,571
+385,123,Asistența socială a persoanelor vârstnice,572
+1518,123,Asistența socială în sistemul de probațiune ,573
+1545,123,Adopția și plasamentul familial ,574
+83,123,Diagnoza si solutionarea problemelor sociale,575
+442,2157,Chimie organica,576
+1677,2157,Histologie si embriologie vegetala si animala,577
+1503,2157,Chimie analitica si instrumentala,578
+1797,2157,Biologie vegetala,579
+340,2157,Biochimie,580
+207,2157,Pedagogie 1,581
+442,2168,Chimie organica,582
+1677,2168,Histologie si embriologie vegetala si animala,583
+1503,2168,Chimie analitica si instrumentala,584
+1797,2168,Biologie vegetala,585
+340,2168,Biochimie,586
+207,2168,Pedagogie 1,587
+442,2317,Chimie organica,588
+1677,2317,Histologie si embriologie vegetala si animala,589
+1503,2317,Chimie analitica si instrumentala,590
+1797,2317,Biologie vegetala,591
+340,2317,Biochimie,592
+207,2317,Pedagogie 1,593
+843,2280,Biologie celulară și moleculară,594
+1749,2280,Microbiologie generala,595
+1804,2280,Enzimologie,596
+1685,2280,Fiziologie animala,597
+744,2280,Didactica specialitatii,598
+843,2281,Biologie celulară și moleculară,599
+1749,2281,Microbiologie generala,600
+1804,2281,Enzimologie,601
+1685,2281,Fiziologie animala,602
+843,2320,Introducere in bioinformatica,603
+1677,2320,Culturi de celule si tesuturi,604
+1749,2320,Genetica moleculara,605
+510,2320,Matematici cu aplicatii in biologie,606
+1804,2320,Hematologie,607
+1098,2320,Microbiologie aplicata,608
+206,2320,Managementul Clasei de Elevi,609
+1747,759,Biofizica,610
+846,759,Evaluare osteoarticulara si musculara,611
+1578,759,Anatomie II,612
+489,759,Genetica,613
+1781,759,Fiziologie și Fiziopatologie,614
+367,759,Histologie. Anatomie patologica,615
+1850,759,Igiena,616
+207,759,Pedagogie 1,617
+1747,760,Biofizica,618
+846,760,Evaluare osteoarticulara si musculara,619
+1578,760,Anatomie II,620
+489,760,Genetica,621
+1781,760,Fiziologie și Fiziopatologie,622
+367,760,Histologie. Anatomie patologica,623
+1850,760,Igiena,624
+207,760,Pedagogie 1,625
+1747,2312,Biofizica,626
+846,2312,Evaluare osteoarticulara si musculara,627
+1578,2312,Anatomie II,628
+489,2312,Genetica,629
+1781,2312,Fiziologie și Fiziopatologie,630
+367,2312,Histologie. Anatomie patologica,631
+1850,2312,Igiena,632
+207,2312,Pedagogie 1,633
+1747,2313,Biofizica,634
+846,2313,Evaluare osteoarticulara si musculara,635
+1578,2313,Anatomie II,636
+489,2313,Genetica,637
+1781,2313,Fiziologie și Fiziopatologie,638
+367,2313,Histologie. Anatomie patologica,639
+1850,2313,Igiena,640
+207,2313,Pedagogie 1,641
+1588,822,Ortopedie si traumatologie,642
+755,822,Recuperare in patologia neurologica,643
+755,822,Neurologie,644
+755,822,Recuperare in patologia cardiovasculara,645
+548,822,Recuperare in patologie ortopedica si traumatica ,646
+749,822,Boli infecțioase. Epidemiologie,647
+743,822,Deontologie medicala. Bioetica,648
+1067,822,Metodologia cercetarii stiintifice,649
+824,822,Semiologie chirurgicala si chirurgie,650
+1755,822,Radiologie si imagistica medicala,651
+744,822,Didactica specialitatii,652
+193,822,Aquagim recuperatoriu,653
+1588,2284,Ortopedie si traumatologie,654
+755,2284,Recuperare in patologia neurologica,655
+755,2284,Neurologie,656
+755,2284,Recuperare in patologia cardiovasculara,657
+548,2284,Recuperare in patologie ortopedica si traumatica ,658
+749,2284,Boli infecțioase. Epidemiologie,659
+743,2284,Deontologie medicala. Bioetica,660
+1067,2284,Metodologia cercetarii stiintifice,661
+824,2284,Semiologie chirurgicala si chirurgie,662
+1755,2284,Radiologie si imagistica medicala,663
+744,2284,Didactica specialitatii,664
+193,2284,Aquagim recuperatoriu,665
+1796,872,Urgente medicale si prim ajutor,666
+1588,872,Recuperare in medicina sportiva,667
+755,872,Recuperare in patologia respiratorie,668
+846,872,Terapie ocupationala. Psihomotricitate educarea si reeducare psihomotr,669
+268,872,Kinetoterapia in deficiente fizice si senzoriale,670
+206,872,Managementul Clasei de Elevi,671
+755,872,Recuperare in patologia geriatrica,672
+1516,872,Recup in patol uro-genitala si in obstetrica. Kinetoprofilaxie in obst,673
+1796,873,Urgente medicale si prim ajutor,674
+1588,873,Recuperare in medicina sportiva,675
+755,873,Recuperare in patologia respiratorie,676
+846,873,Terapie ocupationala. Psihomotricitate educarea si reeducare psihomotr,677
+268,873,Kinetoterapia in deficiente fizice si senzoriale,678
+206,873,Managementul Clasei de Elevi,679
+755,873,Recuperare in patologia geriatrica,680
+1516,873,Recup in patol uro-genitala si in obstetrica. Kinetoprofilaxie in obst,681
+1796,2270,Urgente medicale si prim ajutor,682
+1588,2270,Recuperare in medicina sportiva,683
+755,2270,Recuperare in patologia respiratorie,684
+846,2270,Terapie ocupationala. Psihomotricitate educarea si reeducare psihomotr,685
+268,2270,Kinetoterapia in deficiente fizice si senzoriale,686
+206,2270,Managementul Clasei de Elevi,687
+755,2270,Recuperare in patologia geriatrica,688
+1516,2270,Recup in patol uro-genitala si in obstetrica. Kinetoprofilaxie in obst,689
+1677,2316,Histologie si embriologie vegetala si animala,690
+1742,2316,Sistematica nevertebratelor,691
+1503,2316,Chimie analitica si instrumentala,692
+1797,2316,Botanica sistematica (Criptogame),693
+340,2316,Biochimie,694
+207,2316,Pedagogie 1,695
+1677,2156,Histologie si embriologie vegetala si animala,696
+1742,2156,Sistematica nevertebratelor,697
+1503,2156,Chimie analitica si instrumentala,698
+1797,2156,Botanica sistematica (Criptogame),699
+340,2156,Biochimie,700
+207,2156,Pedagogie 1,701
+843,2158,Introducere in bioinformatica,702
+1749,2158,Imunobiologie,703
+1749,2158,Microbiologie generala,704
+510,2158,Matematici cu aplicatii in biologie,705
+1685,2158,Fiziologie animala,706
+744,2158,Didactica specialitatii,707
+843,2279,Introducere in bioinformatica,708
+1749,2279,Imunobiologie,709
+1749,2279,Microbiologie generala,710
+510,2279,Matematici cu aplicatii in biologie,711
+1685,2279,Fiziologie animala,712
+744,2279,Didactica specialitatii,713
+1742,2274,Conservarea naturii,714
+1742,2274,Etologie,715
+1749,2274,Anatomie comparata,716
+1749,2274,Genetica umana,717
+714,2274,Fitocenologie,718
+336,2274,Inginerie genetica,719
+1685,2274,"Functii de relatii,nutritie si reproducere la animale",720
+1742,2321,Conservarea naturii,721
+1742,2321,Etologie,722
+1749,2321,Anatomie comparata,723
+1749,2321,Genetica umana,724
+714,2321,Fitocenologie,725
+336,2321,Inginerie genetica,726
+1685,2321,"Functii de relatii,nutritie si reproducere la animale",727
+206,2321,Managementul Clasei de Elevi,728
+31,20,Electrotehnică,729
+20,20,Matematici speciale,730
+808,20,Programarea calculatoarelor şi limbaje de programare II,731
+410,20,Fizică I,732
+138,20,Arhitectura sistemelor de calcul,733
+149,20,Pedagogie I,734
+31,21,Electrotehnică,735
+20,21,Matematici speciale,736
+808,21,Programarea calculatoarelor şi limbaje de programare II,737
+410,21,Fizică I,738
+138,21,Arhitectura sistemelor de calcul,739
+149,21,Pedagogie I,740
+31,23,Electrotehnică,741
+20,23,Matematici speciale,742
+808,23,Programarea calculatoarelor şi limbaje de programare II,743
+410,23,Fizică I,744
+138,23,Arhitectura sistemelor de calcul,745
+149,23,Pedagogie I,746
+31,24,Electrotehnică,747
+20,24,Matematici speciale,748
+808,24,Programarea calculatoarelor şi limbaje de programare II,749
+410,24,Fizică I,750
+138,24,Arhitectura sistemelor de calcul,751
+149,24,Pedagogie I,752
+31,831,Electrotehnică,753
+20,831,Matematici speciale,754
+808,831,Programarea calculatoarelor şi limbaje de programare II,755
+410,831,Fizică I,756
+138,831,Arhitectura sistemelor de calcul,757
+149,831,Pedagogie I,758
+31,1028,Electrotehnică,759
+20,1028,Matematici speciale,760
+808,1028,Programarea calculatoarelor şi limbaje de programare II,761
+410,1028,Fizică I,762
+138,1028,Arhitectura sistemelor de calcul,763
+149,1028,Pedagogie I,764
+31,933,Electrotehnică,765
+20,933,Matematici speciale,766
+808,933,Programarea calculatoarelor şi limbaje de programare II,767
+410,933,Fizică I,768
+138,933,Arhitectura sistemelor de calcul,769
+149,933,Pedagogie I,770
+31,1261,Electrotehnică,771
+20,1261,Matematici speciale,772
+808,1261,Programarea calculatoarelor şi limbaje de programare II,773
+410,1261,Fizică I,774
+138,1261,Arhitectura sistemelor de calcul,775
+149,1261,Pedagogie I,776
+11,33,Dispozitive electronice şi electronică analogică II,777
+63,33,Proiectare interfeţe utilizator,778
+19,33,Metode numerice,779
+36,33,"Măsurări electronice, senzori şi traductori",780
+75,33,Programarea calculatoarelor şi limbaje de programare III,781
+13,33,Electronică digitală,782
+11,34,Dispozitive electronice şi electronică analogică II,783
+63,34,Proiectare interfeţe utilizator,784
+19,34,Metode numerice,785
+36,34,"Măsurări electronice, senzori şi traductori",786
+75,34,Programarea calculatoarelor şi limbaje de programare III,787
+13,34,Electronică digitală,788
+183,34,Didactica specializării,789
+11,35,Dispozitive electronice şi electronică analogică II,790
+63,35,Proiectare interfeţe utilizator,791
+19,35,Metode numerice,792
+36,35,"Măsurări electronice, senzori şi traductori",793
+75,35,Programarea calculatoarelor şi limbaje de programare III,794
+13,35,Electronică digitală,795
+11,36,Dispozitive electronice şi electronică analogică II,796
+63,36,Proiectare interfeţe utilizator,797
+19,36,Metode numerice,798
+36,36,"Măsurări electronice, senzori şi traductori",799
+75,36,Programarea calculatoarelor şi limbaje de programare III,800
+13,36,Electronică digitală,801
+183,36,Didactica specializării,802
+11,884,Dispozitive electronice şi electronică analogică II,803
+63,884,Proiectare interfeţe utilizator,804
+19,884,Metode numerice,805
+36,884,"Măsurări electronice, senzori şi traductori",806
+75,884,Programarea calculatoarelor şi limbaje de programare III,807
+13,884,Electronică digitală,808
+183,884,Didactica specializării,809
+11,936,Dispozitive electronice şi electronică analogică II,810
+63,936,Proiectare interfeţe utilizator,811
+19,936,Metode numerice,812
+36,936,"Măsurări electronice, senzori şi traductori",813
+75,936,Programarea calculatoarelor şi limbaje de programare III,814
+13,936,Electronică digitală,815
+183,936,Didactica specializării,816
+11,1086,Dispozitive electronice şi electronică analogică II,817
+63,1086,Proiectare interfeţe utilizator,818
+19,1086,Metode numerice,819
+36,1086,"Măsurări electronice, senzori şi traductori",820
+75,1086,Programarea calculatoarelor şi limbaje de programare III,821
+13,1086,Electronică digitală,822
+11,2330,Dispozitive electronice şi electronică analogică II,823
+63,2330,Proiectare interfeţe utilizator,824
+19,2330,Metode numerice,825
+36,2330,"Măsurări electronice, senzori şi traductori",826
+75,2330,Programarea calculatoarelor şi limbaje de programare III,827
+13,2330,Electronică digitală,828
+183,2330,Didactica specializării,829
+70,43,Baze de date,830
+206,43,Managementul clasei de elevi,831
+79,43,Proiectarea algoritmilor,832
+63,43,Inteligenţă artificială,833
+723,43,Proiectarea Aplicatiilor WEB,834
+73,43,Prelucrarea numerică a imaginilor,835
+70,44,Baze de date,836
+79,44,Proiectarea algoritmilor,837
+63,44,Inteligenţă artificială,838
+723,44,Proiectarea Aplicatiilor WEB,839
+73,44,Prelucrarea numerică a imaginilor,840
+206,44,Managementul clasei de elevi,841
+70,46,Baze de date,842
+79,46,Proiectarea algoritmilor,843
+63,46,Inteligenţă artificială,844
+723,46,Proiectarea Aplicatiilor WEB,845
+73,46,Prelucrarea numerică a imaginilor,846
+70,1030,Baze de date,847
+79,1030,Proiectarea algoritmilor,848
+63,1030,Inteligenţă artificială,849
+75,1030,Procesoare numerice de semnal,850
+723,1030,Proiectarea Aplicatiilor WEB,851
+70,937,Baze de date,852
+79,937,Proiectarea algoritmilor,853
+63,937,Inteligenţă artificială,854
+75,937,Procesoare numerice de semnal,855
+723,937,Proiectarea Aplicatiilor WEB,856
+70,749,Baze de date,857
+79,749,Proiectarea algoritmilor,858
+63,749,Inteligenţă artificială,859
+75,749,Procesoare numerice de semnal,860
+723,749,Proiectarea Aplicatiilor WEB,861
+70,49,Aplicatii integrate pentru intreprinderi,862
+75,49,Arhitecturi si prelucrari paralele,863
+13,49,Circuite VLSI,864
+135,49,Circuite VLSI,865
+67,49,Recunoaşterea formelor,866
+68,49,Criptografie şi securitate informaţională,867
+70,50,Aplicatii integrate pentru intreprinderi,868
+75,50,Arhitecturi si prelucrari paralele,869
+13,50,Circuite VLSI,870
+135,50,Circuite VLSI,871
+67,50,Recunoaşterea formelor,872
+68,50,Criptografie şi securitate informaţională,873
+70,51,Aplicatii integrate pentru intreprinderi,874
+75,51,Arhitecturi si prelucrari paralele,875
+13,51,Circuite VLSI,876
+135,51,Circuite VLSI,877
+67,51,Recunoaşterea formelor,878
+68,51,Criptografie şi securitate informaţională,879
+70,2333,Aplicatii integrate pentru intreprinderi,880
+75,2333,Arhitecturi si prelucrari paralele,881
+13,2333,Circuite VLSI,882
+135,2333,Circuite VLSI,883
+67,2333,Recunoaşterea formelor,884
+68,2333,Criptografie şi securitate informaţională,885
+75,1090,Arhitecturi si prelucrari paralele,886
+13,1090,Circuite VLSI,887
+135,1090,Circuite VLSI,888
+67,1090,Recunoaşterea formelor,889
+114,1090,Internetul obiectelor,890
+26,1090,Domotică și clădiri inteligente,891
+75,938,Arhitecturi si prelucrari paralele,892
+13,938,Circuite VLSI,893
+135,938,Circuite VLSI,894
+67,938,Recunoaşterea formelor,895
+114,938,Internetul obiectelor,896
+26,938,Domotică și clădiri inteligente,897
+75,2334,Arhitecturi si prelucrari paralele,898
+13,2334,Circuite VLSI,899
+135,2334,Circuite VLSI,900
+67,2334,Recunoaşterea formelor,901
+114,2334,Internetul obiectelor,902
+26,2334,Domotică și clădiri inteligente,903
+482,804,Certificarea pădurilor şi a lanţurilor de custodie,904
+489,804,Influenta poluarii asupra proceselor ecofiziologice la plante,905
+481,804,Reabilitarea ecosistemelor perturbate,906
+406,804,Diversitatea ecologica a speciilor lemnoase,907
+478,804,Sisteme geoinformatice,908
+475,804,Metodologia evaluării populaţiilor de plante şi animale,909
+422,804,Proiectarea si managementul programelor educationale,910
+183,804,Didactica domeniului si dezvoltari in didactica specialitatii,911
+482,1231,Certificarea pădurilor şi a lanţurilor de custodie,912
+489,1231,Influenta poluarii asupra proceselor ecofiziologice la plante,913
+481,1231,Reabilitarea ecosistemelor perturbate,914
+406,1231,Diversitatea ecologica a speciilor lemnoase,915
+478,1231,Sisteme geoinformatice,916
+475,1231,Metodologia evaluării populaţiilor de plante şi animale,917
+422,1231,Proiectarea si managementul programelor educationale,918
+183,1231,Didactica domeniului si dezvoltari in didactica specialitatii,919
+585,805,Managementul proiectelor,920
+139,805,Etica si integritate academica,921
+585,2058,Managementul proiectelor,922
+139,2058,Etica si integritate academica,923
+316,206,Mituri identitare,924
+315,206,Traducerea limbajului figurat ,925
+322,206,Cinematografia britanica contemporana,926
+321,206,Retorica discursului politic,927
+325,206,Instituţii britanice în contextul globalizării,928
+315,212,Traducerea comicului de limbaj,929
+322,212,Cultură şi literatură australiană,930
+327,212,Traducerea cărţilor pentru copii,931
+550,302,Alimentatie si cultura,932
+558,302,Fizica,933
+336,302,Politici si strategii globale de securitate alimentara,934
+511,302,Chimie analitica,935
+510,302,"Algebra liniara, geometrie analitica si diferentiala",936
+515,302,Grafica asistata pe calculator,937
+759,302,Chimie organica,938
+149,302,Pedagogie I,939
+550,303,Alimentatie si cultura,940
+558,303,Fizica,941
+336,303,Politici si strategii globale de securitate alimentara,942
+511,303,Chimie analitica,943
+510,303,"Algebra liniara, geometrie analitica si diferentiala",944
+515,303,Grafica asistata pe calculator,945
+759,303,Chimie organica,946
+149,303,Pedagogie I,947
+31,315,Elemente de inginerie electrica,948
+507,315,Chimia alimentelor,949
+507,315,Microbiologie speciala,950
+502,315,Tehnologii generale in ind. alimentara,951
+513,315,Chimie fizica ,952
+183,315,Didactica specialitatii,953
+31,316,Elemente de inginerie electrica,954
+507,316,Chimia alimentelor,955
+507,316,Microbiologie speciala,956
+502,316,Tehnologii generale in ind. alimentara,957
+513,316,Chimie fizica ,958
+183,316,Didactica specialitatii,959
+337,326,Operatii unitare in industria alimentara,960
+337,326,Merceologia produselor alimentare,961
+508,326,Metode cromatografice si electroforetice de analiza a alimentelor,962
+441,326,Principii si metode de conservare a produselor alimentare,963
+515,326,Utilaje in industria alimentara,964
+562,326,Controlul calitatii produselor de origine animala,965
+795,326,Tehnologia produselor de origine animala (1),966
+206,326,Managementul clasei de elevi,967
+337,327,Operatii unitare in industria alimentara,968
+337,327,Merceologia produselor alimentare,969
+508,327,Metode cromatografice si electroforetice de analiza a alimentelor,970
+441,327,Principii si metode de conservare a produselor alimentare,971
+515,327,Utilaje in industria alimentara,972
+562,327,Controlul calitatii produselor de origine animala,973
+795,327,Tehnologia produselor de origine animala (1),974
+206,327,Managementul clasei de elevi,975
+550,335,Controlul si expertiza alimentelor si depistarea falsurilor,976
+542,335,Management,977
+503,335,"Ambalarea, etichetarea si designul in industria alimentara",978
+559,335,Legislatie in industria alimentara,979
+514,335,Inocuitatea produselor alimentare,980
+499,335,Managementul calitatii,981
+550,336,Controlul si expertiza alimentelor si depistarea falsurilor,982
+542,336,Management,983
+503,336,"Ambalarea, etichetarea si designul in industria alimentara",984
+559,336,Legislatie in industria alimentara,985
+514,336,Inocuitatea produselor alimentare,986
+499,336,Managementul calitatii,987
+353,399,Management,988
+540,399,Finante internationale,989
+386,399,Finanţe publice,990
+271,399,Bazele contabilităţii,991
+399,399,Informatică,992
+355,399,Dreptul afacerilor,993
+207,399,Pedagogie I,994
+353,720,Management,995
+540,720,Finante internationale,996
+386,720,Finanţe publice,997
+271,720,Bazele contabilităţii,998
+399,720,Informatică,999
+355,720,Dreptul afacerilor,1000
+207,720,Pedagogie I,1001
+353,400,Management,1002
+540,400,Finante internationale,1003
+386,400,Finanţe publice,1004
+271,400,Bazele contabilităţii,1005
+399,400,Informatică,1006
+355,400,Dreptul afacerilor,1007
+207,400,Pedagogie I,1008
+353,722,Management,1009
+540,722,Finante internationale,1010
+386,722,Finanţe publice,1011
+271,722,Bazele contabilităţii,1012
+399,722,Informatică,1013
+355,722,Dreptul afacerilor,1014
+207,722,Pedagogie I,1015
+353,401,Management,1016
+540,401,Finante internationale,1017
+386,401,Finanţe publice,1018
+271,401,Bazele contabilităţii,1019
+399,401,Informatică,1020
+355,401,Dreptul afacerilor,1021
+207,401,Pedagogie I,1022
+353,1132,Management,1023
+540,1132,Finante internationale,1024
+386,1132,Finanţe publice,1025
+271,1132,Bazele contabilităţii,1026
+399,1132,Informatică,1027
+355,1132,Dreptul afacerilor,1028
+207,1132,Pedagogie I,1029
+353,1133,Management,1030
+540,1133,Finante internationale,1031
+386,1133,Finanţe publice,1032
+271,1133,Bazele contabilităţii,1033
+399,1133,Informatică,1034
+355,1133,Dreptul afacerilor,1035
+207,1133,Pedagogie I,1036
+353,1134,Management,1037
+540,1134,Finante internationale,1038
+386,1134,Finanţe publice,1039
+271,1134,Bazele contabilităţii,1040
+399,1134,Informatică,1041
+355,1134,Dreptul afacerilor,1042
+207,1134,Pedagogie I,1043
+539,403,Contabilitatea instituţiilor de credit,1044
+419,403,Managementul afacerilor,1045
+523,403,Contabilitate şi gestiune fiscală,1046
+271,403,Contabilitate financiara a activitatilor de exploatare,1047
+427,403,Contabilitatea afacerilor,1048
+537,403,Contabilitatea aplicata,1049
+206,403,Didactica specialităţii,1050
+539,725,Contabilitatea instituţiilor de credit,1051
+419,725,Managementul afacerilor,1052
+523,725,Contabilitate şi gestiune fiscală,1053
+271,725,Contabilitate financiara a activitatilor de exploatare,1054
+427,725,Contabilitatea afacerilor,1055
+537,725,Contabilitatea aplicata,1056
+206,725,Didactica specialităţii,1057
+539,404,Contabilitatea instituţiilor de credit,1058
+419,404,Managementul afacerilor,1059
+523,404,Contabilitate şi gestiune fiscală,1060
+271,404,Contabilitate financiara a activitatilor de exploatare,1061
+427,404,Contabilitatea afacerilor,1062
+537,404,Contabilitatea aplicata,1063
+206,404,Didactica specialităţii,1064
+539,726,Contabilitatea instituţiilor de credit,1065
+419,726,Managementul afacerilor,1066
+523,726,Contabilitate şi gestiune fiscală,1067
+271,726,Contabilitate financiara a activitatilor de exploatare,1068
+427,726,Contabilitatea afacerilor,1069
+537,726,Contabilitatea aplicata,1070
+206,726,Didactica specialităţii,1071
+539,1135,Contabilitatea instituţiilor de credit,1072
+419,1135,Managementul afacerilor,1073
+523,1135,Contabilitate şi gestiune fiscală,1074
+271,1135,Contabilitate financiara a activitatilor de exploatare,1075
+427,1135,Contabilitatea afacerilor,1076
+537,1135,Contabilitatea aplicata,1077
+206,1135,Didactica specialităţii,1078
+539,1136,Contabilitatea instituţiilor de credit,1079
+419,1136,Managementul afacerilor,1080
+523,1136,Contabilitate şi gestiune fiscală,1081
+271,1136,Contabilitate financiara a activitatilor de exploatare,1082
+427,1136,Contabilitatea afacerilor,1083
+537,1136,Contabilitatea aplicata,1084
+206,1136,Didactica specialităţii,1085
+539,2234,Contabilitatea instituţiilor de credit,1086
+419,2234,Managementul afacerilor,1087
+523,2234,Contabilitate şi gestiune fiscală,1088
+271,2234,Contabilitate financiara a activitatilor de exploatare,1089
+427,2234,Contabilitatea afacerilor,1090
+537,2234,Contabilitatea aplicata,1091
+206,2234,Didactica specialităţii,1092
+539,2235,Contabilitatea instituţiilor de credit,1093
+419,2235,Managementul afacerilor,1094
+523,2235,Contabilitate şi gestiune fiscală,1095
+271,2235,Contabilitate financiara a activitatilor de exploatare,1096
+427,2235,Contabilitatea afacerilor,1097
+537,2235,Contabilitatea aplicata,1098
+206,2235,Didactica specialităţii,1099
+638,406,Analiză economico-financiară,1100
+526,406,Politici şi opţiuni contabile,1101
+271,406,Evaluarea întreprinderii,1102
+461,406,Audit financiar,1103
+427,406,Comunicare economico-financiara,1104
+427,406,Contabilitate consolidata,1105
+638,730,Analiză economico-financiară,1106
+526,730,Politici şi opţiuni contabile,1107
+271,730,Evaluarea întreprinderii,1108
+461,730,Audit financiar,1109
+427,730,Comunicare economico-financiara,1110
+427,730,Contabilitate consolidata,1111
+638,407,Analiză economico-financiară,1112
+526,407,Politici şi opţiuni contabile,1113
+271,407,Evaluarea întreprinderii,1114
+461,407,Audit financiar,1115
+427,407,Comunicare economico-financiara,1116
+427,407,Contabilitate consolidata,1117
+638,1221,Analiză economico-financiară,1118
+526,1221,Politici şi opţiuni contabile,1119
+271,1221,Evaluarea întreprinderii,1120
+461,1221,Audit financiar,1121
+427,1221,Comunicare economico-financiara,1122
+427,1221,Contabilitate consolidata,1123
+638,1222,Analiză economico-financiară,1124
+526,1222,Politici şi opţiuni contabile,1125
+271,1222,Evaluarea întreprinderii,1126
+461,1222,Audit financiar,1127
+427,1222,Comunicare economico-financiara,1128
+427,1222,Contabilitate consolidata,1129
+638,1224,Analiză economico-financiară,1130
+526,1224,Politici şi opţiuni contabile,1131
+271,1224,Evaluarea întreprinderii,1132
+461,1224,Audit financiar,1133
+427,1224,Comunicare economico-financiara,1134
+427,1224,Contabilitate consolidata,1135
+638,2237,Analiză economico-financiară,1136
+526,2237,Politici şi opţiuni contabile,1137
+271,2237,Evaluarea întreprinderii,1138
+461,2237,Audit financiar,1139
+427,2237,Comunicare economico-financiara,1140
+427,2237,Contabilitate consolidata,1141
+638,2236,Analiză economico-financiară,1142
+526,2236,Politici şi opţiuni contabile,1143
+271,2236,Evaluarea întreprinderii,1144
+461,2236,Audit financiar,1145
+427,2236,Comunicare economico-financiara,1146
+427,2236,Contabilitate consolidata,1147
+307,2305,Psihologia comunicării și comunicarea de masă,1148
+327,2305,"Intertextualitate, interculturalitate &icirc;n spațiile anglofone",1149
+63,2305,Tehnologiile de informare și comunicare pentru industriile creative,1150
+1084,2305,"Gândire comunicațională, gândire critică, gândire cr",1151
+1084,2305,Industrii culturale și teorie critică,1152
+307,2306,Psihologia comunicării și comunicarea de masă,1153
+327,2306,"Intertextualitate, interculturalitate &icirc;n spațiile anglofone",1154
+63,2306,Tehnologiile de informare și comunicare pentru industriile creative,1155
+1084,2306,"Gândire comunicațională, gândire critică, gândire cr",1156
+1084,2306,Industrii culturale și teorie critică,1157
+1084,638,Introducere in publicitate,1158
+303,638,Introducere în ştiinţele comunicării,1159
+301,638,Tehnici de redactare,1160
+542,638,Metode de cercetare în științele sociale,1161
+810,638,Multimedia,1162
+897,638,Teoria Organizaţiilor,1163
+1084,2295,Introducere in publicitate,1164
+303,2295,Introducere în ştiinţele comunicării,1165
+301,2295,Tehnici de redactare,1166
+542,2295,Metode de cercetare în științele sociale,1167
+810,2295,Multimedia,1168
+897,2295,Teoria Organizaţiilor,1169
+1084,2296,Introducere in publicitate,1170
+303,2296,Introducere în ştiinţele comunicării,1171
+301,2296,Tehnici de redactare,1172
+542,2296,Metode de cercetare în științele sociale,1173
+810,2296,Multimedia,1174
+897,2296,Teoria Organizaţiilor,1175
+1084,2297,Introducere in publicitate,1176
+303,2297,Introducere în ştiinţele comunicării,1177
+301,2297,Tehnici de redactare,1178
+542,2297,Metode de cercetare în științele sociale,1179
+810,2297,Multimedia,1180
+897,2297,Teoria Organizaţiilor,1181
+1594,639,Istoria culturii si civilizatiei,1182
+320,639,Limbă străină în comunicare şi relaţii publice,1183
+1084,639,Tehnici de comunicare si negociere,1184
+1509,639,Elemente de PR politic,1185
+1690,639,Comunicare mediatica audio-vizuala,1186
+187,639,Etica,1187
+187,639,Introducere in stiinte politice,1188
+1594,2372,Istoria culturii si civilizatiei,1189
+320,2372,Limbă străină în comunicare şi relaţii publice,1190
+1084,2372,Tehnici de comunicare si negociere,1191
+1509,2372,Elemente de PR politic,1192
+1690,2372,Comunicare mediatica audio-vizuala,1193
+187,2372,Etica,1194
+187,2372,Introducere in stiinte politice,1195
+293,632,Comunicarea cu presa,1196
+1509,632,Managementul relatiilor publice,1197
+301,632,COCRP Ritualuri de comunicare,1198
+1084,632,Creaţie în publicitate,1199
+1125,632,Redactarea materialelor de relaţii publice,1200
+897,632,Organizarea de evenimente,1201
+897,632,Strategii persuasive în comunicare şi RP,1202
+85,2217,Programe educaţionale şi de consiliere - proiectare şi evaluare,1203
+415,2217,Abordari umaniste in consiliere,1204
+744,2217,Didactica domeniului și dezvoltări în didactica specialității,1205
+872,2217,Consiliere si managementul carierei,1206
+94,2217,Metodologia cercetării în științele socio-umane,1207
+85,252,Programe educaţionale şi de consiliere - proiectare şi evaluare,1208
+415,252,Abordari umaniste in consiliere,1209
+744,252,Didactica domeniului și dezvoltări în didactica specialității,1210
+872,252,Consiliere si managementul carierei,1211
+94,252,Metodologia cercetării în științele socio-umane,1212
+85,1227,Programe educaţionale şi de consiliere - proiectare şi evaluare,1213
+415,1227,Abordari umaniste in consiliere,1214
+744,1227,Didactica domeniului și dezvoltări în didactica specialității,1215
+872,1227,Consiliere si managementul carierei,1216
+94,1227,Metodologia cercetării în științele socio-umane,1217
+79,900,Tehnologii informationale in managementul educațional,1218
+199,900,Etică și Integritate Academică și Profesională,1219
+872,900,Consiliere individuala si de grup. Modalitati de cercetare,1220
+79,2345,Tehnologii informationale in managementul educațional,1221
+199,2345,Etică și Integritate Academică și Profesională,1222
+872,2345,Consiliere individuala si de grup. Modalitati de cercetare,1223
+31,2182,Electrotehnică,1224
+20,2182,Matematici speciale,1225
+808,2182,Programarea calculatoarelor şi limbaje de programare II,1226
+410,2182,Fizică I,1227
+138,2182,Arhitectura sistemelor de calcul,1228
+149,2182,Pedagogie I,1229
+31,2328,Electrotehnică,1230
+20,2328,Matematici speciale,1231
+808,2328,Programarea calculatoarelor şi limbaje de programare II,1232
+410,2328,Fizică I,1233
+138,2328,Arhitectura sistemelor de calcul,1234
+149,2328,Pedagogie I,1235
+327,955,Limba engleză contemporană,1236
+96,955,Literatură engleză,1237
+321,955,Limba engleză contemporană,1238
+322,955,Literatură engleză,1239
+325,1013,Teoria literaturii,1240
+326,1013,Limba engleză contemporană,1241
+321,1013,Didactica specializării,1242
+325,1013,Literatura american. Modernism și Postmodernism,1243
+248,2382,Limba franceză contemporană,1244
+312,2382,Literatură franceză,1245
+308,2382,Limba franceză contemporană,1246
+328,1069,Limba germană contemporană,1247
+323,1069,Literatură germană,1248
+323,1069,Limba germană contemporană,1249
+286,1015,Teoria literaturii,1250
+328,1015,Didactica specializării,1251
+328,1015,Limba germană contemporană,1252
+1769,1015,Literatură germană,1253
+287,2383,Literatura italiană,1254
+294,2383,Limba italiană contemporană,1255
+294,2383,Literatura italiană,1256
+297,2383,Limba italiană contemporană,1257
+283,956,Limba română contemporană,1258
+291,956,Literatură română,1259
+281,956,Limba română contemporană,1260
+1083,956,Literatură română,1261
+1083,956,Curs opţional română Dramaturgia românească a sec. XX,1262
+815,2294,Limba română contemporană,1263
+288,2294,Literatură română,1264
+286,2294,Teoria literaturii,1265
+1816,959,Limba spaniolă contemporană,1266
+606,959,Literatură spaniolă,1267
+1816,1017,Limba spaniolă contemporană,1268
+606,1017,Literatură spaniolă,1269
+286,1017,Teoria literaturii,1270
+296,960,Limba ucraineană contemporană,1271
+296,960,Literatură ucraineană,1272
+296,2137,Limba ucraineană contemporană,1273
+296,2137,Literatură ucraineană,1274
+286,2137,Teoria literaturii,1275
+359,2204,Istoria Statului și Dreptului,1276
+743,2204,Sociologie juridica,1277
+358,2204,Drept constituțional și instituții politice,1278
+358,2204,Drept civil. Persoane,1279
+357,2204,Drept administrativ II,1280
+363,2204,Dreptul Instituțional al Uniunii Europene,1281
+359,2205,Istoria Statului și Dreptului,1282
+743,2205,Sociologie juridica,1283
+358,2205,Drept constituțional și instituții politice,1284
+358,2205,Drept civil. Persoane,1285
+357,2205,Drept administrativ II,1286
+363,2205,Dreptul Instituțional al Uniunii Europene,1287
+360,2099,Drept penal.Parte Generală II,1288
+345,2099,Dreptul muncii și securității sociale,1289
+363,2099,Organizatii si relatii internationale,1290
+1053,2099,Drept civil. Obligații,1291
+579,2099,Criminologie,1292
+71,2099,Logică juridică și gândire critică,1293
+360,2207,Drept penal.Parte Generală II,1294
+345,2207,Dreptul muncii și securității sociale,1295
+363,2207,Organizatii si relatii internationale,1296
+1053,2207,Drept civil. Obligații,1297
+579,2207,Criminologie,1298
+71,2207,Logică juridică și gândire critică,1299
+360,2100,Drept penal.Parte Generală II,1300
+345,2100,Dreptul muncii și securității sociale,1301
+363,2100,Organizatii si relatii internationale,1302
+1053,2100,Drept civil. Obligații,1303
+579,2100,Criminologie,1304
+71,2100,Logică juridică și gândire critică,1305
+373,2287,Drept penal.Parte Specială II,1306
+1012,2287,Drept contraventional,1307
+677,2287,Drept civil. Succesiuni,1308
+165,2287,Descentralizarea in UE,1309
+345,2287,Dreptul munciiin UE,1310
+362,2287,Dreptul mediului in UE,1311
+206,2287,Mnagementul Clasei de Elevi,1312
+373,2288,Drept penal.Parte Specială II,1313
+1012,2288,Drept contraventional,1314
+677,2288,Drept civil. Succesiuni,1315
+165,2288,Descentralizarea in UE,1316
+345,2288,Dreptul munciiin UE,1317
+362,2288,Dreptul mediului in UE,1318
+206,2288,Mnagementul Clasei de Elevi,1319
+579,2337,Medicină Legală,1320
+579,2337,Criminalistică,1321
+373,2337,Drept procesual penal II,1322
+361,2337,Dreptul comerțului internațional,1323
+369,2337,"Spatiul de libertate,securitate si justitie",1324
+363,2337,Drept procesual civil II,1325
+358,776,Drept constituțional și instituții politice,1326
+358,776,Drept civil. Persoane,1327
+357,776,Drept administrativ II,1328
+359,776,Istoria Statului și Dreptului,1329
+743,776,Etică și integritate academică,1330
+358,777,Drept constituțional și instituții politice,1331
+358,777,Drept civil. Persoane,1332
+357,777,Drept administrativ II,1333
+359,777,Istoria Statului și Dreptului,1334
+743,777,Etică și integritate academică,1335
+207,777,Pedagogie 1,1336
+358,778,Drept constituțional și instituții politice,1337
+358,778,Drept civil. Persoane,1338
+357,778,Drept administrativ II,1339
+359,778,Istoria Statului și Dreptului,1340
+743,778,Etică și integritate academică,1341
+207,778,Pedagogie 1,1342
+358,1105,Drept constituțional și instituții politice,1343
+358,1105,Drept civil. Persoane,1344
+357,1105,Drept administrativ II,1345
+359,1105,Istoria Statului și Dreptului,1346
+743,1105,Etică și integritate academică,1347
+207,1105,Pedagogie 1,1348
+165,411,Managementul colectivităților locale,1349
+359,411,Drept diplomatic și consular,1350
+579,411,Criminologie,1351
+1053,411,Drept civil. Obligații,1352
+71,411,Logică juridică și gândire critică,1353
+360,411,Drept penal.Parte Generală II,1354
+165,412,Managementul colectivităților locale,1355
+359,412,Drept diplomatic și consular,1356
+579,412,Criminologie,1357
+1053,412,Drept civil. Obligații,1358
+71,412,Logică juridică și gândire critică,1359
+360,412,Drept penal.Parte Generală II,1360
+165,1023,Managementul colectivităților locale,1361
+359,1023,Drept diplomatic și consular,1362
+579,1023,Criminologie,1363
+1053,1023,Drept civil. Obligații,1364
+71,1023,Logică juridică și gândire critică,1365
+360,1023,Drept penal.Parte Generală II,1366
+165,2031,Managementul colectivităților locale,1367
+359,2031,Drept diplomatic și consular,1368
+579,2031,Criminologie,1369
+1053,2031,Drept civil. Obligații,1370
+71,2031,Logică juridică și gândire critică,1371
+360,2031,Drept penal.Parte Generală II,1372
+345,414,Dreptul muncii și securității sociale,1373
+373,414,Drept penal.Parte Specială II,1374
+1012,414,Drept contraventional,1375
+677,414,Drept civil. Succesiuni,1376
+165,414,Deconcentrarea și descentralizarea serviciilor publice,1377
+206,414,Mnagementul Clasei de Elevi,1378
+345,415,Dreptul muncii și securității sociale,1379
+373,415,Drept penal.Parte Specială II,1380
+1012,415,Drept contraventional,1381
+677,415,Drept civil. Succesiuni,1382
+165,415,Deconcentrarea și descentralizarea serviciilor publice,1383
+206,415,Mnagementul Clasei de Elevi,1384
+345,1158,Dreptul muncii și securității sociale,1385
+373,1158,Drept penal.Parte Specială II,1386
+1012,1158,Drept contraventional,1387
+677,1158,Drept civil. Succesiuni,1388
+165,1158,Deconcentrarea și descentralizarea serviciilor publice,1389
+206,1158,Mnagementul Clasei de Elevi,1390
+579,417,Medicină Legală,1391
+579,417,Criminalistică,1392
+373,417,Drept procesual penal II,1393
+363,417,Drept procesual civil II,1394
+626,417,Protectia internațională a drepturilor omului,1395
+579,418,Medicină Legală,1396
+579,418,Criminalistică,1397
+373,418,Drept procesual penal II,1398
+363,418,Drept procesual civil II,1399
+626,418,Protectia internațională a drepturilor omului,1400
+579,2033,Medicină Legală,1401
+579,2033,Criminalistică,1402
+373,2033,Drept procesual penal II,1403
+363,2033,Drept procesual civil II,1404
+626,2033,Protectia internațională a drepturilor omului,1405
+484,558,Botanica forestiera 2,1406
+1071,558,Fizica mediului,1407
+409,558,Chimia mediului,1408
+707,558,Ecologie umana,1409
+707,558,Taxonomie animala,1410
+489,558,Microbiologie,1411
+149,558,Pedagogie,1412
+484,1073,Botanica forestiera 2,1413
+1071,1073,Fizica mediului,1414
+409,1073,Chimia mediului,1415
+707,1073,Ecologie umana,1416
+707,1073,Taxonomie animala,1417
+489,1073,Microbiologie,1418
+149,1073,Pedagogie,1419
+481,672,Statiuni forestiere,1420
+487,672,Genetica ecologica,1421
+236,672,Geografia mediului,1422
+714,672,Meteorologie climatologie,1423
+473,672,Gestionarea resurselor de apa,1424
+183,672,Didactica specialitatii,1425
+485,672,Informatica,1426
+714,672,Managementul biodiversitatii,1427
+481,2060,Statiuni forestiere,1428
+487,2060,Genetica ecologica,1429
+236,2060,Geografia mediului,1430
+714,2060,Meteorologie climatologie,1431
+473,2060,Gestionarea resurselor de apa,1432
+183,2060,Didactica specialitatii,1433
+485,2060,Informatica,1434
+714,2060,Managementul biodiversitatii,1435
+969,668,Monitoring ecologic,1436
+485,668,Reconstructia ecologica a ecosistemelor degradate,1437
+475,668,Gestionarea faunei de interes cinegetic,1438
+707,668,Metodologia intocmirii studiilor de impact,1439
+902,668,Economia mediului,1440
+480,668,Modificari globale de mediu,1441
+476,668,Managementul conflictelor de mediu,1442
+206,668,Managementul clasei de elevi,1443
+969,1228,Monitoring ecologic,1444
+485,1228,Reconstructia ecologica a ecosistemelor degradate,1445
+475,1228,Gestionarea faunei de interes cinegetic,1446
+707,1228,Metodologia intocmirii studiilor de impact,1447
+902,1228,Economia mediului,1448
+480,1228,Modificari globale de mediu,1449
+476,1228,Managementul conflictelor de mediu,1450
+206,1228,Managementul clasei de elevi,1451
+744,2342,Didactica domeniului si dezvoltari in didactica specialitatii,1452
+72,2342,Dimensiuni etice în managementul conflictelor ,1453
+422,2342,Proiectarea si managementul programelor educationale,1454
+66,2342,Consiliere şi audit în etică,1455
+187,2342,Etică profesională şi organizaţională ,1456
+139,2342,Managementul valorilor şi cultură organizaţională ,1457
+353,419,Management,1458
+195,419,Economie 2,1459
+386,419,Finanţe,1460
+536,419,Statistică,1461
+1032,419,Contabilitate,1462
+207,419,Pedagogie I,1463
+353,2225,Management,1464
+195,2225,Economie 2,1465
+386,2225,Finanţe,1466
+536,2225,Statistică,1467
+1032,2225,Contabilitate,1468
+207,2225,Pedagogie I,1469
+353,1063,Management,1470
+195,1063,Economie 2,1471
+386,1063,Finanţe,1472
+536,1063,Statistică,1473
+1032,1063,Contabilitate,1474
+207,1063,Pedagogie I,1475
+353,2226,Management,1476
+195,2226,Economie 2,1477
+386,2226,Finanţe,1478
+536,2226,Statistică,1479
+1032,2226,Contabilitate,1480
+207,2226,Pedagogie I,1481
+419,423,Asigurări şi reasigurări,1482
+581,423,Comunicare si relatii publice,1483
+528,423,Managementul calitatii,1484
+528,423,Mărfuri alimentare şi securitatea consumatorului,1485
+171,423,Marketing in turism,1486
+378,423,Tehnica operaţiunilor de turism,1487
+173,423,"Managementul firmelor de comert, turism, servicii",1488
+419,681,Asigurări şi reasigurări,1489
+581,681,Comunicare si relatii publice,1490
+528,681,Managementul calitatii,1491
+528,681,Mărfuri alimentare şi securitatea consumatorului,1492
+171,681,Marketing in turism,1493
+378,681,Tehnica operaţiunilor de turism,1494
+173,681,"Managementul firmelor de comert, turism, servicii",1495
+419,1064,Asigurări şi reasigurări,1496
+581,1064,Comunicare si relatii publice,1497
+528,1064,Managementul calitatii,1498
+528,1064,Mărfuri alimentare şi securitatea consumatorului,1499
+171,1064,Marketing in turism,1500
+378,1064,Tehnica operaţiunilor de turism,1501
+173,1064,"Managementul firmelor de comert, turism, servicii",1502
+419,2227,Asigurări şi reasigurări,1503
+581,2227,Comunicare si relatii publice,1504
+528,2227,Managementul calitatii,1505
+528,2227,Mărfuri alimentare şi securitatea consumatorului,1506
+171,2227,Marketing in turism,1507
+378,2227,Tehnica operaţiunilor de turism,1508
+173,2227,"Managementul firmelor de comert, turism, servicii",1509
+380,426,Contabilitate managerială,1510
+397,426,Strategii investiţionale în afacei,1511
+523,426,Fiscalitate,1512
+419,426,Tranzacţii comerciale internaţionale,1513
+525,426,Economie comerciala,1514
+173,426,Managementul resurselor umane,1515
+206,426,Managementul clasei de elevi,1516
+380,1198,Contabilitate managerială,1517
+397,1198,Strategii investiţionale în afacei,1518
+523,1198,Fiscalitate,1519
+419,1198,Tranzacţii comerciale internaţionale,1520
+525,1198,Economie comerciala,1521
+173,1198,Managementul resurselor umane,1522
+206,1198,Managementul clasei de elevi,1523
+380,2348,Contabilitate managerială,1524
+397,2348,Strategii investiţionale în afacei,1525
+523,2348,Fiscalitate,1526
+419,2348,Tranzacţii comerciale internaţionale,1527
+525,2348,Economie comerciala,1528
+173,2348,Managementul resurselor umane,1529
+380,2349,Contabilitate managerială,1530
+397,2349,Strategii investiţionale în afacei,1531
+523,2349,Fiscalitate,1532
+419,2349,Tranzacţii comerciale internaţionale,1533
+525,2349,Economie comerciala,1534
+173,2349,Managementul resurselor umane,1535
+262,352,Teoria si practica in alte ramuri sportive: Culturism,1536
+268,352,Educaţie pentru sănătate şi prim ajutor,1537
+200,352,Fundamentele pedagogiei,1538
+267,352,Fundamentele stiintifice ale jocului sportiv: Baschet,1539
+198,352,Teoria si practica in sporturi de iarna: Patinaj/Schi aplin,1540
+813,352,Fiziologie ,1541
+263,352,Fundamentele stiintifice ale jocului sportiv: Fotbal,1542
+262,826,Teoria si practica in alte ramuri sportive: Culturism,1543
+268,826,Educaţie pentru sănătate şi prim ajutor,1544
+200,826,Fundamentele pedagogiei,1545
+267,826,Fundamentele stiintifice ale jocului sportiv: Baschet,1546
+198,826,Teoria si practica in sporturi de iarna: Patinaj/Schi aplin,1547
+813,826,Fiziologie ,1548
+263,826,Fundamentele stiintifice ale jocului sportiv: Fotbal,1549
+262,915,Teoria si practica in alte ramuri sportive: Culturism,1550
+268,915,Educaţie pentru sănătate şi prim ajutor,1551
+200,915,Fundamentele pedagogiei,1552
+267,915,Fundamentele stiintifice ale jocului sportiv: Baschet,1553
+198,915,Teoria si practica in sporturi de iarna: Patinaj/Schi aplin,1554
+813,915,Fiziologie ,1555
+263,915,Fundamentele stiintifice ale jocului sportiv: Fotbal,1556
+262,1138,Teoria si practica in alte ramuri sportive: Culturism,1557
+268,1138,Educaţie pentru sănătate şi prim ajutor,1558
+200,1138,Fundamentele pedagogiei,1559
+267,1138,Fundamentele stiintifice ale jocului sportiv: Baschet,1560
+198,1138,Teoria si practica in sporturi de iarna: Patinaj/Schi aplin,1561
+813,1138,Fiziologie ,1562
+263,1138,Fundamentele stiintifice ale jocului sportiv: Fotbal,1563
+262,1139,Teoria si practica in alte ramuri sportive: Culturism,1564
+268,1139,Educaţie pentru sănătate şi prim ajutor,1565
+200,1139,Fundamentele pedagogiei,1566
+267,1139,Fundamentele stiintifice ale jocului sportiv: Baschet,1567
+198,1139,Teoria si practica in sporturi de iarna: Patinaj/Schi aplin,1568
+813,1139,Fiziologie ,1569
+263,1139,Fundamentele stiintifice ale jocului sportiv: Fotbal,1570
+262,2004,Teoria si practica in alte ramuri sportive: Culturism,1571
+268,2004,Educaţie pentru sănătate şi prim ajutor,1572
+200,2004,Fundamentele pedagogiei,1573
+267,2004,Fundamentele stiintifice ale jocului sportiv: Baschet,1574
+198,2004,Teoria si practica in sporturi de iarna: Patinaj/Schi aplin,1575
+813,2004,Fiziologie ,1576
+263,2004,Fundamentele stiintifice ale jocului sportiv: Fotbal,1577
+262,360,Fitness,1578
+193,360,Teoria si practica in sporturi de apa: Inot,1579
+263,360,Didactica specialitatii,1580
+265,360,Teoria si practica in atletism,1581
+223,360,"Teoria si practica in sporturi de combat: Judo, Arte martiale",1582
+223,360,Tehnici de autoaparare,1583
+262,1141,Fitness,1584
+193,1141,Teoria si practica in sporturi de apa: Inot,1585
+263,1141,Didactica specialitatii,1586
+265,1141,Teoria si practica in atletism,1587
+223,1141,"Teoria si practica in sporturi de combat: Judo, Arte martiale",1588
+223,1141,Tehnici de autoaparare,1589
+262,876,Fitness,1590
+193,876,Teoria si practica in sporturi de apa: Inot,1591
+263,876,Didactica specialitatii,1592
+265,876,Teoria si practica in atletism,1593
+223,876,"Teoria si practica in sporturi de combat: Judo, Arte martiale",1594
+223,876,Tehnici de autoaparare,1595
+262,2010,Fitness,1596
+193,2010,Teoria si practica in sporturi de apa: Inot,1597
+263,2010,Didactica specialitatii,1598
+265,2010,Teoria si practica in atletism,1599
+223,2010,"Teoria si practica in sporturi de combat: Judo, Arte martiale",1600
+223,2010,Tehnici de autoaparare,1601
+262,2347,Fitness,1602
+193,2347,Teoria si practica in sporturi de apa: Inot,1603
+263,2347,Didactica specialitatii,1604
+265,2347,Teoria si practica in atletism,1605
+223,2347,"Teoria si practica in sporturi de combat: Judo, Arte martiale",1606
+223,2347,Tehnici de autoaparare,1607
+259,364,Metodica predarii handbalului in scoala,1608
+260,364,Utilizare softuri specializate in stiinta sportului si ed. fizice,1609
+267,364,Metodica predarii baschetului in scoala,1610
+265,364,Metodica predarii atletismului in scoala,1611
+198,364,Metodica predarii gimnasticii in scoala,1612
+207,364,Managementul clasei de elevi,1613
+259,917,Metodica predarii handbalului in scoala,1614
+260,917,Utilizare softuri specializate in stiinta sportului si ed. fizice,1615
+267,917,Metodica predarii baschetului in scoala,1616
+265,917,Metodica predarii atletismului in scoala,1617
+198,917,Metodica predarii gimnasticii in scoala,1618
+207,917,Managementul clasei de elevi,1619
+259,366,Metodica predarii handbalului in scoala,1620
+260,366,Utilizare softuri specializate in stiinta sportului si ed. fizice,1621
+267,366,Metodica predarii baschetului in scoala,1622
+265,366,Metodica predarii atletismului in scoala,1623
+198,366,Metodica predarii gimnasticii in scoala,1624
+207,366,Managementul clasei de elevi,1625
+259,1260,Metodica predarii handbalului in scoala,1626
+260,1260,Utilizare softuri specializate in stiinta sportului si ed. fizice,1627
+267,1260,Metodica predarii baschetului in scoala,1628
+265,1260,Metodica predarii atletismului in scoala,1629
+198,1260,Metodica predarii gimnasticii in scoala,1630
+207,1260,Managementul clasei de elevi,1631
+262,527,Activităţi de loisir,1632
+265,527,Metodica Inotului,1633
+263,527,Tehnici de măsurare şi evaluare,1634
+260,527,Echipmente si instalatii pentru activitati motrice de timp liber,1635
+260,527,Amenajarea bazelor sportive si de agrement,1636
+265,527,Metodica atletismului în liceu,1637
+422,527,Proiectarea şi managementul programelor educaţionale,1638
+183,527,"Didactica domeniului şi dezvoltării în didactica
+specialităţii",1639
+262,2005,Activităţi de loisir,1640
+265,2005,Metodica Inotului,1641
+263,2005,Tehnici de măsurare şi evaluare,1642
+260,2005,Echipmente si instalatii pentru activitati motrice de timp liber,1643
+260,2005,Amenajarea bazelor sportive si de agrement,1644
+265,2005,Metodica atletismului în liceu,1645
+422,2005,Proiectarea şi managementul programelor educaţionale,1646
+183,2005,"Didactica domeniului şi dezvoltării în didactica
+specialităţii",1647
+267,596,Metodica voleiului in liceu,1648
+223,596,Metodica sporturilor de combat ,1649
+267,1232,Metodica voleiului in liceu,1650
+223,1232,Metodica sporturilor de combat ,1651
+327,1009,Limba engleză contemporană,1652
+96,1009,Literatură engleză,1653
+325,1009,Teoria literaturii,1654
+323,1009,Literatură germană,1655
+328,1009,Limba germană contemporană,1656
+137,1044,Frazeologia limbii engleze,1657
+322,1044,Literatură engleză,1658
+321,1044,Limba engleză contemporană,1659
+96,1044,Text si Interpretare,1660
+328,1044,Didactica specializării,1661
+323,1044,Limba germană contemporană,1662
+323,1044,Literatură germană,1663
+323,1044,Curs opţional germană Frazeologie contrastivă,1664
+328,1044,Goethe. Viata si opera,1665
+321,1044,Didactica specializării,1666
+326,2025,Limba engleză contemporană,1667
+326,2025,Traducere şi discurs,1668
+325,2025,Literatura american. Modernism și Postmodernism,1669
+316,2025,Gotic,1670
+1769,2025,Literatură germană,1671
+328,2025,Limba germană contemporană,1672
+328,2025,Probleme de sintaxa a limbii germane,1673
+1769,2025,Curs optional germana Literatura exilului,1674
+353,675,Management,1675
+171,675,Marketing,1676
+526,675,Contabilitate,1677
+392,675,Studiu comparat al resurselor,1678
+533,675,Informatică,1679
+342,675,Macroeconomie,1680
+353,745,Management,1681
+171,745,Marketing,1682
+526,745,Contabilitate,1683
+392,745,Studiu comparat al resurselor,1684
+533,745,Informatică,1685
+342,745,Macroeconomie,1686
+353,2307,Management,1687
+171,2307,Marketing,1688
+526,2307,Contabilitate,1689
+392,2307,Studiu comparat al resurselor,1690
+533,2307,Informatică,1691
+342,2307,Macroeconomie,1692
+353,2308,Management,1693
+171,2308,Marketing,1694
+526,2308,Contabilitate,1695
+392,2308,Studiu comparat al resurselor,1696
+533,2308,Informatică,1697
+342,2308,Macroeconomie,1698
+531,847,Economie si politici internationale,1699
+171,847,Tehnici promoţionale,1700
+384,847,Doctrine economice contemporane,1701
+810,847,Multimedia,1702
+173,847,Managementul resurselor umane,1703
+453,847,Principiile comunicarii economice,1704
+206,847,Didactica specialităţii,1705
+531,1211,Economie si politici internationale,1706
+171,1211,Tehnici promoţionale,1707
+384,1211,Doctrine economice contemporane,1708
+810,1211,Multimedia,1709
+173,1211,Managementul resurselor umane,1710
+453,1211,Principiile comunicarii economice,1711
+206,1211,Didactica specialităţii,1712
+397,774,Strategii investiţionale în afacei,1713
+379,774,Comunicare corporativa,1714
+581,774,Comunicare si relatii publice,1715
+581,774,Gestiunea crizelor,1716
+810,774,Comerţ electronic,1717
+392,774,Macroeconomie intermediara,1718
+386,774,Monedă,1719
+397,2354,Strategii investiţionale în afacei,1720
+379,2354,Comunicare corporativa,1721
+581,2354,Comunicare si relatii publice,1722
+581,2354,Gestiunea crizelor,1723
+810,2354,Comerţ electronic,1724
+392,2354,Macroeconomie intermediara,1725
+386,2354,Monedă,1726
+397,2355,Strategii investiţionale în afacei,1727
+379,2355,Comunicare corporativa,1728
+581,2355,Comunicare si relatii publice,1729
+581,2355,Gestiunea crizelor,1730
+810,2355,Comerţ electronic,1731
+392,2355,Macroeconomie intermediara,1732
+386,2355,Monedă,1733
+206,2355,Managementul clasei de elevi,1734
+397,2135,Strategii investiţionale în afacei,1735
+379,2135,Comunicare corporativa,1736
+581,2135,Comunicare si relatii publice,1737
+581,2135,Gestiunea crizelor,1738
+810,2135,Comerţ electronic,1739
+392,2135,Macroeconomie intermediara,1740
+386,2135,Monedă,1741
+206,2135,Managementul clasei de elevi,1742
+287,2019,Literatura italiană,1743
+327,2019,Limba engleză contemporană,1744
+96,2019,Literatură engleză,1745
+325,2019,Teoria literaturii,1746
+294,2019,Limba italiană contemporană,1747
+137,2071,Frazeologia limbii engleze,1748
+293,2071,Curs facultativ DPPD Didactica limbilor străine,1749
+322,2071,Literatură engleză,1750
+321,2071,Limba engleză contemporană,1751
+96,2071,Text si Interpretare,1752
+294,2071,Literatura italiană,1753
+297,2071,Limba italiană contemporană,1754
+297,2071,Curs opţional italiană Traduceri,1755
+321,2071,Didactica specializării,1756
+326,629,Limba engleză contemporană,1757
+326,629,Traducere şi discurs,1758
+325,629,Literatura american. Modernism și Postmodernism,1759
+316,629,Gotic,1760
+294,629,Literatură şi film,1761
+294,629,Literatura italiană,1762
+297,629,Redactare și traduceri specializate,1763
+297,629,Limba italiană contemporană,1764
+112,57,Mecanica si rezistenta materialelor,1765
+409,57,Chimie,1766
+1004,57,Matematici speciale,1767
+552,57,Informatica aplicata,1768
+783,57,Fizică II,1769
+33,57,Bazele electrotehnicii I,1770
+149,57,Pedagogie I,1771
+112,2170,Mecanica si rezistenta materialelor,1772
+409,2170,Chimie,1773
+1004,2170,Matematici speciale,1774
+552,2170,Informatica aplicata,1775
+783,2170,Fizică II,1776
+33,2170,Bazele electrotehnicii I,1777
+149,2170,Pedagogie I,1778
+135,63,Electronica2,1779
+956,63,Metode numerice,1780
+103,63,Termotehnica,1781
+112,63,Masini hidraulice,1782
+36,63,Măsurări electrice şi electronice,1783
+42,63,Maşini şi acţionări electrice 1,1784
+30,68,Transportul şi distribuţia energiei electrice,1785
+205,68,Fiabilitate,1786
+35,68,Echipamente electrice II,1787
+205,68,Producerea energiei electrice şi termice,1788
+202,68,Teoria reglării automate,1789
+31,68,Energia şi mediul,1790
+43,68,Mașini  și acționări electrice 3,1791
+283,624,Limba română contemporană,1792
+291,624,Literatură română,1793
+293,624,Istoria limbii romane,1794
+327,624,Limba engleză contemporană,1795
+96,624,Literatură engleză,1796
+325,624,Teoria literaturii,1797
+283,1145,Limba română contemporană,1798
+291,1145,Literatură română,1799
+293,1145,Istoria limbii romane,1800
+327,1145,Limba engleză contemporană,1801
+96,1145,Literatură engleză,1802
+325,1145,Teoria literaturii,1803
+281,625,Limba română contemporană,1804
+137,625,Frazeologia limbii engleze,1805
+1083,625,Literatură română,1806
+322,625,Literatură engleză,1807
+321,625,Limba engleză contemporană,1808
+96,625,Text si Interpretare,1809
+321,625,Didactica specializării,1810
+281,1193,Limba română contemporană,1811
+137,1193,Frazeologia limbii engleze,1812
+1083,1193,Literatură română,1813
+322,1193,Literatură engleză,1814
+321,1193,Limba engleză contemporană,1815
+96,1193,Text si Interpretare,1816
+321,1193,Didactica specializării,1817
+815,623,Limba română contemporană,1818
+1083,623,Curs opţional română Dramaturgia românească a sec. XX,1819
+288,623,Literatura actuala,1820
+326,623,Limba engleză contemporană,1821
+326,623,Traducere şi discurs,1822
+325,623,Literatura american. Modernism și Postmodernism,1823
+316,623,Gotic,1824
+288,623,Literatură română,1825
+815,2293,Limba română contemporană,1826
+1083,2293,Curs opţional română Dramaturgia românească a sec. XX,1827
+288,2293,Literatura actuala,1828
+326,2293,Limba engleză contemporană,1829
+326,2293,Traducere şi discurs,1830
+325,2293,Literatura american. Modernism și Postmodernism,1831
+316,2293,Gotic,1832
+288,2293,Literatură română,1833
+327,2018,Limba engleză contemporană,1834
+96,2018,Literatură engleză,1835
+325,2018,Teoria literaturii,1836
+606,2018,Literatură spaniolă,1837
+1816,2018,Limba spaniolă contemporană,1838
+137,2070,Frazeologia limbii engleze,1839
+293,2070,Curs facultativ DPPD Didactica limbilor străine,1840
+322,2070,Literatură engleză,1841
+321,2070,Limba engleză contemporană,1842
+96,2070,Text si Interpretare,1843
+606,2070,Literatură spaniolă,1844
+606,2070,Curs opțional spaniolă Analiza textului,1845
+1816,2070,Limba spaniolă contemporană,1846
+321,2070,Didactica specializării,1847
+606,2070,CO Frazeologia limbii spaniole,1848
+326,1147,Limba engleză contemporană,1849
+326,1147,Traducere şi discurs,1850
+325,1147,Literatura american. Modernism și Postmodernism,1851
+316,1147,Gotic,1852
+606,1147,Curs opțional spaniolă Războiul Civil în lit. spaniolă postbelic,1853
+606,1147,Literatură spaniolă,1854
+1816,1147,Limba spaniolă contemporană,1855
+942,1147,Curs opțional spaniolă Traducerea textului literar,1856
+118,2259,"Algebra liniara, geometrie analitica si diferentiala",1857
+111,2259,Desen tehnic și infografică 1,1858
+104,2259,Metode numerice,1859
+1693,2259,Tehnologia materialelor 1,1860
+124,2259,Mecanica,1861
+552,2259,Informatica aplicata,1862
+149,2259,Pedagogie I,1863
+118,2015,"Algebra liniara, geometrie analitica si diferentiala",1864
+111,2015,Desen tehnic și infografică 1,1865
+104,2015,Metode numerice,1866
+1693,2015,Tehnologia materialelor 1,1867
+124,2015,Mecanica,1868
+552,2015,Informatica aplicata,1869
+149,2015,Pedagogie I,1870
+106,2083,Rezistenţa materialelor2,1871
+344,2083,Metoda elementului finit,1872
+103,2083,Termotehnica,1873
+1535,2083,Electronica aplicata 1,1874
+42,2083,Electrotehnică și mașini electrice 2,1875
+963,2083,Bazele ingineriei autovehiculelor,1876
+138,2172,Microprocesoare si microcontrolere pentru sisteme de comanda p. auto.,1877
+1082,2172,Echipament electric 2,1878
+256,2172,Acționări hidraulice și pneumatice 2,1879
+1535,2172,Electronică aplicată 3,1880
+34,2172,Software pentru ingineria autovehiculelor 1,1881
+124,2172,Dinamica autovehiculelor 2,1882
+205,2262,Fiabilitatea autovehiculelor,1883
+1530,2262,Sisteme telematice pentru transporturi rutiere,1884
+1693,2262,Tehnici si echipamente de diagnosticare a autovehiculelor ,1885
+42,2262,Tractiune electrica si hibrida 2,1886
+542,2262,Management,1887
+1661,2262,Software pentru ingineria autovehiculelor 2,1888
+1004,2013,Matematici speciale,1889
+956,2013,Metode numerice,1890
+1604,2013,Anatomie topografică și funcțională,1891
+33,2013,Electrotehnica1,1892
+410,2013,Fizica,1893
+808,2013,Informatica aplicata,1894
+149,2013,Pedagogie I,1895
+1004,2335,Matematici speciale,1896
+956,2335,Metode numerice,1897
+1604,2335,Anatomie topografică și funcțională,1898
+33,2335,Electrotehnica1,1899
+410,2335,Fizica,1900
+808,2335,Informatica aplicata,1901
+135,2082,Electronica2,1902
+36,2082,Masurari si instrumentatie,1903
+971,2082,Aparate pentru testari de laborator,1904
+1067,2082,Biomateriale,1905
+971,2082,Fiziologie si patologie,1906
+1561,2171,Bloc operator,1907
+946,2171,Instrumentar medical,1908
+1847,2171,Bazele Medicinei Dentare,1909
+1561,2171,Echipamente pentru diagnostic,1910
+16,2171,Compatibilitate Electromagnetica in Sisteme Medicale,1911
+628,2171,Sisteme Biomedicale Inteligente,1912
+1561,2261,Bloc operator,1913
+34,2261,Instrumentatie virtuala pentru medicina,1914
+946,2261,Sisteme de imagistica medicala,1915
+1523,2261,Neurostiinte,1916
+1561,2261,Etica si Deontologie in Inginerie medicala,1917
+1004,31,Matematici speciale,1918
+956,31,Metode numerice,1919
+33,31,Bazele electrotehnicii I,1920
+808,31,Informatica aplicata,1921
+410,31,Fizică I,1922
+12,31,Dispozitive electronice,1923
+1004,32,Matematici speciale,1924
+956,32,Metode numerice,1925
+33,32,Bazele electrotehnicii I,1926
+808,32,Informatica aplicata,1927
+410,32,Fizică I,1928
+12,32,Dispozitive electronice,1929
+1004,2183,Matematici speciale,1930
+956,2183,Metode numerice,1931
+33,2183,Bazele electrotehnicii I,1932
+808,2183,Informatica aplicata,1933
+410,2183,Fizică I,1934
+12,2183,Dispozitive electronice,1935
+13,41,Circuite Integrate Digitale 2,1936
+11,41,Circuite integrate analogice,1937
+14,41,Semnale şi sisteme II,1938
+36,41,Măsurări în electronică şi telecomunicaţii,1939
+877,41,Programarea calculatoarelor şi limbaje de programare II,1940
+13,2256,Circuite Integrate Digitale 2,1941
+11,2256,Circuite integrate analogice,1942
+14,2256,Semnale şi sisteme II,1943
+36,2256,Măsurări în electronică şi telecomunicaţii,1944
+877,2256,Programarea calculatoarelor şi limbaje de programare II,1945
+523,429,Bazele contabilităţii,1946
+386,429,Finanţe,1947
+532,429,Etică în afaceri,1948
+171,429,Marketing,1949
+988,429,Management,1950
+386,429,Monedă,1951
+207,429,Pedagogie I,1952
+523,710,Bazele contabilităţii,1953
+386,710,Finanţe,1954
+532,710,Etică în afaceri,1955
+171,710,Marketing,1956
+988,710,Management,1957
+386,710,Monedă,1958
+207,710,Pedagogie I,1959
+523,430,Bazele contabilităţii,1960
+386,430,Finanţe,1961
+532,430,Etică în afaceri,1962
+171,430,Marketing,1963
+988,430,Management,1964
+386,430,Monedă,1965
+207,430,Pedagogie I,1966
+523,1126,Bazele contabilităţii,1967
+386,1126,Finanţe,1968
+532,1126,Etică în afaceri,1969
+171,1126,Marketing,1970
+988,1126,Management,1971
+386,1126,Monedă,1972
+207,1126,Pedagogie I,1973
+523,1254,Bazele contabilităţii,1974
+386,1254,Finanţe,1975
+532,1254,Etică în afaceri,1976
+171,1254,Marketing,1977
+988,1254,Management,1978
+386,1254,Monedă,1979
+207,1254,Pedagogie I,1980
+523,1255,Bazele contabilităţii,1981
+386,1255,Finanţe,1982
+532,1255,Etică în afaceri,1983
+171,1255,Marketing,1984
+988,1255,Management,1985
+386,1255,Monedă,1986
+207,1255,Pedagogie I,1987
+640,433,Econometrie,1988
+355,433,Finanţe publice,1989
+539,433,Contabilitate bancară,1990
+540,433,Finante corporative,1991
+355,433,Finante personale,1992
+380,433,Contabilitate managerială,1993
+206,433,Didactica specialităţii,1994
+640,1128,Econometrie,1995
+355,1128,Finanţe publice,1996
+539,1128,Contabilitate bancară,1997
+540,1128,Finante corporative,1998
+355,1128,Finante personale,1999
+380,1128,Contabilitate managerială,2000
+206,1128,Didactica specialităţii,2001
+640,434,Econometrie,2002
+355,434,Finanţe publice,2003
+539,434,Contabilitate bancară,2004
+540,434,Finante corporative,2005
+355,434,Finante personale,2006
+380,434,Contabilitate managerială,2007
+206,434,Didactica specialităţii,2008
+640,1129,Econometrie,2009
+355,1129,Finanţe publice,2010
+539,1129,Contabilitate bancară,2011
+540,1129,Finante corporative,2012
+355,1129,Finante personale,2013
+380,1129,Contabilitate managerială,2014
+206,1129,Didactica specialităţii,2015
+640,2301,Econometrie,2016
+355,2301,Finanţe publice,2017
+539,2301,Contabilitate bancară,2018
+540,2301,Finante corporative,2019
+355,2301,Finante personale,2020
+380,2301,Contabilitate managerială,2021
+206,2301,Didactica specialităţii,2022
+640,2302,Econometrie,2023
+355,2302,Finanţe publice,2024
+539,2302,Contabilitate bancară,2025
+540,2302,Finante corporative,2026
+355,2302,Finante personale,2027
+380,2302,Contabilitate managerială,2028
+206,2302,Didactica specialităţii,2029
+539,437,Gestiune bancară,2030
+523,437,Fiscalitate,2031
+271,437,Evaluarea întreprinderii,2032
+537,437,Comunicare si raportare financiara,2033
+387,437,Controlling,2034
+429,437,Institutii financiar bancare internationale,2035
+1032,437,Audit financiar,2036
+206,437,Managementul clasei de elevi,2037
+539,1130,Gestiune bancară,2038
+523,1130,Fiscalitate,2039
+271,1130,Evaluarea întreprinderii,2040
+537,1130,Comunicare si raportare financiara,2041
+387,1130,Controlling,2042
+429,1130,Institutii financiar bancare internationale,2043
+1032,1130,Audit financiar,2044
+206,1130,Managementul clasei de elevi,2045
+539,996,Gestiune bancară,2046
+523,996,Fiscalitate,2047
+271,996,Evaluarea întreprinderii,2048
+537,996,Comunicare si raportare financiara,2049
+387,996,Controlling,2050
+429,996,Institutii financiar bancare internationale,2051
+1032,996,Audit financiar,2052
+539,1131,Gestiune bancară,2053
+523,1131,Fiscalitate,2054
+271,1131,Evaluarea întreprinderii,2055
+537,1131,Comunicare si raportare financiara,2056
+387,1131,Controlling,2057
+429,1131,Institutii financiar bancare internationale,2058
+1032,1131,Audit financiar,2059
+539,2358,Gestiune bancară,2060
+523,2358,Fiscalitate,2061
+271,2358,Evaluarea întreprinderii,2062
+537,2358,Comunicare si raportare financiara,2063
+387,2358,Controlling,2064
+429,2358,Institutii financiar bancare internationale,2065
+1032,2358,Audit financiar,2066
+206,2358,Managementul clasei de elevi,2067
+539,2359,Gestiune bancară,2068
+523,2359,Fiscalitate,2069
+271,2359,Evaluarea întreprinderii,2070
+537,2359,Comunicare si raportare financiara,2071
+387,2359,Controlling,2072
+429,2359,Institutii financiar bancare internationale,2073
+1032,2359,Audit financiar,2074
+206,2359,Managementul clasei de elevi,2075
+327,618,Limba engleză contemporană,2076
+248,618,Limba franceză contemporană,2077
+96,618,Literatură engleză,2078
+312,618,Literatură franceză,2079
+984,618,Teoria literaturii,2080
+137,619,Frazeologia limbii engleze,2081
+308,619,Limba franceză contemporană,2082
+248,619,Didactica specializării,2083
+322,619,Literatură engleză,2084
+321,619,Limba engleză contemporană,2085
+96,619,Text si Interpretare,2086
+310,619,Literatură autobiografică,2087
+321,619,Didactica specializării,2088
+308,619,Traducerea cărţilor pentru copii,2089
+312,619,Literatură franceză,2090
+248,617,Limba franceză contemporană,2091
+326,617,Limba engleză contemporană,2092
+326,617,Traducere şi discurs,2093
+325,617,Literatura american. Modernism și Postmodernism,2094
+316,617,Gotic,2095
+311,617,Discurs imagine imaginar,2096
+307,617,Literatură franceză,2097
+248,621,Limba franceză contemporană,2098
+312,621,Literatură franceză,2099
+984,621,Teoria literaturii,2100
+323,621,Literatură germană,2101
+328,621,Limba germană contemporană,2102
+308,2291,Limba franceză contemporană,2103
+248,2291,Didactica specializării,2104
+310,2291,Literatură autobiografică,2105
+328,2291,Didactica specializării,2106
+323,2291,Limba germană contemporană,2107
+323,2291,Literatură germană,2108
+323,2291,Curs opţional germană Frazeologie contrastivă,2109
+328,2291,Goethe. Viata si opera,2110
+308,2291,Traducerea cărţilor pentru copii,2111
+312,2291,Literatură franceză,2112
+248,620,Limba franceză contemporană,2113
+311,620,Discurs imagine imaginar,2114
+1769,620,Literatură germană,2115
+328,620,Limba germană contemporană,2116
+328,620,Probleme de sintaxa a limbii germane,2117
+1769,620,Curs optional germana Literatura exilului,2118
+307,620,Literatură franceză,2119
+287,953,Literatura italiană,2120
+248,953,Limba franceză contemporană,2121
+312,953,Literatură franceză,2122
+294,953,Limba italiană contemporană,2123
+984,953,Teoria literaturii,2124
+308,1011,Limba franceză contemporană,2125
+248,1011,Didactica specializării,2126
+293,1011,Curs facultativ DPPD Didactica limbilor străine,2127
+310,1011,Literatură autobiografică,2128
+294,1011,Literatura italiană,2129
+297,1011,Limba italiană contemporană,2130
+297,1011,Curs opţional italiană Traduceri,2131
+308,1011,Traducerea cărţilor pentru copii,2132
+312,1011,Literatură franceză,2133
+248,952,Limba franceză contemporană,2134
+312,952,Literatură franceză,2135
+984,952,Teoria literaturii,2136
+606,952,Literatură spaniolă,2137
+1816,952,Limba spaniolă contemporană,2138
+308,1010,Limba franceză contemporană,2139
+248,1010,Didactica specializării,2140
+293,1010,Curs facultativ DPPD Didactica limbilor străine,2141
+310,1010,Literatură autobiografică,2142
+606,1010,Literatură spaniolă,2143
+606,1010,Curs opțional spaniolă Analiza textului,2144
+1816,1010,Limba spaniolă contemporană,2145
+606,1010,CO Frazeologia limbii spaniole,2146
+308,1010,Traducerea cărţilor pentru copii,2147
+312,1010,Literatură franceză,2148
+248,1045,Limba franceză contemporană,2149
+311,1045,Discurs imagine imaginar,2150
+606,1045,Curs opțional spaniolă Războiul Civil în lit. spaniolă postbelic,2151
+606,1045,Literatură spaniolă,2152
+1816,1045,Limba spaniolă contemporană,2153
+942,1045,Curs opțional spaniolă Traducerea textului literar,2154
+307,1045,Literatură franceză,2155
+243,238,Geografia Populatiei,2156
+394,238,Geomorfologie,2157
+166,238,Geografie economica mondiala,2158
+149,238,Pedagogie I,2159
+203,238,Biogeografie,2160
+243,2050,Geografia Populatiei,2161
+394,2050,Geomorfologie,2162
+166,2050,Geografie economica mondiala,2163
+149,2050,Pedagogie I,2164
+203,2050,Biogeografie,2165
+402,246,Geografia Europei,2166
+243,246,Geografie Urbana si Rurala,2167
+233,246,Geografia umana a Romaniei,2168
+206,246,Didactica specialitatii,2169
+244,246,Sisteme Informationale Geografice,2170
+231,246,Geografia Fizica a Romaniei,2171
+402,2053,Geografia Europei,2172
+243,2053,Geografie Urbana si Rurala,2173
+233,2053,Geografia umana a Romaniei,2174
+206,2053,Didactica specialitatii,2175
+244,2053,Sisteme Informationale Geografice,2176
+231,2053,Geografia Fizica a Romaniei,2177
+233,2052,Toponimie geografica si etnografie,2178
+402,2052,Patrimoniul turistic al Romaniei,2179
+239,2052,Geografia Cuaternarului,2180
+828,2052,"Geografia hazardelor, riscurilor naturale si antropice",2181
+244,2052,Geografia Regionala a Romaniei,2182
+203,2052,Modificarile Globale ale Mediului,2183
+207,2052,Managementul clasei de elevi,2184
+233,242,Toponimie geografica si etnografie,2185
+402,242,Patrimoniul turistic al Romaniei,2186
+239,242,Geografia Cuaternarului,2187
+828,242,"Geografia hazardelor, riscurilor naturale si antropice",2188
+244,242,Geografia Regionala a Romaniei,2189
+203,242,Modificarile Globale ale Mediului,2190
+207,242,Managementul clasei de elevi,2191
+243,234,Geografia Populatiei,2192
+394,234,Geomorfologie,2193
+166,234,Geografie economica mondiala,2194
+149,234,Pedagogie I,2195
+203,234,Biogeografie,2196
+243,2049,Geografia Populatiei,2197
+394,2049,Geomorfologie,2198
+166,2049,Geografie economica mondiala,2199
+149,2049,Pedagogie I,2200
+203,2049,Biogeografie,2201
+243,1055,Geografia Populatiei,2202
+394,1055,Geomorfologie,2203
+166,1055,Geografie economica mondiala,2204
+149,1055,Pedagogie I,2205
+203,1055,Biogeografie,2206
+378,243,Economia turismului si organizarea intreprinderilor turistice,2207
+402,243,Patrimoniul turistic al Romaniei,2208
+243,243,Geografie Urbana si Rurala,2209
+206,243,Didactica specialitatii,2210
+244,243,GIS si Teledetectie,2211
+231,243,Geografia Fizica a Romaniei,2212
+378,2373,Economia turismului si organizarea intreprinderilor turistice,2213
+402,2373,Patrimoniul turistic al Romaniei,2214
+243,2373,Geografie Urbana si Rurala,2215
+206,2373,Didactica specialitatii,2216
+244,2373,GIS si Teledetectie,2217
+231,2373,Geografia Fizica a Romaniei,2218
+166,239,Turism international. Diferentieri regionale,2219
+233,239,Geografia umana a Romaniei,2220
+242,239,Geografia resurselor sanitare si turism de sanatate,2221
+244,239,Geografia Regionala a Romaniei,2222
+171,239,Management si Marketing turistic,2223
+195,442,Economie 2,2224
+541,442,Informatică,2225
+541,442,Baze de date,2226
+533,442,Bazele programarii calculatoarelor,2227
+640,442,Analiza Matematica,2228
+369,442,Dreptul afacerilor,2229
+207,442,Pedagogie I,2230
+195,743,Economie 2,2231
+541,743,Informatică,2232
+541,743,Baze de date,2233
+533,743,Bazele programarii calculatoarelor,2234
+640,743,Analiza Matematica,2235
+369,743,Dreptul afacerilor,2236
+207,743,Pedagogie I,2237
+195,1119,Economie 2,2238
+541,1119,Informatică,2239
+541,1119,Baze de date,2240
+533,1119,Bazele programarii calculatoarelor,2241
+640,1119,Analiza Matematica,2242
+369,1119,Dreptul afacerilor,2243
+207,1119,Pedagogie I,2244
+195,1120,Economie 2,2245
+541,1120,Informatică,2246
+541,1120,Baze de date,2247
+533,1120,Bazele programarii calculatoarelor,2248
+640,1120,Analiza Matematica,2249
+369,1120,Dreptul afacerilor,2250
+207,1120,Pedagogie I,2251
+640,441,Econometrie,2252
+533,441,Programare orientată obiect,2253
+810,441,Medii de programare vizuala,2254
+529,441,Probabilitati si statistica matematica,2255
+640,441,Cercetari operationale,2256
+640,742,Econometrie,2257
+533,742,Programare orientată obiect,2258
+810,742,Medii de programare vizuala,2259
+529,742,Probabilitati si statistica matematica,2260
+640,742,Cercetari operationale,2261
+640,992,Econometrie,2262
+533,992,Programare orientată obiect,2263
+810,992,Medii de programare vizuala,2264
+529,992,Probabilitati si statistica matematica,2265
+640,992,Cercetari operationale,2266
+206,992,Didactica specialităţii,2267
+640,993,Econometrie,2268
+533,993,Programare orientată obiect,2269
+810,993,Medii de programare vizuala,2270
+529,993,Probabilitati si statistica matematica,2271
+640,993,Cercetari operationale,2272
+206,993,Didactica specialităţii,2273
+640,1207,Econometrie,2274
+533,1207,Programare orientată obiect,2275
+810,1207,Medii de programare vizuala,2276
+529,1207,Probabilitati si statistica matematica,2277
+640,1207,Cercetari operationale,2278
+206,1207,Didactica specialităţii,2279
+640,1208,Econometrie,2280
+533,1208,Programare orientată obiect,2281
+810,1208,Medii de programare vizuala,2282
+529,1208,Probabilitati si statistica matematica,2283
+640,1208,Cercetari operationale,2284
+206,1208,Didactica specialităţii,2285
+397,845,Strategii investiţionale în afacei,2286
+377,845,Dispozitive si aplicatii mobile,2287
+541,845,Proiectarea sistemelor informatice de gestiune,2288
+384,845,Dezvoltare locală şi regională,2289
+533,845,Securitatea sistemelor informatice,2290
+581,845,Statistica macroeconomica,2291
+810,845,Grafică şi programare pe Internet,2292
+206,845,Managementul clasei de elevi,2293
+397,846,Strategii investiţionale în afacei,2294
+377,846,Dispozitive si aplicatii mobile,2295
+541,846,Proiectarea sistemelor informatice de gestiune,2296
+384,846,Dezvoltare locală şi regională,2297
+533,846,Securitatea sistemelor informatice,2298
+581,846,Statistica macroeconomica,2299
+810,846,Grafică şi programare pe Internet,2300
+206,846,Managementul clasei de elevi,2301
+397,2299,Strategii investiţionale în afacei,2302
+377,2299,Dispozitive si aplicatii mobile,2303
+541,2299,Proiectarea sistemelor informatice de gestiune,2304
+384,2299,Dezvoltare locală şi regională,2305
+533,2299,Securitatea sistemelor informatice,2306
+581,2299,Statistica macroeconomica,2307
+810,2299,Grafică şi programare pe Internet,2308
+206,2299,Managementul clasei de elevi,2309
+397,2300,Strategii investiţionale în afacei,2310
+377,2300,Dispozitive si aplicatii mobile,2311
+541,2300,Proiectarea sistemelor informatice de gestiune,2312
+384,2300,Dezvoltare locală şi regională,2313
+533,2300,Securitatea sistemelor informatice,2314
+581,2300,Statistica macroeconomica,2315
+810,2300,Grafică şi programare pe Internet,2316
+206,2300,Managementul clasei de elevi,2317
+111,1080,Desen Tehnic și Infografică (1),2318
+104,1080,Metode Numerice,2319
+116,1080,Fizică,2320
+128,1080,Stiinta si Ingineria Materialelor (2),2321
+124,1080,Mecanică (1),2322
+106,1182,Rezistenta Materialelor 2,2323
+112,1182,Mecanica Fluidelor ,2324
+103,1182,Termotehnică,2325
+33,1182,Electrotehnică şi Maşini Electrice,2326
+39,1182,Electrotehnică şi Maşini Electrice,2327
+1535,1182,Electronica Aplicata,2328
+104,1238,Organe de Masini (2),2329
+104,1238,Tribologie,2330
+256,1238,Actionari Hidraulice si Pneumatice,2331
+110,1238,Vibratii Mecanice,2332
+132,1238,Tehnologie de Fabricatie,2333
+132,1238,"Scule, dispozitive, verificatoare",2334
+130,1241,Managementul Proiectelor,2335
+132,1241,Tehnologii si echipamente de asamblare,2336
+567,1241,Modelarea si Simularea Sistemelor Mecanice,2337
+124,1241,"Mecanica, Constructia si Proiectarea Structurilor",2338
+1663,1241,Metode Experimentale in Inginerie Mecanica,2339
+1662,1241,Bazele Sudarii,2340
+130,266,Acreditare si Certificare in Domeniul Calitatii,2341
+107,266,Metode si Tehnici de Evaluare a Riscurilor Profesionale,2342
+133,266,Metodologia Cercetarii si Inventica,2343
+567,266,Controlul Calitatii prin Tehnici Statistice,2344
+71,266,Etica si Integritate Academica,2345
+130,512,Acreditare si Certificare in Domeniul Calitatii,2346
+107,512,Metode si Tehnici de Evaluare a Riscurilor Profesionale,2347
+133,512,Metodologia Cercetarii si Inventica,2348
+567,512,Controlul Calitatii prin Tehnici Statistice,2349
+71,512,Etica si Integritate Academica,2350
+111,2362,Desen Tehnic și Infografică (1),2351
+104,2362,Metode Numerice,2352
+116,2362,Fizică,2353
+128,2362,Stiinta si Ingineria Materialelor (2),2354
+124,2362,Mecanică (1),2355
+303,2362,Comunicare,2356
+111,2375,Desen Tehnic și Infografică (1),2357
+104,2375,Metode Numerice,2358
+116,2375,Fizică,2359
+128,2375,Stiinta si Ingineria Materialelor (2),2360
+124,2375,Mecanică (1),2361
+303,2375,Comunicare,2362
+550,299,Alimentatie si cultura,2363
+558,299,Fizica,2364
+511,299,Chimie analitica,2365
+510,299,"Algebra liniara, geometrie analitica si diferentiala",2366
+515,299,Grafica asistata pe calculator,2367
+759,299,Chimie organica,2368
+336,299,Politici si strategii globale de securitate alimentara,2369
+149,299,Pedagogie I,2370
+550,300,Alimentatie si cultura,2371
+558,300,Fizica,2372
+511,300,Chimie analitica,2373
+510,300,"Algebra liniara, geometrie analitica si diferentiala",2374
+515,300,Grafica asistata pe calculator,2375
+759,300,Chimie organica,2376
+336,300,Politici si strategii globale de securitate alimentara,2377
+149,300,Pedagogie I,2378
+31,311,Elemente de inginerie electrica,2379
+511,311,Tehnologia vinului otetului si a bauturilor distilate,2380
+507,311,Chimia alimentelor,2381
+507,311,Microbiologie speciala,2382
+513,311,Coloizi in industria alimentara,2383
+499,311,Tehnologia moraritului,2384
+183,311,Didactica specialitatii,2385
+337,323,Operatii unitare in industria alimentara,2386
+441,323,Principii si metode de conservare a produselor alimentare,2387
+502,323,Tehnologia maltului si a berii 2,2388
+497,323,Tehnologii în industria laptelui,2389
+515,323,Utilaje in industria alimentara,2390
+499,323,Tehnologii în industria cărnii 2,2391
+499,323,Tehnologia panificatiei,2392
+206,323,Managementul clasei de elevi,2393
+542,332,Management,2394
+503,332,"Ambalarea, etichetarea si designul in industria alimentara",2395
+503,332,Produse traditionale si ecologice,2396
+497,332,Biotehnologii speciale,2397
+559,332,Legislatie in industria alimentara,2398
+497,332,Gastrotehnie si catering,2399
+514,332,Inocuitatea produselor alimentare,2400
+542,333,Management,2401
+503,333,"Ambalarea, etichetarea si designul in industria alimentara",2402
+503,333,Produse traditionale si ecologice,2403
+497,333,Biotehnologii speciale,2404
+559,333,Legislatie in industria alimentara,2405
+497,333,Gastrotehnie si catering,2406
+514,333,Inocuitatea produselor alimentare,2407
+179,2202,Structurile și frontierele vieții private,2408
+736,2202,Stalinism și național-comunism - istorie orală ,2409
+167,2202,Istoria relaţiilor Europei cu lumea musulmană,2410
+744,2202,Didactica domeniului si dezvoltari in didactica specialitatii,2411
+162,2202,"Monarhie, oligarhie, democrație în antichitate ",2412
+163,2202,Istoria ideilor federaliste în Europa,2413
+422,2202,Proiectarea si managementul programelor educationale,2414
+143,106,Introducere în istoria medievală a românilor,2415
+143,106,Introducere în istoria medievală universală,2416
+167,106,Curs și seminar special de istorie medievală universală ,2417
+141,106,Ştiinţe auxiliare ale istoriei,2418
+149,106,Pedagogie I,2419
+206,107,Didactica specialitatii,2420
+736,107,Introducere în istoria românilor în secolul XX,2421
+159,107,Istoriografie românească,2422
+161,107,Introducere în istoria universală a secolului XX,2423
+162,107,Paleografie şi epigrafie latină ,2424
+179,107,Curs special de istoria romanilor (sec. XIX),2425
+159,108,Istoria integrarii europene,2426
+143,108,Introducere în geopolitică,2427
+163,108,Istoria Bucovinei,2428
+141,108,Epoca marilor migrații,2429
+179,108,"Stat, societate, religie ",2430
+1722,108,Istoria Basarabiei,2431
+207,108,Managementul clasei de elevi,2432
+143,1112,Introducere în istoria medievală a românilor,2433
+143,1112,Introducere în istoria medievală universală,2434
+163,1112,Istoria Bucovinei,2435
+141,1112,Ştiinţe auxiliare ale istoriei,2436
+736,1113,Introducere în istoria românilor în secolul XX,2437
+161,1113,Introducere în istoria universală a secolului XX,2438
+159,1113,Istoriografie românească,2439
+179,1113,Curs şi seminar special de istorie medievală a României ,2440
+268,2000,Educaţie pentru sănătate şi prim ajutor,2441
+200,2000,Fundamentele pedagogiei,2442
+267,2000,Fundamentele stiintifice ale jocului sportiv: Baschet,2443
+268,2000,Bazele generale ale Kinetoterapiei,2444
+813,2000,Fiziologie ,2445
+263,2000,Fundamentele stiintifice ale jocului sportiv: Fotbal,2446
+944,2000,Anatomie functionala,2447
+268,2001,Educaţie pentru sănătate şi prim ajutor,2448
+200,2001,Fundamentele pedagogiei,2449
+267,2001,Fundamentele stiintifice ale jocului sportiv: Baschet,2450
+268,2001,Bazele generale ale Kinetoterapiei,2451
+813,2001,Fiziologie ,2452
+263,2001,Fundamentele stiintifice ale jocului sportiv: Fotbal,2453
+944,2001,Anatomie functionala,2454
+268,2008,Educaţie pentru sănătate şi prim ajutor,2455
+200,2008,Fundamentele pedagogiei,2456
+267,2008,Fundamentele stiintifice ale jocului sportiv: Baschet,2457
+268,2008,Bazele generale ale Kinetoterapiei,2458
+813,2008,Fiziologie ,2459
+263,2008,Fundamentele stiintifice ale jocului sportiv: Fotbal,2460
+944,2008,Anatomie functionala,2461
+268,2009,Educaţie pentru sănătate şi prim ajutor,2462
+200,2009,Fundamentele pedagogiei,2463
+267,2009,Fundamentele stiintifice ale jocului sportiv: Baschet,2464
+268,2009,Bazele generale ale Kinetoterapiei,2465
+813,2009,Fiziologie ,2466
+263,2009,Fundamentele stiintifice ale jocului sportiv: Fotbal,2467
+944,2009,Anatomie functionala,2468
+268,2043,Educaţie pentru sănătate şi prim ajutor,2469
+200,2043,Fundamentele pedagogiei,2470
+267,2043,Fundamentele stiintifice ale jocului sportiv: Baschet,2471
+268,2043,Bazele generale ale Kinetoterapiei,2472
+813,2043,Fiziologie ,2473
+263,2043,Fundamentele stiintifice ale jocului sportiv: Fotbal,2474
+944,2043,Anatomie functionala,2475
+193,362,Inot si Hidrokinetoterapie,2476
+263,362,Didactica specialitatii,2477
+263,362,Masurare in kinetoterapie,2478
+268,362,Kinetoterapia deficientelor fizice si senzoriale,2479
+260,362,"Echipamente, aparate si instalatii utilizate in kinetoterapie",2480
+260,362,Utilizare softuri specializate in stiinta sportului si ed. fizice,2481
+651,362,Elemente de Fizioterapie,2482
+193,1153,Inot si Hidrokinetoterapie,2483
+263,1153,Didactica specialitatii,2484
+263,1153,Masurare in kinetoterapie,2485
+268,1153,Kinetoterapia deficientelor fizice si senzoriale,2486
+260,1153,"Echipamente, aparate si instalatii utilizate in kinetoterapie",2487
+260,1153,Utilizare softuri specializate in stiinta sportului si ed. fizice,2488
+651,1153,Elemente de Fizioterapie,2489
+193,978,Inot si Hidrokinetoterapie,2490
+263,978,Didactica specialitatii,2491
+263,978,Masurare in kinetoterapie,2492
+268,978,Kinetoterapia deficientelor fizice si senzoriale,2493
+260,978,"Echipamente, aparate si instalatii utilizate in kinetoterapie",2494
+260,978,Utilizare softuri specializate in stiinta sportului si ed. fizice,2495
+651,978,Elemente de Fizioterapie,2496
+193,1097,Inot si Hidrokinetoterapie,2497
+263,1097,Didactica specialitatii,2498
+263,1097,Masurare in kinetoterapie,2499
+268,1097,Kinetoterapia deficientelor fizice si senzoriale,2500
+260,1097,"Echipamente, aparate si instalatii utilizate in kinetoterapie",2501
+260,1097,Utilizare softuri specializate in stiinta sportului si ed. fizice,2502
+651,1097,Elemente de Fizioterapie,2503
+193,1143,Kinetoterapia în geriatrie şi gerontologie,2504
+755,1143,Kinetoterapia in afectiuni neurologice,2505
+813,1143,Kinetoterapia în afecţiuni cardio-respiratorii,2506
+548,1143,Educare/Reeducare motrică şi funcţională în pediatrie,2507
+548,1143,Ortezare si protezare,2508
+207,1143,Managementul clasei de elevi,2509
+813,1143,Kinetoprofilaxie si recuperare in af. cardio-respiratorii,2510
+193,1154,Kinetoterapia în geriatrie şi gerontologie,2511
+755,1154,Kinetoterapia in afectiuni neurologice,2512
+813,1154,Kinetoterapia în afecţiuni cardio-respiratorii,2513
+548,1154,Educare/Reeducare motrică şi funcţională în pediatrie,2514
+548,1154,Ortezare si protezare,2515
+207,1154,Managementul clasei de elevi,2516
+813,1154,Kinetoprofilaxie si recuperare in af. cardio-respiratorii,2517
+193,1144,Kinetoterapia în geriatrie şi gerontologie,2518
+755,1144,Kinetoterapia in afectiuni neurologice,2519
+813,1144,Kinetoterapia în afecţiuni cardio-respiratorii,2520
+548,1144,Educare/Reeducare motrică şi funcţională în pediatrie,2521
+548,1144,Ortezare si protezare,2522
+207,1144,Managementul clasei de elevi,2523
+813,1144,Kinetoprofilaxie si recuperare in af. cardio-respiratorii,2524
+193,1155,Kinetoterapia în geriatrie şi gerontologie,2525
+755,1155,Kinetoterapia in afectiuni neurologice,2526
+813,1155,Kinetoterapia în afecţiuni cardio-respiratorii,2527
+548,1155,Educare/Reeducare motrică şi funcţională în pediatrie,2528
+548,1155,Ortezare si protezare,2529
+207,1155,Managementul clasei de elevi,2530
+813,1155,Kinetoprofilaxie si recuperare in af. cardio-respiratorii,2531
+262,1041,Mijloacele Sportului in Kinetoterapie,2532
+193,1041,Management in sanatate si recuperare,2533
+651,1041,Metode de explorare si evaluare in recuperarea med...,2534
+813,1041,Fiziologia Varstelor,2535
+813,1041,Masaj Terapeutic si Modelare Corporala,2536
+422,1041,Proiectarea şi managementul programelor educaţionale,2537
+262,2154,Mijloacele Sportului in Kinetoterapie,2538
+193,2154,Management in sanatate si recuperare,2539
+651,2154,Metode de explorare si evaluare in recuperarea med...,2540
+813,2154,Fiziologia Varstelor,2541
+813,2154,Masaj Terapeutic si Modelare Corporala,2542
+183,2154,"Didactica domeniului şi dezvoltării în didactica
+specialităţii",2543
+268,1100,Kinetoprofilaxia si recuperarea in afectiuni musculo-scheletale,2544
+651,1100,Terapie fizica in recuperare si modelare corporala,2545
+813,1100,Kinetoterapia in traumatologia sportiva,2546
+268,2254,Kinetoprofilaxia si recuperarea in afectiuni musculo-scheletale,2547
+651,2254,Terapie fizica in recuperare si modelare corporala,2548
+813,2254,Kinetoterapia in traumatologia sportiva,2549
+281,204,Reprezentări ale limbii în gramaticile românești,2550
+281,204,Filozofia limbajului,2551
+283,204,Tendinte actuale in limba vorbita,2552
+283,204,Evoluţia normelor în limba română,2553
+293,204,Elemente de retorică,2554
+295,525,Comunicarea culturala si lingvistica in spatiul european,2555
+295,525,Limba si mentalitate,2556
+815,525,Comunicare la nivelul culturii majore,2557
+287,205,Imaginar mitic şi literar,2558
+288,205,Cultura si conflict in Europa postbelica,2559
+1594,205,Ideologie şi exil,2560
+942,205,Biografie si autofictiune,2561
+282,214,Modernism şi postmodernism,2562
+291,214,Curs optional - Scoli critice europene,2563
+1594,1026,Curs practic de limba română: redactare și compoziție,2564
+942,1026,Cultura si civilizatie romana,2565
+942,1026,Curs practic limba romana - Structuri gramaticale,2566
+1509,1026,Limba romana - limbaj specializat,2567
+942,1026,Receptarea textului scris si oral,2568
+1594,2130,Curs practic de limba română: redactare și compoziție,2569
+942,2130,Cultura si civilizatie romana,2570
+942,2130,Curs practic limba romana - Structuri gramaticale,2571
+1509,2130,Limba romana - limbaj specializat,2572
+942,2130,Receptarea textului scris si oral,2573
+482,802,Certificarea pădurilor şi a lanţurilor de custodie,2574
+476,802,Piata lemnului si economie forestiera,2575
+469,802,Strategia firmei cu specific forestier,2576
+478,802,Sisteme geoinformatice,2577
+465,802,Ecotehnologii in exploatarile forestiere,2578
+422,802,Proiectarea si managementul programelor educationale,2579
+183,802,Didactica domeniului si dezvoltari in didactica specialitatii,2580
+482,1229,Certificarea pădurilor şi a lanţurilor de custodie,2581
+476,1229,Piata lemnului si economie forestiera,2582
+469,1229,Strategia firmei cu specific forestier,2583
+478,1229,Sisteme geoinformatice,2584
+465,1229,Ecotehnologii in exploatarile forestiere,2585
+422,1229,Proiectarea si managementul programelor educationale,2586
+183,1229,Didactica domeniului si dezvoltari in didactica specialitatii,2587
+585,803,Managementul proiectelor,2588
+139,803,Etica si integritate academica,2589
+585,2059,Managementul proiectelor,2590
+139,2059,Etica si integritate academica,2591
+130,2251,Acreditare si Certificare in Domeniul Calitatii,2592
+256,2251,Sisteme Mecatronice Avansate in Industria Automobilelor,2593
+567,2251,Medii de Simulare a Sistemelor Mecatronice,2594
+1663,2251,Senzori Inteligenți,2595
+71,2251,Etica si Integritate Academica,2596
+130,2252,Acreditare si Certificare in Domeniul Calitatii,2597
+256,2252,Sisteme Mecatronice Avansate in Industria Automobilelor,2598
+567,2252,Medii de Simulare a Sistemelor Mecatronice,2599
+1663,2252,Senzori Inteligenți,2600
+71,2252,Etica si Integritate Academica,2601
+512,341,Influenta procesarii asupra calitatii produselor alimentare,2602
+550,341,Reologia produselor alimentare,2603
+503,341,Principiile și bazele compoziției sistemelor complexe ,2604
+337,341,Proprietatile functionale ale aditivilor alimentari,2605
+422,341,Proiectarea si managementul programelor educationale,2606
+71,341,Etică şi integritate academică,2607
+183,341,Didactica domeniului si dezvoltarii in didactica specialitatii,2608
+512,962,Influenta procesarii asupra calitatii produselor alimentare,2609
+550,962,Reologia produselor alimentare,2610
+503,962,Principiile și bazele compoziției sistemelor complexe ,2611
+337,962,Proprietatile functionale ale aditivilor alimentari,2612
+422,962,Proiectarea si managementul programelor educationale,2613
+71,962,Etică şi integritate academică,2614
+183,962,Didactica domeniului si dezvoltarii in didactica specialitatii,2615
+104,76,Metode Numerice,2616
+116,76,Fizică,2617
+124,76,Mecanică,2618
+344,76,Grafica Asistata de Calculator (2),2619
+344,76,Bazele Roboticii,2620
+303,76,Comunicare,2621
+104,946,Metode Numerice,2622
+116,946,Fizică,2623
+124,946,Mecanică,2624
+344,946,Grafica Asistata de Calculator (2),2625
+344,946,Bazele Roboticii,2626
+303,946,Comunicare,2627
+106,87,Rezistenta Materialelor 2,2628
+112,87,Mecanica Fluidelor ,2629
+103,87,Termotehnică,2630
+135,87,Electronică Digitală,2631
+1050,87,Programarea Calculatoarelor si Limbaje de Programare,2632
+106,2363,Rezistenta Materialelor 2,2633
+112,2363,Mecanica Fluidelor ,2634
+103,2363,Termotehnică,2635
+135,2363,Electronică Digitală,2636
+1050,2363,Programarea Calculatoarelor si Limbaje de Programare,2637
+104,2248,Mecanisme si Organe de Masini (2),2638
+256,2248,Sisteme de Actionare,2639
+110,2248,Dinamica Sistemelor Mecatronice,2640
+132,2248,Tehnologii de prelucrare,2641
+1663,2248,Senzori si Sisteme Senzoriale,2642
+409,2248,Ecologie si Protectia Mediului,2643
+344,2248,Analiza cu Elemente Finite,2644
+567,2248,Proiectare asistata de calculator,2645
+256,100,Sisteme Mecatronice in Prestari Servicii,2646
+256,100,Mentenanta Sistemelor Mecatronice,2647
+73,100,Prelucrarea si Recunoasterea Imaginilor,2648
+116,100,Optomecatronica,2649
+1663,100,Materiale şi Structuri Inteligente,2650
+256,258,Sisteme Mecatronice in Prestari Servicii,2651
+256,258,Mentenanta Sistemelor Mecatronice,2652
+73,258,Prelucrarea si Recunoasterea Imaginilor,2653
+116,258,Optomecatronica,2654
+1663,258,Materiale şi Structuri Inteligente,2655
+1690,2021,Comunicare mediatica audio-vizuala,2656
+301,2021,Tehnici de redactare,2657
+1084,2021,Introducere in publicitate,2658
+542,2021,Metode de cercetare în științele sociale,2659
+810,2021,Multimedia,2660
+14,2021,Sisteme de management de conținut web,2661
+1690,2067,Comunicare mediatica audio-vizuala,2662
+301,2067,Tehnici de redactare,2663
+1084,2067,Introducere in publicitate,2664
+542,2067,Metode de cercetare în științele sociale,2665
+810,2067,Multimedia,2666
+14,2067,Sisteme de management de conținut web,2667
+1690,2022,Comunicare mediatica audio-vizuala,2668
+301,2022,Tehnici de redactare,2669
+1084,2022,Introducere in publicitate,2670
+542,2022,Metode de cercetare în științele sociale,2671
+810,2022,Multimedia,2672
+14,2022,Sisteme de management de conținut web,2673
+1690,2023,Comunicare mediatica audio-vizuala,2674
+301,2023,Tehnici de redactare,2675
+1084,2023,Introducere in publicitate,2676
+542,2023,Metode de cercetare în științele sociale,2677
+810,2023,Multimedia,2678
+14,2023,Sisteme de management de conținut web,2679
+322,2074,Media alternative: teorii ale conspirației și știri false,2680
+68,2074,Platforme digitale,2681
+1530,2074,Analiza datelor digitale,2682
+1629,2074,Tehnica ilustrației digitale în posterul publicitar,2683
+16,2074,Securitatea informațiilor în mediul online,2684
+187,2074,Etica,2685
+303,2074,Social media și produsele sale,2686
+322,2178,Media alternative: teorii ale conspirației și știri false,2687
+68,2178,Platforme digitale,2688
+1530,2178,Analiza datelor digitale,2689
+1629,2178,Tehnica ilustrației digitale în posterul publicitar,2690
+16,2178,Securitatea informațiilor în mediul online,2691
+187,2178,Etica,2692
+303,2178,Social media și produsele sale,2693
+322,2076,Media alternative: teorii ale conspirației și știri false,2694
+68,2076,Platforme digitale,2695
+1530,2076,Analiza datelor digitale,2696
+1629,2076,Tehnica ilustrației digitale în posterul publicitar,2697
+16,2076,Securitatea informațiilor în mediul online,2698
+187,2076,Etica,2699
+303,2076,Social media și produsele sale,2700
+322,2179,Media alternative: teorii ale conspirației și știri false,2701
+68,2179,Platforme digitale,2702
+1530,2179,Analiza datelor digitale,2703
+1629,2179,Tehnica ilustrației digitale în posterul publicitar,2704
+16,2179,Securitatea informațiilor în mediul online,2705
+187,2179,Etica,2706
+303,2179,Social media și produsele sale,2707
+1690,2175,Animatie si efecte vizuale,2708
+1690,2175,Productie TV,2709
+301,2175,Psihologia consumatorului de media digitală,2710
+13,2175,Sisteme de comunicații digitale,2711
+363,2175,Aspecte legale ale producției media,2712
+79,2175,Interactiunea in timp real cu mediul virtual,2713
+542,2175,Media planning,2714
+1690,2180,Animatie si efecte vizuale,2715
+1690,2180,Productie TV,2716
+301,2180,Psihologia consumatorului de media digitală,2717
+13,2180,Sisteme de comunicații digitale,2718
+363,2180,Aspecte legale ale producției media,2719
+79,2180,Interactiunea in timp real cu mediul virtual,2720
+542,2180,Media planning,2721
+1633,72,Baze de date in energetica,2722
+335,72,Automatizarea şi protecţia SEE,2723
+35,72,Staţii şi posturi de transformare,2724
+41,72,Tehnica tensiunilor inalte,2725
+182,72,Sisteme SCADA in conducerea proceselor energetice,2726
+205,72,Fiabilitate,2727
+652,2322,Igiena,2728
+843,2322,Metodologia cercetarii stiintifice,2729
+1139,2322,Anatomie si embriologie II,2730
+1516,2322,Fiziologie I,2731
+367,2322,Histologie,2732
+71,2322,Etica si integritate academica,2733
+1604,2322,Promovarea sanatatii,2734
+207,2322,Pedagogie 1,2735
+652,2323,Igiena,2736
+843,2323,Metodologia cercetarii stiintifice,2737
+1139,2323,Anatomie si embriologie II,2738
+1516,2323,Fiziologie I,2739
+367,2323,Histologie,2740
+71,2323,Etica si integritate academica,2741
+1604,2323,Promovarea sanatatii,2742
+207,2323,Pedagogie 1,2743
+652,2324,Igiena,2744
+843,2324,Metodologia cercetarii stiintifice,2745
+1139,2324,Anatomie si embriologie II,2746
+1516,2324,Fiziologie I,2747
+367,2324,Histologie,2748
+71,2324,Etica si integritate academica,2749
+1604,2324,Promovarea sanatatii,2750
+207,2324,Pedagogie 1,2751
+652,2326,Igiena,2752
+843,2326,Metodologia cercetarii stiintifice,2753
+1139,2326,Anatomie si embriologie II,2754
+1516,2326,Fiziologie I,2755
+367,2326,Histologie,2756
+71,2326,Etica si integritate academica,2757
+1604,2326,Promovarea sanatatii,2758
+207,2326,Pedagogie 1,2759
+377,2303,Structuri de date,2760
+20,2303,Analiza matematica II,2761
+510,2303,Geometrie II,2762
+808,2303,Algoritmi si programare II,2763
+207,2303,Pedagogie I,2764
+1766,2303,Algoritmi si programare II,2765
+377,2304,Structuri de date,2766
+20,2304,Analiza matematica II,2767
+510,2304,Geometrie II,2768
+808,2304,Algoritmi si programare II,2769
+207,2304,Pedagogie I,2770
+1766,2304,Algoritmi si programare II,2771
+640,2360,Analiza complexa,2772
+529,2360,Statistica matematica,2773
+808,2360,Programare orientată obiect,2774
+1050,2360,Redactare si comunicare stiintifica si profesionala,2775
+206,2360,Didactica specialităţii,2776
+1004,2360,Astronomie,2777
+640,2361,Analiza complexa,2778
+529,2361,Statistica matematica,2779
+808,2361,Programare orientată obiect,2780
+1050,2361,Redactare si comunicare stiintifica si profesionala,2781
+206,2361,Didactica specialităţii,2782
+1004,2361,Astronomie,2783
+550,345,Reologia produselor alimentare,2784
+510,345,Statistica aplicata,2785
+507,345,Contaminanti microbiologici ai alimentelor,2786
+514,345,Efectele consumului si abuzului de substante toxice,2787
+422,345,Proiectarea si managementul programelor educationale,2788
+71,345,Etică şi integritate academică,2789
+183,345,Didactica domeniului si dezvoltarii in didactica specialitatii,2790
+550,346,Reologia produselor alimentare,2791
+510,346,Statistica aplicata,2792
+507,346,Contaminanti microbiologici ai alimentelor,2793
+514,346,Efectele consumului si abuzului de substante toxice,2794
+422,346,Proiectarea si managementul programelor educationale,2795
+71,346,Etică şi integritate academică,2796
+183,346,Didactica domeniului si dezvoltarii in didactica specialitatii,2797
+273,250,Marketing educațional,2798
+395,250,Managementul si gestiunea financiara a proiectelor educationale,2799
+744,250,Didactica domeniului și dezvoltări în didactica specialității,2800
+94,250,Metodologia cercetării în științele socio-umane,2801
+273,1085,Marketing educațional,2802
+395,1085,Managementul si gestiunea financiara a proiectelor educationale,2803
+744,1085,Didactica domeniului și dezvoltări în didactica specialității,2804
+94,1085,Metodologia cercetării în științele socio-umane,2805
+273,2343,Marketing educațional,2806
+395,2343,Managementul si gestiunea financiara a proiectelor educationale,2807
+744,2343,Didactica domeniului și dezvoltări în didactica specialității,2808
+94,2343,Metodologia cercetării în științele socio-umane,2809
+221,247,Tehnologii informationale in managementul educațional,2810
+199,247,Etică și Integritate Academică și Profesională,2811
+872,247,Managementul și consilierea carierei în domeniul educațional,2812
+221,2344,Tehnologii informationale in managementul educațional,2813
+199,2344,Etică și Integritate Academică și Profesională,2814
+872,2344,Managementul și consilierea carierei în domeniul educațional,2815
+529,443,Matematici aplicate in economie,2816
+523,443,Fiscalitate,2817
+536,443,Statistică,2818
+528,443,Ecotehnologie,2819
+342,443,Economie 2,2820
+207,443,Pedagogie I,2821
+529,1217,Matematici aplicate in economie,2822
+523,1217,Fiscalitate,2823
+536,1217,Statistică,2824
+528,1217,Ecotehnologie,2825
+342,1217,Economie 2,2826
+207,1217,Pedagogie I,2827
+529,689,Matematici aplicate in economie,2828
+523,689,Fiscalitate,2829
+536,689,Statistică,2830
+528,689,Ecotehnologie,2831
+342,689,Economie 2,2832
+207,689,Pedagogie I,2833
+529,1218,Matematici aplicate in economie,2834
+523,1218,Fiscalitate,2835
+536,1218,Statistică,2836
+528,1218,Ecotehnologie,2837
+342,1218,Economie 2,2838
+207,1218,Pedagogie I,2839
+419,450,Managementul asigurărilor,2840
+379,450,Comunicare si negociere in afaceri,2841
+540,450,Management financiar,2842
+541,450,Baze de date pentru management,2843
+988,450,Managementul inovarii,2844
+395,450,Analiza strategica a mediului concurential,2845
+206,450,Didactica specialităţii,2846
+419,1219,Managementul asigurărilor,2847
+379,1219,Comunicare si negociere in afaceri,2848
+540,1219,Management financiar,2849
+541,1219,Baze de date pentru management,2850
+988,1219,Managementul inovarii,2851
+395,1219,Analiza strategica a mediului concurential,2852
+206,1219,Didactica specialităţii,2853
+419,2356,Managementul asigurărilor,2854
+379,2356,Comunicare si negociere in afaceri,2855
+540,2356,Management financiar,2856
+541,2356,Baze de date pentru management,2857
+988,2356,Managementul inovarii,2858
+395,2356,Analiza strategica a mediului concurential,2859
+206,2356,Didactica specialităţii,2860
+419,2357,Managementul asigurărilor,2861
+379,2357,Comunicare si negociere in afaceri,2862
+540,2357,Management financiar,2863
+541,2357,Baze de date pentru management,2864
+988,2357,Managementul inovarii,2865
+395,2357,Analiza strategica a mediului concurential,2866
+206,2357,Didactica specialităţii,2867
+379,447,Managementul IMM-urilor,2868
+528,447,Managementul calitatii,2869
+532,447,Etică în afaceri,2870
+388,447,Metodologia elaborarii lucrarii de licenta,2871
+397,447,Simulari si proiecte de management,2872
+172,447,Management strategic,2873
+380,447,Contabilitate de gestiune,2874
+206,447,Managementul clasei de elevi,2875
+379,693,Managementul IMM-urilor,2876
+528,693,Managementul calitatii,2877
+532,693,Etică în afaceri,2878
+388,693,Metodologia elaborarii lucrarii de licenta,2879
+397,693,Simulari si proiecte de management,2880
+172,693,Management strategic,2881
+380,693,Contabilitate de gestiune,2882
+206,693,Managementul clasei de elevi,2883
+796,228,Euroregiunile si cooperarea romaneasca transfrontaliera,2884
+163,228,Istoria ideilor federaliste în Europa,2885
+657,228,Managementul proiectelor ,2886
+1108,228,Conflicte fierbinți și înghețate în vecinătatea UE,2887
+422,228,Proiectarea si managementul programelor educationale,2888
+151,228,Politica externă şi de securitate a Rusiei ,2889
+744,228,Didactica domeniului si dezvoltari in didactica specialitatii,2890
+514,339,Metode moderne de analiza instrumentala ,2891
+1098,339,Metode moderne de control microbiologic al alimentelor,2892
+559,339,Legislatia securitatii mediului,2893
+759,339,Evaluarea ciclului de viata al produselor,2894
+422,339,Proiectarea si managementul programelor educationale,2895
+71,339,Etică şi integritate academică,2896
+183,339,Didactica domeniului si dezvoltarii in didactica specialitatii,2897
+514,2376,Metode moderne de analiza instrumentala ,2898
+1098,2376,Metode moderne de control microbiologic al alimentelor,2899
+559,2376,Legislatia securitatii mediului,2900
+759,2376,Evaluarea ciclului de viata al produselor,2901
+422,2376,Proiectarea si managementul programelor educationale,2902
+71,2376,Etică şi integritate academică,2903
+183,2376,Didactica domeniului si dezvoltarii in didactica specialitatii,2904
+744,2267,Didactica domeniului si dezvoltari in didactica specialitatii,2905
+139,2267,Ordinea socială și intoleranța religioasă ,2906
+1010,2267,Modele europene în domeniul AS și securitate comunitară,2907
+195,2267,Managementul proiectelor comunitare,2908
+257,2267,Managementul reManagementul RU în structurile de AS și securitat,2909
+422,2267,Proiectarea si managementul programelor educationale,2910
+723,2267,Managementul datelor si informatiei ,2911
+71,2339,Etică şi integritate academică ,2912
+743,2339,Metodologia cercetării și diseminarea rezultatelor ,2913
+843,761,Biologie celulară și moleculară,2914
+442,761,Chimia alimentelor,2915
+1781,761,Fiziologie și Fiziopatologie,2916
+367,761,Histologie. Anatomie patologica,2917
+1850,761,Igiena,2918
+207,761,Pedagogie 1,2919
+843,762,Biologie celulară și moleculară,2920
+442,762,Chimia alimentelor,2921
+1781,762,Fiziologie și Fiziopatologie,2922
+367,762,Histologie. Anatomie patologica,2923
+1850,762,Igiena,2924
+843,2314,Biologie celulară și moleculară,2925
+442,2314,Chimia alimentelor,2926
+1781,2314,Fiziologie și Fiziopatologie,2927
+367,2314,Histologie. Anatomie patologica,2928
+1850,2314,Igiena,2929
+442,824,Metabolismul macronutrientilor,2930
+749,824,Epidemiologie,2931
+1124,824,Nutritia copilului sanatos si a celui bolnav,2932
+825,824,Nutriția omului sănătos. Nutriția sportivului,2933
+1067,824,Metodologia cercetarii stiintifice,2934
+1037,824,Igiena alimentatiei si siguranta alimentului,2935
+1037,824,"Aditivi alimentari, nutraceutice si alimente functionale",2936
+1037,824,Tehnologie alimentară - gastrotehnie,2937
+824,824,Semiologie chirurgicala si chirurgie,2938
+1781,824,"Nutritia mamei (in presarcina, sarcina si alaptare)",2939
+744,824,Didactica specialitatii,2940
+442,825,Metabolismul macronutrientilor,2941
+749,825,Epidemiologie,2942
+1124,825,Nutritia copilului sanatos si a celui bolnav,2943
+825,825,Nutriția omului sănătos. Nutriția sportivului,2944
+1067,825,Metodologia cercetarii stiintifice,2945
+1037,825,Igiena alimentatiei si siguranta alimentului,2946
+1037,825,"Aditivi alimentari, nutraceutice si alimente functionale",2947
+1037,825,Tehnologie alimentară - gastrotehnie,2948
+824,825,Semiologie chirurgicala si chirurgie,2949
+1781,825,"Nutritia mamei (in presarcina, sarcina si alaptare)",2950
+792,874,Dietoterapie si particularitati de ingrijire in patologia chirurgicala,2951
+1000,874,Promovarea sănătății și educație terapeutică nutrițională,2952
+848,874,Dietoterapie in intolerante si alergii alimentare,2953
+814,874,Dietoterapia și particularități de &icirc;ngrijire &icirc;n afecț meta,2954
+559,874,"Legislatie, principii de administratie si organizare a serv. de nutri",2955
+805,874,Dietoterapia si particularitati de ingrijire in patologia endocrina,2956
+792,1250,Dietoterapie si particularitati de ingrijire in patologia chirurgicala,2957
+1000,1250,Promovarea sănătății și educație terapeutică nutrițională,2958
+848,1250,Dietoterapie in intolerante si alergii alimentare,2959
+814,1250,Dietoterapia și particularități de &icirc;ngrijire &icirc;n afecț meta,2960
+559,1250,"Legislatie, principii de administratie si organizare a serv. de nutri",2961
+805,1250,Dietoterapia si particularitati de ingrijire in patologia endocrina,2962
+843,2095,Microbiota intestinala si metagenomica in boli cronice,2963
+825,2095,Factori de risc in nutritia umana,2964
+814,2095,Nutritia in controlul ponderal,2965
+1037,2095,Cercetare in nutritie si recuperare medicala,2966
+744,2095,Didactica domeniului și dezvoltări &icirc;n didactica specializării,2967
+1037,2095,Gastronomie aplicata,2968
+422,2095,Proiectarea si managementul programelor educationale,2969
+1508,2095,Terapia nutritionala si recuperare medicala in sindromul metabolic,2970
+1037,2095,Calitatea si siguranta alimentelor,2971
+843,2096,Microbiota intestinala si metagenomica in boli cronice,2972
+825,2096,Factori de risc in nutritia umana,2973
+814,2096,Nutritia in controlul ponderal,2974
+1037,2096,Cercetare in nutritie si recuperare medicala,2975
+744,2096,Didactica domeniului și dezvoltări &icirc;n didactica specializării,2976
+1037,2096,Gastronomie aplicata,2977
+422,2096,Proiectarea si managementul programelor educationale,2978
+1508,2096,Terapia nutritionala si recuperare medicala in sindromul metabolic,2979
+1037,2096,Calitatea si siguranta alimentelor,2980
+550,295,Alimentatie si cultura,2981
+558,295,Fizica,2982
+511,295,Chimie analitica,2983
+510,295,"Algebra liniara, geometrie analitica si diferentiala",2984
+515,295,Grafica asistata pe calculator,2985
+759,295,Chimie organica,2986
+336,295,Politici si strategii globale de securitate alimentara,2987
+149,295,Pedagogie I,2988
+550,296,Alimentatie si cultura,2989
+558,296,Fizica,2990
+511,296,Chimie analitica,2991
+510,296,"Algebra liniara, geometrie analitica si diferentiala",2992
+515,296,Grafica asistata pe calculator,2993
+759,296,Chimie organica,2994
+336,296,Politici si strategii globale de securitate alimentara,2995
+149,296,Pedagogie I,2996
+507,308,Chimia alimentelor,2997
+513,308,Coloizi in industria alimentara,2998
+31,308,Elemente de inginerie electrica,2999
+508,308,Modelarea si automatizarea proceselor,3000
+502,308,Tehnologii generale in ind. alimentara,3001
+507,308,Microbiologie speciala,3002
+183,308,Didactica specialitatii,3003
+507,309,Chimia alimentelor,3004
+513,309,Coloizi in industria alimentara,3005
+31,309,Elemente de inginerie electrica,3006
+508,309,Modelarea si automatizarea proceselor,3007
+502,309,Tehnologii generale in ind. alimentara,3008
+507,309,Microbiologie speciala,3009
+183,309,Didactica specialitatii,3010
+337,879,Operatii unitare in industria alimentara,3011
+441,879,Principii si metode de conservare a produselor alimentare,3012
+503,879,Produse traditionale si ecologice,3013
+336,879,Siguranta si securitate alimentara in protectia consumatorului,3014
+515,879,Utilaje in industria alimentara,3015
+795,879,Tehnologii generale in ind. alimentara,3016
+542,943,Management,3017
+550,943,Controlul si expertiza alimentelor si depistarea falsurilor,3018
+503,943,"Ambalarea, etichetarea si designul in industria alimentara",3019
+503,943,Controlul si expertiza produselor alimentare,3020
+514,943,Inocuitatea produselor alimentare,3021
+616,943,Metodologia studiilor de impact,3022
+513,943,Agenţi poluanţi şi impactul lor asupra mediului şi consumatorului,3023
+415,135,Psihologia dezvoltării,3024
+118,135,Matematica,3025
+199,135,Teoria si metodologia curriculumului,3026
+89,135,Limba romana,3027
+273,135,Tehnici de invatare eficienta,3028
+1780,135,Teoria si metodologia instruirii,3029
+415,1294,Psihologia dezvoltării,3030
+118,1294,Matematica,3031
+199,1294,Teoria si metodologia curriculumului,3032
+89,1294,Limba romana,3033
+273,1294,Tehnici de invatare eficienta,3034
+1780,1294,Teoria si metodologia instruirii,3035
+415,136,Psihologia dezvoltării,3036
+118,136,Matematica,3037
+199,136,Teoria si metodologia curriculumului,3038
+89,136,Limba romana,3039
+273,136,Tehnici de invatare eficienta,3040
+1780,136,Teoria si metodologia instruirii,3041
+415,1295,Psihologia dezvoltării,3042
+118,1295,Matematica,3043
+199,1295,Teoria si metodologia curriculumului,3044
+89,1295,Limba romana,3045
+273,1295,Tehnici de invatare eficienta,3046
+1780,1295,Teoria si metodologia instruirii,3047
+415,779,Psihologia dezvoltării,3048
+118,779,Matematica,3049
+199,779,Teoria si metodologia curriculumului,3050
+89,779,Limba romana,3051
+273,779,Tehnici de invatare eficienta,3052
+1780,779,Teoria si metodologia instruirii,3053
+415,1296,Psihologia dezvoltării,3054
+118,1296,Matematica,3055
+199,1296,Teoria si metodologia curriculumului,3056
+89,1296,Limba romana,3057
+273,1296,Tehnici de invatare eficienta,3058
+1780,1296,Teoria si metodologia instruirii,3059
+415,2116,Psihologia dezvoltării,3060
+118,2116,Matematica,3061
+199,2116,Teoria si metodologia curriculumului,3062
+89,2116,Limba romana,3063
+273,2116,Tehnici de invatare eficienta,3064
+1780,2116,Teoria si metodologia instruirii,3065
+529,140,Didactica matematicii în învățământul primar și preșcolar,3066
+905,140,Psihologia personalității,3067
+90,140,Didactica limbii și literaturii române - învățământ primar,3068
+159,140,Istoria si didactica predării istoriei,3069
+85,140,Metodologia cercetării în ştiinţele educaţiei,3070
+85,140,Psihopedagogia jocului,3071
+93,140,Educatie plastica si didactica educatiei plastice ,3072
+529,141,Didactica matematicii în învățământul primar și preșcolar,3073
+905,141,Psihologia personalității,3074
+90,141,Didactica limbii și literaturii române - învățământ primar,3075
+159,141,Istoria si didactica predării istoriei,3076
+85,141,Metodologia cercetării în ştiinţele educaţiei,3077
+85,141,Psihopedagogia jocului,3078
+93,141,Educatie plastica si didactica educatiei plastice ,3079
+529,855,Didactica matematicii în învățământul primar și preșcolar,3080
+905,855,Psihologia personalității,3081
+90,855,Didactica limbii și literaturii române - învățământ primar,3082
+159,855,Istoria si didactica predării istoriei,3083
+85,855,Metodologia cercetării în ştiinţele educaţiei,3084
+85,855,Psihopedagogia jocului,3085
+93,855,Educatie plastica si didactica educatiei plastice ,3086
+86,142,Educație timpurie,3087
+86,142,Consiliere psihopedagogica,3088
+199,142,Pedagogia inv. primar si presc.,3089
+199,142,Didactica Domeniului Om și Societate (înv. preșcolar și primar),3090
+415,142,Integrare și incluziune la vârstele mici,3091
+263,142,Didactica educației fizice și psihomotorii (înv. preșcolar și primar),3092
+93,142,Educatie si arte vizuale,3093
+86,1302,Educație timpurie,3094
+86,1302,Consiliere psihopedagogica,3095
+199,1302,Pedagogia inv. primar si presc.,3096
+199,1302,Didactica Domeniului Om și Societate (înv. preșcolar și primar),3097
+415,1302,Integrare și incluziune la vârstele mici,3098
+263,1302,Didactica educației fizice și psihomotorii (înv. preșcolar și primar),3099
+93,1302,Educatie si arte vizuale,3100
+86,501,Educație timpurie,3101
+86,501,Consiliere psihopedagogica,3102
+199,501,Pedagogia inv. primar si presc.,3103
+199,501,Didactica Domeniului Om și Societate (înv. preșcolar și primar),3104
+415,501,Integrare și incluziune la vârstele mici,3105
+263,501,Didactica educației fizice și psihomotorii (înv. preșcolar și primar),3106
+93,501,Educatie si arte vizuale,3107
+86,1303,Educație timpurie,3108
+86,1303,Consiliere psihopedagogica,3109
+199,1303,Pedagogia inv. primar si presc.,3110
+199,1303,Didactica Domeniului Om și Societate (înv. preșcolar și primar),3111
+415,1303,Integrare și incluziune la vârstele mici,3112
+263,1303,Didactica educației fizice și psihomotorii (înv. preșcolar și primar),3113
+93,1303,Educatie si arte vizuale,3114
+86,665,Educație timpurie,3115
+86,665,Consiliere psihopedagogica,3116
+199,665,Pedagogia inv. primar si presc.,3117
+199,665,Didactica Domeniului Om și Societate (înv. preșcolar și primar),3118
+415,665,Integrare și incluziune la vârstele mici,3119
+263,665,Didactica educației fizice și psihomotorii (înv. preșcolar și primar),3120
+93,665,Educatie si arte vizuale,3121
+86,1304,Educație timpurie,3122
+86,1304,Consiliere psihopedagogica,3123
+199,1304,Pedagogia inv. primar si presc.,3124
+199,1304,Didactica Domeniului Om și Societate (înv. preșcolar și primar),3125
+415,1304,Integrare și incluziune la vârstele mici,3126
+263,1304,Didactica educației fizice și psihomotorii (înv. preșcolar și primar),3127
+93,1304,Educatie si arte vizuale,3128
+257,1049,Politici publice,3129
+345,1049,Management public,3130
+165,1049,Serviciul public de poliție locală,3131
+1008,1049,Protecție și asistență de urgență,3132
+1044,1049,Securitate și ordine publică,3133
+391,1049,Informatică și sisteme informaționale aplicate în politia locală,3134
+1010,1049,"Autoaparare:mijloace, trehnici, procedee (II)",3135
+207,1049,Pedagogie 1,3136
+257,1050,Politici publice,3137
+345,1050,Management public,3138
+165,1050,Serviciul public de poliție locală,3139
+1008,1050,Protecție și asistență de urgență,3140
+1044,1050,Securitate și ordine publică,3141
+391,1050,Informatică și sisteme informaționale aplicate în politia locală,3142
+1010,1050,"Autoaparare:mijloace, trehnici, procedee (II)",3143
+207,1050,Pedagogie 1,3144
+257,1051,Politici publice,3145
+345,1051,Management public,3146
+165,1051,Serviciul public de poliție locală,3147
+1008,1051,Protecție și asistență de urgență,3148
+1044,1051,Securitate și ordine publică,3149
+391,1051,Informatică și sisteme informaționale aplicate în politia locală,3150
+1010,1051,"Autoaparare:mijloace, trehnici, procedee (II)",3151
+207,1051,Pedagogie 1,3152
+743,1108,Etică și integritate academică,3153
+358,1108,Drept Civil,3154
+743,1108,Relații publice,3155
+1012,1108,Drept contraventional si rutier,3156
+357,1108,Contencios administrativ,3157
+1012,1108,Protecția populației împotriva unor activități ilicite,3158
+206,1108,Didactica specialității,3159
+743,2103,Etică și integritate academică,3160
+358,2103,Drept Civil,3161
+743,2103,Relații publice,3162
+1012,2103,Drept contraventional si rutier,3163
+357,2103,Contencios administrativ,3164
+1012,2103,Protecția populației împotriva unor activități ilicite,3165
+257,1165,Managementul resurselor umane în administrația publică,3166
+359,1165,Evidența persoanelor și arhivistică,3167
+1008,1165,Protecția informațiilor clasificate,3168
+1010,1165,Dreptul politienesc in UE,3169
+381,1165,Investigarea criminalitatii economico-financiare,3170
+362,1165,Drept in protectia mediului,3171
+206,1165,Managementul clasei de elevi,3172
+257,2104,Managementul resurselor umane în administrația publică,3173
+359,2104,Evidența persoanelor și arhivistică,3174
+1008,2104,Protecția informațiilor clasificate,3175
+1010,2104,Dreptul politienesc in UE,3176
+381,2104,Investigarea criminalitatii economico-financiare,3177
+362,2104,Drept in protectia mediului,3178
+206,2104,Managementul clasei de elevi,3179
+415,1166,Psihologia dezvoltării,3180
+581,1166,Statistica aplicata in psihologie,3181
+905,1166,Psihologia personalității,3182
+995,1166,Psihologie experimentală și analiza datelor,3183
+149,1166,Pedagogie 1,3184
+905,1166,Tehnici de învățare,3185
+1523,1166,Fundamentele psihologiei,3186
+415,1297,Psihologia dezvoltării,3187
+581,1297,Statistica aplicata in psihologie,3188
+905,1297,Psihologia personalității,3189
+995,1297,Psihologie experimentală și analiza datelor,3190
+149,1297,Pedagogie 1,3191
+905,1297,Tehnici de învățare,3192
+1523,1297,Fundamentele psihologiei,3193
+415,1167,Psihologia dezvoltării,3194
+581,1167,Statistica aplicata in psihologie,3195
+905,1167,Psihologia personalității,3196
+995,1167,Psihologie experimentală și analiza datelor,3197
+149,1167,Pedagogie 1,3198
+905,1167,Tehnici de învățare,3199
+1523,1167,Fundamentele psihologiei,3200
+1543,2002,Bazele teoretice ale evaluarii psihologice I,3201
+1543,2002,Psihologie Socială II,3202
+219,2002,Testare Psihologică II,3203
+995,2002,Genetică Comportamentală,3204
+94,2002,Metodologia Cercetării Științifice,3205
+94,2002,Psihologia Familiei,3206
+744,2002,Didactica Specialității,3207
+1543,2027,Bazele teoretice ale evaluarii psihologice I,3208
+1543,2027,Psihologie Socială II,3209
+219,2027,Testare Psihologică II,3210
+995,2027,Genetică Comportamentală,3211
+94,2027,Metodologia Cercetării Științifice,3212
+94,2027,Psihologia Familiei,3213
+744,2027,Didactica Specialității,3214
+1543,2028,Bazele teoretice ale evaluarii psihologice I,3215
+1543,2028,Psihologie Socială II,3216
+219,2028,Testare Psihologică II,3217
+995,2028,Genetică Comportamentală,3218
+94,2028,Metodologia Cercetării Științifice,3219
+94,2028,Psihologia Familiei,3220
+744,2028,Didactica Specialității,3221
+86,2121,Consiliere psihopedagogica,3222
+1543,2121,Psihologia muncii,3223
+905,2121,Psihiatrie,3224
+1567,2121,PSIHOTERAPII,3225
+207,2121,Managementul clasei/grupei,3226
+86,2122,Consiliere psihopedagogica,3227
+1543,2122,Psihologia muncii,3228
+905,2122,Psihiatrie,3229
+1567,2122,PSIHOTERAPII,3230
+207,2122,Managementul clasei/grupei,3231
+14,894,Tehnologii web avansate si arhitecturi orientate pe servicii,3232
+17,894,"Creativitate ştiinţifică, comunicare tehnică şi inovare",3233
+101,894,Securitatea avansata a sistemelor si retelelor de comunicatii,3234
+79,894,Interacțiune naturală om-calculator,3235
+16,894,Comunicații mobile și prin satelit,3236
+422,894,Proiectarea si managementul programelor educationale,3237
+14,2264,Tehnologii web avansate si arhitecturi orientate pe servicii,3238
+17,2264,"Creativitate ştiinţifică, comunicare tehnică şi inovare",3239
+101,2264,Securitatea avansata a sistemelor si retelelor de comunicatii,3240
+79,2264,Interacțiune naturală om-calculator,3241
+16,2264,Comunicații mobile și prin satelit,3242
+422,2264,Proiectarea si managementul programelor educationale,3243
+283,606,Limba română contemporană,3244
+291,606,Literatură română,3245
+293,606,Istoria limbii romane,3246
+248,606,Limba franceză contemporană,3247
+312,606,Literatură franceză,3248
+286,606,Teoria literaturii,3249
+281,607,Limba română contemporană,3250
+308,607,Limba franceză contemporană,3251
+248,607,Didactica specializării,3252
+1083,607,Literatură română,3253
+310,607,Literatură autobiografică,3254
+308,607,Traducerea cărţilor pentru copii,3255
+312,607,Literatură franceză,3256
+815,608,Limba română contemporană,3257
+1083,608,Curs opţional română Dramaturgia românească a sec. XX,3258
+248,608,Limba franceză contemporană,3259
+288,608,Literatura actuala,3260
+311,608,Discurs imagine imaginar,3261
+288,608,Literatură română,3262
+307,608,Literatură franceză,3263
+283,609,Limba română contemporană,3264
+291,609,Literatură română,3265
+293,609,Istoria limbii romane,3266
+286,609,Teoria literaturii,3267
+323,609,Literatură germană,3268
+328,609,Limba germană contemporană,3269
+281,610,Limba română contemporană,3270
+1083,610,Literatură română,3271
+328,610,Didactica specializării,3272
+323,610,Limba germană contemporană,3273
+323,610,Literatură germană,3274
+323,610,Curs opţional germană Frazeologie contrastivă,3275
+328,610,Goethe. Viata si opera,3276
+815,611,Limba română contemporană,3277
+1083,611,Curs opţional română Dramaturgia românească a sec. XX,3278
+288,611,Literatura actuala,3279
+288,611,Literatură română,3280
+1769,611,Literatură germană,3281
+328,611,Limba germană contemporană,3282
+328,611,Probleme de sintaxa a limbii germane,3283
+1769,611,Curs optional germana Literatura exilului,3284
+283,615,Limba română contemporană,3285
+287,615,Literatura italiană,3286
+291,615,Literatură română,3287
+293,615,Istoria limbii romane,3288
+286,615,Teoria literaturii,3289
+294,615,Limba italiană contemporană,3290
+281,616,Limba română contemporană,3291
+1083,616,Literatură română,3292
+293,616,Curs facultativ DPPD Didactica limbilor străine,3293
+294,616,Literatura italiană,3294
+297,616,Limba italiană contemporană,3295
+297,616,Curs opţional italiană Traduceri,3296
+815,786,Limba română contemporană,3297
+1083,786,Curs opţional română Dramaturgia românească a sec. XX,3298
+288,786,Literatura actuala,3299
+294,786,Literatură şi film,3300
+294,786,Literatura italiană,3301
+297,786,Redactare și traduceri specializate,3302
+297,786,Limba italiană contemporană,3303
+288,786,Literatură română,3304
+143,112,Civilizaţie europeană medievală,3305
+159,112,Istoria integrarii europene,3306
+162,112,Istoria relaţiilor internaţionale. Sisteme de state &icirc;n Antichita,3307
+160,112,Teorii ale relaţiilor internaţionale,3308
+149,112,Pedagogie I,3309
+857,112,Sociologia relaţiilor internaţionale ,3310
+206,113,Didactica specialitatii,3311
+167,113,Istoria relaţiilor internaţionale (II),3312
+1673,113,Guvernanta internationala si regionala ,3313
+163,113,Probleme fundamentale ale lumii contemporane,3314
+657,113,Construcţie europeană,3315
+657,113,Introducere &icirc;n guvernanața Uniunii Europene,3316
+143,114,Introducere în geopolitică,3317
+796,114,Economie europeană,3318
+796,114,Doctrine economice,3319
+143,114,Istoria relaţiilor internaţionale (III),3320
+1673,114,Negociere si mediere in relatiile internationale,3321
+1513,114,Drept internațional și comunitar,3322
+207,114,Managementul clasei de elevi,3323
+143,2374,Introducere în geopolitică,3324
+796,2374,Economie europeană,3325
+796,2374,Doctrine economice,3326
+143,2374,Istoria relaţiilor internaţionale (III),3327
+1673,2374,Negociere si mediere in relatiile internationale,3328
+1513,2374,Drept internațional și comunitar,3329
+207,2374,Managementul clasei de elevi,3330
+283,612,Limba română contemporană,3331
+291,612,Literatură română,3332
+293,612,Istoria limbii romane,3333
+286,612,Teoria literaturii,3334
+606,612,Literatură spaniolă,3335
+1816,612,Limba spaniolă contemporană,3336
+281,613,Limba română contemporană,3337
+1083,613,Literatură română,3338
+293,613,Curs facultativ DPPD Didactica limbilor străine,3339
+606,613,Literatură spaniolă,3340
+606,613,Curs opțional spaniolă Analiza textului,3341
+1816,613,Limba spaniolă contemporană,3342
+606,613,CO Frazeologia limbii spaniole,3343
+815,614,Limba română contemporană,3344
+1083,614,Curs opţional română Dramaturgia românească a sec. XX,3345
+288,614,Literatura actuala,3346
+606,614,Curs opțional spaniolă Războiul Civil în lit. spaniolă postbelic,3347
+606,614,Literatură spaniolă,3348
+288,614,Literatură română,3349
+1816,614,Limba spaniolă contemporană,3350
+942,614,Curs opțional spaniolă Traducerea textului literar,3351
+11,48,Circuite de RF si de microunde,3352
+138,48,Arhitectura microprocesoarelor,3353
+602,48,Microunde,3354
+171,48,Marketing de produs,3355
+16,48,Comunicații analogice și digitale,3356
+410,48,Nano și microtehnologii pentru electronică,3357
+11,2331,Circuite de RF si de microunde,3358
+138,2331,Arhitectura microprocesoarelor,3359
+602,2331,Microunde,3360
+171,2331,Marketing de produs,3361
+16,2331,Comunicații analogice și digitale,3362
+410,2331,Nano și microtehnologii pentru electronică,3363
+68,55,Securitatea comunicațiilor de date,3364
+136,55,Calitate şi fiabilitate,3365
+75,55,Procesoare de semnal în comunicații,3366
+18,55,Prelucrarea digitală a semnalelor,3367
+16,55,Compatibilitate electromagnetica,3368
+628,55,Comunicatii 4G si 5G,3369
+169,2007,Psihologie socială,3370
+1673,2007,Comunicare in organizatii ,3371
+1513,2007,Legislația muncii,3372
+388,2007,Statistica sociala,3373
+395,2007,Analiza posturilor și proiectarea fișelor de post ,3374
+149,2007,Pedagogie I,3375
+206,2131,Didactica specialitatii,3376
+72,2131,Deontologie profesională,3377
+988,2131,Evaluarea si managementul resurselor umane ,3378
+1543,2131,Psihologia muncii ,3379
+172,2131,Satisfacția muncii și fluxuri de personal ,3380
+72,2199,Gen şi piaţa muncii,3381
+1733,2199,Consiliere şi orientare în carieră,3382
+1543,2199,Teorii organizationale ,3383
+532,2199,Politica ocuparii fortei de munca,3384
+207,2199,Managementul clasei de elevi,3385
+379,2199,Planificarea resurselor umane ,3386
+14,2174,Tehnologii web avansate si arhitecturi orientate pe servicii,3387
+17,2174,"Creativitate ştiinţifică, comunicare tehnică şi inovare",3388
+101,2174,Securitatea criptografica a sistemelor si a retelelor de comunicatie,3389
+16,2174,Comunicații mobile și prin satelit și securitatea lor,3390
+101,2174,Atacuri cibernetice și protecție cibernetică,3391
+422,2174,Proiectarea si managementul programelor educationale,3392
+14,2263,Tehnologii web avansate si arhitecturi orientate pe servicii,3393
+17,2263,"Creativitate ştiinţifică, comunicare tehnică şi inovare",3394
+101,2263,Securitatea criptografica a sistemelor si a retelelor de comunicatie,3395
+16,2263,Comunicații mobile și prin satelit și securitatea lor,3396
+101,2263,Atacuri cibernetice și protecție cibernetică,3397
+422,2263,Proiectarea si managementul programelor educationale,3398
+135,2255,Internetul lucrurilor,3399
+409,59,Chimie,3400
+112,59,Elemente de inginerie mecanică,3401
+1004,59,Matematici speciale,3402
+552,59,Informatica aplicata,3403
+783,59,Fizică II,3404
+33,59,Teoria circuitelor electrice,3405
+149,59,Pedagogie I,3406
+409,2081,Chimie,3407
+112,2081,Elemente de inginerie mecanică,3408
+1004,2081,Matematici speciale,3409
+552,2081,Informatica aplicata,3410
+783,2081,Fizică II,3411
+33,2081,Teoria circuitelor electrice,3412
+149,2081,Pedagogie I,3413
+409,2258,Chimie,3414
+112,2258,Elemente de inginerie mecanică,3415
+1004,2258,Matematici speciale,3416
+552,2258,Informatica aplicata,3417
+783,2258,Fizică II,3418
+33,2258,Teoria circuitelor electrice,3419
+149,2258,Pedagogie I,3420
+135,64,Electronică analogică şi digitală II,3421
+202,64,Teoria sistemelor şi reglaj automat,3422
+956,64,Metode numerice,3423
+36,64,Măsurări electrice şi electronice,3424
+42,64,Maşini electrice I,3425
+135,2181,Electronică analogică şi digitală II,3426
+202,2181,Teoria sistemelor şi reglaj automat,3427
+956,2181,Metode numerice,3428
+36,2181,Măsurări electrice şi electronice,3429
+42,2181,Maşini electrice I,3430
+35,69,Echipamente electrice II,3431
+37,69,Convertoare statice pentru sisteme electrice,3432
+43,69,Acţionări electrice,3433
+205,69,"Producerea, transportul şi distribuţia energiei electrice",3434
+37,69,Sisteme numerice programabile utilizate în electrotehnică,3435
+34,69,Tehnici de programare,3436
+28,888,Tracţiune electrică,3437
+205,888,Calitate şi fiabilitate,3438
+41,888,Sisteme de izolaţie,3439
+36,888,Calitatea energiel electrice,3440
+37,888,Comenzi numerice in sisteme electrice,3441
+610,888,Inventica si design in ingineria electrica,3442
+409,2336,Chimie,3443
+112,2336,Elemente de inginerie mecanică,3444
+1004,2336,Matematici speciale,3445
+552,2336,Informatica aplicata,3446
+783,2336,Fizică II,3447
+33,2336,Teoria circuitelor electrice,3448
+149,2336,Pedagogie I,3449
+422,148,Proiectarea si managementul programelor educationale,3450
+14,148,Tehnologii web avansate si arhitecturi orientate pe servicii,3451
+63,148,Inginerie software avansata,3452
+67,148,Tehnici de invatarea automata,3453
+183,148,Didactica Domeniului si Dezvoltari in Didactica Specialitatii,3454
+79,148,Interacțiune naturală om-calculator,3455
+73,148,Algoritmi paraleli avansati,3456
+17,148,"Creativitate ştiinţifică, comunicare tehnică şi inovare",3457
+422,892,Proiectarea si managementul programelor educationale,3458
+14,892,Tehnologii web avansate si arhitecturi orientate pe servicii,3459
+63,892,Inginerie software avansata,3460
+67,892,Tehnici de invatarea automata,3461
+183,892,Didactica Domeniului si Dezvoltari in Didactica Specialitatii,3462
+79,892,Interacțiune naturală om-calculator,3463
+73,892,Algoritmi paraleli avansati,3464
+17,892,"Creativitate ştiinţifică, comunicare tehnică şi inovare",3465
+422,2189,Proiectarea si managementul programelor educationale,3466
+14,2189,Tehnologii web avansate si arhitecturi orientate pe servicii,3467
+63,2189,Inginerie software avansata,3468
+67,2189,Tehnici de invatarea automata,3469
+183,2189,Didactica Domeniului si Dezvoltari in Didactica Specialitatii,3470
+79,2189,Interacțiune naturală om-calculator,3471
+73,2189,Algoritmi paraleli avansati,3472
+17,2189,"Creativitate ştiinţifică, comunicare tehnică şi inovare",3473
+31,157,Perturbaţii şi emisii electromagnetice  în instalaţiile electroe,3474
+30,157,Modelarea simularea si conducerea sistemelor energetice,3475
+34,157,Sisteme de monitorizare si procesare date,3476
+182,157,"Măsurarea şi contorizarea mărimilor din instalaţii şi
+procese
+energeti",3477
+205,157,managementul energetic al cladirilor,3478
+422,157,Proiectarea si managementul programelor educationale,3479
+31,2190,Perturbaţii şi emisii electromagnetice  în instalaţiile electroe,3480
+30,2190,Modelarea simularea si conducerea sistemelor energetice,3481
+34,2190,Sisteme de monitorizare si procesare date,3482
+182,2190,"Măsurarea şi contorizarea mărimilor din instalaţii şi
+procese
+energeti",3483
+205,2190,managementul energetic al cladirilor,3484
+422,2190,Proiectarea si managementul programelor educationale,3485
+585,911,Cursuri doctoranzi CSUD,3486
+585,2061,Cursuri doctoranzi CSUD,3487
+484,536,Botanica forestiera 2,3488
+277,536,Topografie,3489
+473,536,Desen tehnic,3490
+472,536,Matematici superioare,3491
+475,536,Mecanica si rezistenta materialelor,3492
+483,536,Fiziologia plantelor,3493
+149,536,Pedagogie,3494
+484,537,Botanica forestiera 2,3495
+277,537,Topografie,3496
+473,537,Desen tehnic,3497
+472,537,Matematici superioare,3498
+475,537,Mecanica si rezistenta materialelor,3499
+483,537,Fiziologia plantelor,3500
+149,537,Pedagogie,3501
+484,538,Botanica forestiera 2,3502
+277,538,Topografie,3503
+473,538,Desen tehnic,3504
+472,538,Matematici superioare,3505
+475,538,Mecanica si rezistenta materialelor,3506
+483,538,Fiziologia plantelor,3507
+149,538,Pedagogie,3508
+484,539,Botanica forestiera 2,3509
+277,539,Topografie,3510
+473,539,Desen tehnic,3511
+472,539,Matematici superioare,3512
+475,539,Mecanica si rezistenta materialelor,3513
+483,539,Fiziologia plantelor,3514
+149,539,Pedagogie,3515
+484,540,Botanica forestiera 2,3516
+277,540,Topografie,3517
+473,540,Desen tehnic,3518
+472,540,Matematici superioare,3519
+475,540,Mecanica si rezistenta materialelor,3520
+483,540,Fiziologia plantelor,3521
+149,540,Pedagogie,3522
+484,541,Botanica forestiera 2,3523
+277,541,Topografie,3524
+473,541,Desen tehnic,3525
+472,541,Matematici superioare,3526
+475,541,Mecanica si rezistenta materialelor,3527
+483,541,Fiziologia plantelor,3528
+149,541,Pedagogie,3529
+482,544,Meteorologie climatologie,3530
+471,544,Dendrometrie,3531
+406,544,Dendrologie,3532
+481,544,Statiuni forestiere,3533
+487,544,Genetica ecologica,3534
+467,544,transporturi forestiere,3535
+183,544,Didactica specialitatii,3536
+482,545,Meteorologie climatologie,3537
+471,545,Dendrometrie,3538
+406,545,Dendrologie,3539
+481,545,Statiuni forestiere,3540
+487,545,Genetica ecologica,3541
+467,545,transporturi forestiere,3542
+183,545,Didactica specialitatii,3543
+482,546,Meteorologie climatologie,3544
+471,546,Dendrometrie,3545
+406,546,Dendrologie,3546
+481,546,Statiuni forestiere,3547
+487,546,Genetica ecologica,3548
+467,546,transporturi forestiere,3549
+183,546,Didactica specialitatii,3550
+482,547,Meteorologie climatologie,3551
+471,547,Dendrometrie,3552
+406,547,Dendrologie,3553
+481,547,Statiuni forestiere,3554
+487,547,Genetica ecologica,3555
+467,547,transporturi forestiere,3556
+183,547,Didactica specialitatii,3557
+479,550,Amenajarea padurilor,3558
+476,550,Silvicultura,3559
+485,550,Impaduriri,3560
+467,550,transporturi forestiere,3561
+477,550,Industrializarea primara a lemnului,3562
+473,550,Corectarea torentilor,3563
+477,550,Ergonomie si protectia muncii,3564
+969,550,Entomologie forestiera,3565
+479,551,Amenajarea padurilor,3566
+476,551,Silvicultura,3567
+485,551,Impaduriri,3568
+467,551,transporturi forestiere,3569
+477,551,Industrializarea primara a lemnului,3570
+473,551,Corectarea torentilor,3571
+477,551,Ergonomie si protectia muncii,3572
+969,551,Entomologie forestiera,3573
+479,552,Amenajarea padurilor,3574
+476,552,Silvicultura,3575
+485,552,Impaduriri,3576
+467,552,transporturi forestiere,3577
+477,552,Industrializarea primara a lemnului,3578
+473,552,Corectarea torentilor,3579
+477,552,Ergonomie si protectia muncii,3580
+969,552,Entomologie forestiera,3581
+479,553,Amenajarea padurilor,3582
+476,553,Silvicultura,3583
+485,553,Impaduriri,3584
+467,553,transporturi forestiere,3585
+477,553,Industrializarea primara a lemnului,3586
+473,553,Corectarea torentilor,3587
+477,553,Ergonomie si protectia muncii,3588
+969,553,Entomologie forestiera,3589
+476,554,Management forestier,3590
+465,554,Exploatari forestiere,3591
+478,554,Teledetectie si fotogrammetrie,3592
+475,554,Faună cinegetică și salmonicolă,3593
+469,554,Drept si legislatie forestiera,3594
+714,554,Arhitectura peisagera si design forestier,3595
+714,554,Arboricultura ornamentala,3596
+476,555,Management forestier,3597
+465,555,Exploatari forestiere,3598
+478,555,Teledetectie si fotogrammetrie,3599
+475,555,Faună cinegetică și salmonicolă,3600
+469,555,Drept si legislatie forestiera,3601
+714,555,Arhitectura peisagera si design forestier,3602
+714,555,Arboricultura ornamentala,3603
+476,556,Management forestier,3604
+465,556,Exploatari forestiere,3605
+478,556,Teledetectie si fotogrammetrie,3606
+475,556,Faună cinegetică și salmonicolă,3607
+469,556,Drept si legislatie forestiera,3608
+714,556,Arhitectura peisagera si design forestier,3609
+714,556,Arboricultura ornamentala,3610
+476,1025,Management forestier,3611
+465,1025,Exploatari forestiere,3612
+478,1025,Teledetectie si fotogrammetrie,3613
+475,1025,Faună cinegetică și salmonicolă,3614
+469,1025,Drept si legislatie forestiera,3615
+714,1025,Arhitectura peisagera si design forestier,3616
+714,1025,Arboricultura ornamentala,3617
+31,159,Evaluarea Impactului de Mediu a Sistemelor Electrice,3618
+34,159,Sisteme de monitorizare si procesare date,3619
+37,159,Tehnici si tehnologii avansate utilizate in electronica de putere,3620
+35,159,Modelarea si comanda robotilor,3621
+43,159,Comanda SAE cu masina de c.a.,3622
+42,159,Managementul energetic al masinilor electrice,3623
+195,159,Managementul proiectelor energetice,3624
+422,159,Proiectarea si managementul programelor educationale,3625
+111,2244,Desen Tehnic și Infografică (1),3626
+104,2244,Metode Numerice,3627
+116,2244,Fizică,3628
+128,2244,Stiinta si Ingineria Materialelor (2),3629
+124,2244,Mecanică,3630
+111,2245,Desen Tehnic și Infografică (1),3631
+104,2245,Metode Numerice,3632
+116,2245,Fizică,3633
+128,2245,Stiinta si Ingineria Materialelor (2),3634
+124,2245,Mecanică,3635
+106,2364,Rezistenta Materialelor 2,3636
+112,2364,Mecanica Fluidelor ,3637
+1693,2364,Tehnologia Materialelor (2),3638
+103,2364,Termotehnică,3639
+33,2364,Electrotehnică şi Maşini Electrice,3640
+39,2364,Electrotehnică şi Maşini Electrice,3641
+1535,2364,Electronica Aplicata,3642
+106,2365,Rezistenta Materialelor 2,3643
+112,2365,Mecanica Fluidelor ,3644
+1693,2365,Tehnologia Materialelor (2),3645
+103,2365,Termotehnică,3646
+33,2365,Electrotehnică şi Maşini Electrice,3647
+39,2365,Electrotehnică şi Maşini Electrice,3648
+1535,2365,Electronica Aplicata,3649
+111,1079,Desen Tehnic și Infografică (1),3650
+104,1079,Metode Numerice,3651
+116,1079,Fizică,3652
+128,1079,Stiinta si Ingineria Materialelor (2),3653
+124,1079,Mecanică,3654
+1125,1079,Comunicare,3655
+1067,2092,Materiale utilizate in tehnica dentara,3656
+1637,2092,Morfologia dintilor si a arcadelor dentare,3657
+1637,2092,Fiziologie și Fiziopatologie,3658
+652,2092,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",3659
+1637,2092,Igiena,3660
+367,2092,Histologie. Anatomie patologica,3661
+1067,2093,Materiale utilizate in tehnica dentara,3662
+1637,2093,Morfologia dintilor si a arcadelor dentare,3663
+1637,2093,Fiziologie și Fiziopatologie,3664
+652,2093,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",3665
+1637,2093,Igiena,3666
+367,2093,Histologie. Anatomie patologica,3667
+207,2093,Pedagogie 1,3668
+1067,2094,Materiale utilizate in tehnica dentara,3669
+1637,2094,Morfologia dintilor si a arcadelor dentare,3670
+1637,2094,Fiziologie și Fiziopatologie,3671
+652,2094,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",3672
+1637,2094,Igiena,3673
+367,2094,Histologie. Anatomie patologica,3674
+1067,2318,Materiale utilizate in tehnica dentara,3675
+1637,2318,Morfologia dintilor si a arcadelor dentare,3676
+1637,2318,Fiziologie și Fiziopatologie,3677
+652,2318,"Microbiologie (Bacteriologie,Virusologie, Parazitologie)",3678
+1637,2318,Igiena,3679
+367,2318,Histologie. Anatomie patologica,3680
+1067,2160,Materiale utilizate in tehnica dentara,3681
+1637,2160,Tehnologia protezelor dentare fixe I (unidentare),3682
+1579,2160,Ergonomie,3683
+1579,2160,Protetica dentara I,3684
+1067,2159,Materiale utilizate in tehnica dentara,3685
+1637,2159,Tehnologia protezelor dentare fixe I (unidentare),3686
+1579,2159,Ergonomie,3687
+1579,2159,Protetica dentara I,3688
+1067,2161,Materiale utilizate in tehnica dentara,3689
+1637,2161,Tehnologia protezelor dentare fixe I (unidentare),3690
+1579,2161,Ergonomie,3691
+1579,2161,Protetica dentara I,3692
+1637,2276,Tehnologia protezelor mobilizabile si protezelor totale II ,3693
+1579,2276,Tehnologia Aparatelor Ortodontice ,3694
+749,2276,Epidemiologie,3695
+1139,2276,Chirurgia orala si oro-maxilofaciala,3696
+1139,2276,Tehnologia aparatelor si protezelor chirurgicale,3697
+206,2276,Managementul Clasei de Elevi,3698
+1637,2277,Tehnologia protezelor mobilizabile si protezelor totale II ,3699
+1579,2277,Tehnologia Aparatelor Ortodontice ,3700
+749,2277,Epidemiologie,3701
+1139,2277,Chirurgia orala si oro-maxilofaciala,3702
+1139,2277,Tehnologia aparatelor si protezelor chirurgicale,3703
+206,2277,Managementul Clasei de Elevi,3704
+1637,2278,Tehnologia protezelor mobilizabile si protezelor totale II ,3705
+1579,2278,Tehnologia Aparatelor Ortodontice ,3706
+749,2278,Epidemiologie,3707
+1139,2278,Chirurgia orala si oro-maxilofaciala,3708
+1139,2278,Tehnologia aparatelor si protezelor chirurgicale,3709
+206,2278,Managementul Clasei de Elevi,3710
+307,208,Traducerea specializata,3711
+249,208,Traducerea ca mediere culturala,3712
+248,208,Traducerea din perspectiva registrelor de limbă,3713
+312,208,Traducerea simultană și consecutivă,3714
+312,217,Principii și practici de traducere ale audiovizualului,3715
+327,636,Limba engleză contemporană,3716
+96,636,Literatură engleză,3717
+325,636,Teoria literaturii,3718
+296,636,Limba ucraineană contemporană,3719
+296,636,Literatură ucraineană,3720
+137,2292,Frazeologia limbii engleze,3721
+293,2292,Curs facultativ DPPD Didactica limbilor străine,3722
+322,2292,Literatură engleză,3723
+321,2292,Limba engleză contemporană,3724
+96,2292,Text si Interpretare,3725
+321,2292,Didactica specializării,3726
+1701,2292,Curs opţional ucraineană Cultură şi civilizaţie ucraineană,3727
+296,2292,Limba ucraineană contemporană,3728
+296,2292,Literatură ucraineană,3729
+302,2292,CO Traducerea textului juridico-administrativ,3730
+326,2369,Limba engleză contemporană,3731
+326,2369,Traducere şi discurs,3732
+325,2369,Literatura american. Modernism și Postmodernism,3733
+316,2369,Gotic,3734
+296,2369,Limba ucraineană contemporană,3735
+296,2369,Literatură ucraineană,3736
+296,2369,Curs opţional ucraineană Grigori Skovoroda,3737
+302,2369,Curs opţional ucraineană Analiza textului literar,3738
+248,2290,Limba franceză contemporană,3739
+312,2290,Literatură franceză,3740
+984,2290,Teoria literaturii,3741
+296,2290,Limba ucraineană contemporană,3742
+296,2290,Literatură ucraineană,3743
+283,630,Limba română contemporană,3744
+291,630,Literatură română,3745
+293,630,Istoria limbii romane,3746
+286,630,Teoria literaturii,3747
+296,630,Limba ucraineană contemporană,3748
+296,630,Literatură ucraineană,3749
+281,631,Limba română contemporană,3750
+1083,631,Literatură română,3751
+293,631,Curs facultativ DPPD Didactica limbilor străine,3752
+1701,631,Curs opţional ucraineană Cultură şi civilizaţie ucraineană,3753
+296,631,Limba ucraineană contemporană,3754
+296,631,Literatură ucraineană,3755
+302,631,CO Traducerea textului juridico-administrativ,3756
+815,2368,Limba română contemporană,3757
+1083,2368,Curs opţional română Dramaturgia românească a sec. XX,3758
+288,2368,Literatura actuala,3759
+288,2368,Literatură română,3760
+296,2368,Limba ucraineană contemporană,3761
+296,2368,Literatură ucraineană,3762
+296,2368,Curs opţional ucraineană Grigori Skovoroda,3763
+302,2368,Curs opţional ucraineană Analiza textului literar,3764

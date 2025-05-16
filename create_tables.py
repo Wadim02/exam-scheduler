@@ -1,4 +1,4 @@
-from models import Base, PropunereExamen, Subgrupe, Disciplina, Cadre, SubgrupeDisciplina, Facultati, Secretariat, Sefgrupe, Admin
+from models import Base, ExamenLimite, PropunereExamen, Subgrupe, Disciplina, Cadre, Facultati, Secretariat, Sefgrupe, Admin, Sali
 from database import engine
 
 Base.metadata.create_all(bind=engine)

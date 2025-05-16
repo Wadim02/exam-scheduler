@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Examene ca asistent</title>
+</head>
+<body>
+    <h2>Examene unde ești asistent – {{ cadru.firstName }} {{ cadru.lastName }}</h2>
+
+    {% if examene %}
+        <ul>
+        {% for e in examene %}
+            <li>
+                <strong>{{ e.disciplina.nume }}</strong><br>
+                Data: {{ e.data }} ({{ e.durata }}h)<br>
+                Grupa: Anul {{ e.disciplina.subgrupa.studyYear }}, {{ e.disciplina.subgrupa.groupName }}{{ e.disciplina.subgrupa.subgroupIndex }}<br>
+                Sala: {{ e.sala.name if e.sala else "nedefinită" }}
+            </li>
+            <hr>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nu ești asistent la niciun examen.</p>
+    {% endif %}
+
+    <a href="/cadru/export-excel">
+    <button style="margin-bottom: 10px;">Descarcă Excel</button>
+</a>
+</body>
+</html>

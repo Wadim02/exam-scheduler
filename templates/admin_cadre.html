@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Editare cadre didactice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        form {
+            display: inline;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 4px;
+        }
+        button {
+            padding: 6px 12px;
+            margin: 2px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/admin/adauga-cadru" style="display: inline-block; margin-bottom: 20px; background-color: #4CAF50; color: white; padding: 8px 16px; text-decoration: none; border-radius: 4px;">
+    ➕ Adaugă Cadru
+</a>
+    <h2>Editare cadre didactice (@usm.ro)</h2>
+
+    {% if cadre %}
+    <table>
+        <thead>
+            <tr>
+                <th>Prenume</th>
+                <th>Nume</th>
+                <th>Email</th>
+                <th>Departament</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in cadre %}
+            <tr>
+                <form action="/admin/cadre/update" method="post">
+                    <input type="hidden" name="id" value="{{ c.id }}">
+                    <td><input type="text" name="firstName" value="{{ c.firstName }}"></td>
+                    <td><input type="text" name="lastName" value="{{ c.lastName }}"></td>
+                    <td><input type="email" name="emailAddress" value="{{ c.emailAddress }}"></td>
+                    <td><input type="text" name="departmentName" value="{{ c.departmentName }}"></td>
+                    <td>
+                        <button type="submit">Salvează</button>
+                </form>
+                <form action="/admin/cadre/delete/{{ c.id }}" method="post" onsubmit="return confirm('Sigur vrei să ștergi acest cadru?');">
+                    <button type="submit" style="background-color: #e74c3c; color: white;">Șterge</button>
+                </form>
+                    </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>Nu există cadre didactice cu email @usm.ro înregistrate.</p>
+    {% endif %}
+</body>
+</html>

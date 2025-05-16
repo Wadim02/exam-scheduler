@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stare discipline - Șef grupă</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .categorie {
+            margin-bottom: 30px;
+        }
+        .categorie h3 {
+            color: #444;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            background: #f0f0f0;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .status-acceptata { border-left: 5px solid green; }
+        .status-respinsa { border-left: 5px solid red; }
+        .status-trimisa { border-left: 5px solid orange; }
+        .status-netrimisa { border-left: 5px solid gray; }
+    </style>
+</head>
+<body>
+    <h2>Bine ai venit, {{ sef.firstName }} {{ sef.lastName }}</h2>
+
+    <div class="categorie">
+        <h3>Discipline acceptate</h3>
+        <ul>
+            {% for d in acceptate %}
+                <li class="status-acceptata">
+                    {{ d.disciplina }} – anul {{ d.an }} - grupa {{ d.grupa }} – {{ d.status }} - {{d.data}}
+                </li>
+            {% endfor %}
+            {% if not acceptate %}<li>Nu există discipline acceptate.</li>{% endif %}
+        </ul>
+    </div>
+
+    <div class="categorie">
+        <h3>Discipline respinse</h3>
+        <ul>
+            {% for d in respinse %}
+                <li class="status-respinsa">
+                    {{ d.disciplina }} – anul {{ d.an }} - grupa {{ d.grupa }} – {{ d.status }} - {{d.data}}
+                </li>
+            {% endfor %}
+            {% if not respinse %}<li>Nu există discipline respinse.</li>{% endif %}
+        </ul>
+    </div>
+
+    <div class="categorie">
+        <h3>Discipline cu propuneri trimise</h3>
+        <ul>
+            {% for d in trimise %}
+                <li class="status-trimisa">
+                    {{ d.disciplina }} – anul {{ d.an }} - grupa {{ d.grupa }} – {{ d.status }} - {{d.data}}
+                </li>
+            {% endfor %}
+            {% if not trimise %}<li>Nu există discipline trimise.</li>{% endif %}
+        </ul>
+    </div>
+
+    <div class="categorie">
+        <h3>Discipline fără propuneri</h3>
+        <ul>
+            {% for d in netrimise %}
+                <li class="status-netrimisa">
+                    {{ d.disciplina }} – anul {{ d.an }} - grupa {{ d.grupa }}
+                </li>
+            {% endfor %}
+            {% if not netrimise %}<li>Toate disciplinele au propuneri.</li>{% endif %}
+        </ul>
+    </div>
+    <a href="/sefgrupa/export-excel">
+    <button style="margin-bottom: 10px; padding: 8px 12px;">📥 Descarcă Excel</button>
+</a>
+</body>
+</html>

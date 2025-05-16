@@ -10,17 +10,6 @@ from sqlalchemy.orm import relationship
 # Baza pentru toate modelele ORM
 Base = declarative_base()
 
-class User(Base):
-    """
-    Model pentru utilizatorii autentificați în sistem.
-    """
-    __tablename__ = "users"
-
-    id = Column(Integer, primary_key=True, index=True)
-    email = Column(String, unique=True, index=True)  # Email unic
-    hashed_password = Column(String)  # Parola (hash-uită)
-    role = Column(String, default="user")  # Rolul utilizatorului
-
 class Facultati(Base):
     """
     Model pentru facultăți. Fiecare facultate poate avea subgrupe.
@@ -113,7 +102,6 @@ class Subgrupe(Base):
     subgroupIndex = Column(String(10))
 
     facultate = relationship("Facultati", back_populates="subgrupe")
-    subgrupe_discipline = relationship("SubgrupeDisciplina", back_populates="subgrupa")
 
 class Disciplina(Base):
     __tablename__ = "discipline"
@@ -125,21 +113,7 @@ class Disciplina(Base):
 
     cadru = relationship("Cadre", backref="discipline")
     subgrupa = relationship("Subgrupe", backref="discipline")  # Legătura spre subgrupa
-    subgrupe_discipline = relationship("SubgrupeDisciplina", back_populates="disciplina")
 
-class SubgrupeDisciplina(Base):
-    """
-    Tabel intermediar care leagă disciplinele de subgrupe (relație M:N).
-    """
-    __tablename__ = "subgrupe_discipline"
-
-    id = Column(Integer, primary_key=True, index=True)
-    subgrupa_id = Column(Integer, ForeignKey("subgrupe.id"))
-    disciplina_id = Column(Integer, ForeignKey("discipline.id"))
-
-    # Relații ORM
-    subgrupa = relationship("Subgrupe", back_populates="subgrupe_discipline")
-    disciplina = relationship("Disciplina", back_populates="subgrupe_discipline")
 
 class PropunereExamen(Base):
     """
@@ -155,8 +129,16 @@ class PropunereExamen(Base):
     durata = Column(Integer, nullable=False)
     status = Column(String, default="trimisa")
     motiv_respingere = Column(Text, nullable=True)
+    id_asistent = Column(Integer, ForeignKey("cadre.id"), nullable=True)
 
     # Relații
+    asistent = relationship("Cadre", foreign_keys=[id_asistent])
     disciplina = relationship("Disciplina", backref="propuneri")
     sefgrupa = relationship("Sefgrupe", backref="propuneri")
     sala = relationship("Sali", backref="propuneri")
+class ExamenLimite(Base):
+    __tablename__ = "examen_limite"
+
+    id = Column(Integer, primary_key=True, index=True)
+    data_inceput = Column(DateTime, nullable=False)
+    data_sfarsit = Column(DateTime, nullable=False)

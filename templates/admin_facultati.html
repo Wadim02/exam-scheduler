@@ -1,0 +1,35 @@
+<h2>Administrare Facultăți</h2>
+
+<form method="post" action="/admin/facultati/update">
+    <table border="1" cellpadding="6">
+        <tr>
+            <th>ID</th>
+            <th>Nume</th>
+            <th>Abreviere</th>
+            <th>Șterge</th>
+        </tr>
+        {% for f in facultati %}
+        <tr>
+            <td>{{ f.id }}</td>
+            <td><input type="text" name="nume_{{ f.id }}" value="{{ f.longName }}"></td>
+            <td><input type="text" name="short_{{ f.id }}" value="{{ f.shortName }}"></td>
+            <td>
+                <form method="post" action="/admin/facultati/delete" style="display:inline;">
+                    <input type="hidden" name="id" value="{{ f.id }}">
+                    <button type="submit" onclick="return confirm('Ești sigur că vrei să ștergi?')">Șterge</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button type="submit">Salvează modificările</button>
+</form>
+
+<hr>
+
+<h3>Adaugă facultate nouă</h3>
+<form method="post" action="/admin/facultati/add">
+    <label>Nume: <input type="text" name="longName" required></label><br>
+    <label>Abreviere: <input type="text" name="shortName" required></label><br>
+    <button type="submit">Adaugă</button>
+</form>

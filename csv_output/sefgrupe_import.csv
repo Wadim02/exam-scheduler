@@ -1,0 +1,3 @@
+id,lastName,firstName,emailAddress,phoneNumber,id_facultate,id_subgrupe
+1,Vadim,SefGrupaTest,vadim.orghian@student.usv.ro,123123,1,29
+2,Vadim,SefGrupaTest2,org@mail.ru,33,1,29
