@@ -9,7 +9,7 @@ load_dotenv()
 from email_utils import trimite_email_sefi_grupa
 from fastapi import FastAPI, Request, Depends, HTTPException, status, UploadFile, File, Form , Query
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from fastapi.responses import HTMLResponse, RedirectResponse, StreamingResponse, FileResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, StreamingResponse, FileResponse,JSONResponse
 from sqlalchemy.orm import Session
 from google.oauth2 import id_token
 from google.auth.transport.requests import Request as GoogleRequest
@@ -17,8 +17,9 @@ from datetime import datetime, timedelta
 from models import Facultati, Cadre, Secretariat, Admin, Sefgrupe, Disciplina, Subgrupe, PropunereExamen, Sali, ExamenLimite
 from database import SessionLocal, engine, Base
 from fastapi.templating import Jinja2Templates
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, aliased
 import pandas as pd
+from sqlalchemy.exc import IntegrityError
 import jwt
 import os
 import time
@@ -28,19 +29,39 @@ import asyncio
 import aiohttp
 from io import BytesIO
 from typing import Optional
-from fastapi import Form
+from fastapi import Form,Body
 from schemas import PropunereCreate
 from datetime import timedelta, timedelta
-from sqlalchemy import select, text,create_engine, or_ , and_
+from sqlalchemy import select, text,create_engine, or_ , and_ ,func , case , String
 from openpyxl import Workbook
 import requests as http_requests
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from starlette.concurrency import run_in_threadpool
 import traceback
 from fpdf import FPDF
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from typing import List,Optional
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle,Paragraph
+from reportlab.lib import colors
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+
+pdfmetrics.registerFont(TTFont('DejaVuSans', 'static/fonts/DejaVuSans.ttf'))
+
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # sau "*" doar temporar în dev
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Configurații JWT și Google
 SECRET_KEY = os.getenv("SECRET_KEY", "secret-key-puternică")
@@ -85,9 +106,6 @@ async def get_current_user(
     db: Session = Depends(get_db),
     credentials: Optional[HTTPAuthorizationCredentials] = Depends(HTTPBearer(auto_error=False))
 ):
-    """
-    Extrage utilizatorul curent din JWT (din antet sau cookie).
-    """
     token = credentials.credentials if credentials else request.cookies.get("access_token")
 
     if not token:
@@ -103,7 +121,28 @@ async def get_current_user(
         raise HTTPException(status_code=403, detail="Token expirat")
     except jwt.PyJWTError:
         raise HTTPException(status_code=403, detail="Token invalid sau corupt")
-    return {"email": email, "role": role}
+
+    # Caută utilizatorul în baza de date
+    model_map = {
+        "admin": Admin,
+        "secretariat": Secretariat,
+        "cadru": Cadre,
+        "sef_grupa": Sefgrupe,
+    }
+
+    model = model_map.get(role)
+    if not model:
+        raise HTTPException(status_code=403, detail="Rol necunoscut")
+
+    user = db.query(model).filter_by(emailAddress=email).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="Utilizatorul nu există")
+
+    return {
+        "id": user.id,
+        "email": email,
+        "role": role
+    }
 
 @app.post("/token")
 async def handle_google_token(request: Request, db: Session = Depends(get_db)):
@@ -132,28 +171,23 @@ async def handle_google_token(request: Request, db: Session = Depends(get_db)):
 
         if cadru:
             role = "cadru"
-            full_name = f"{cadru.firstName} {cadru.lastName}"
         elif sec:
             role = "secretariat"
-            full_name = f"{sec.firstName} {sec.lastName}"
         elif admin:
             role = "admin"
-            full_name = f"{admin.firstName} {admin.lastName}"
         elif sef:
             role = "sef_grupa"
-            full_name = f"{sef.firstName} {sef.lastName}"
         else:
             raise HTTPException(status_code=403, detail="Emailul nu este înregistrat în sistem")
 
+        # Generează tokenul și setează cookie-ul
         token_data = {
             "sub": email,
             "role": role
         }
         access_token = create_access_token(data=token_data)
-
-        response = RedirectResponse(url="/", status_code=303)
+        response = JSONResponse(content={"rol": role})
         response.set_cookie(key="access_token", value=access_token, httponly=True)
-
         return response
 
     except ValueError as e:
@@ -898,6 +932,8 @@ async def update_cadru(
     firstName: str = Form(...),
     lastName: str = Form(...),
     emailAddress: str = Form(...),
+    phoneNumber: Optional[str] = Form(None),  # adaugă aici
+    facultyName: str = Form(...),              # recomand să adaugi și facultyName ca în adăugare
     departmentName: str = Form(...),
     db: Session = Depends(get_db),
     current_user: dict = Depends(get_current_user)
@@ -912,6 +948,8 @@ async def update_cadru(
     cadru.firstName = firstName.strip()
     cadru.lastName = lastName.strip()
     cadru.emailAddress = emailAddress.strip()
+    cadru.phoneNumber = phoneNumber.strip() if phoneNumber else None
+    cadru.facultyName = facultyName.strip()
     cadru.departmentName = departmentName.strip()
     db.commit()
 
@@ -1089,19 +1127,18 @@ async def editeaza_secretar(
     if current_user["role"] != "admin":
         raise HTTPException(status_code=403, detail="Acces interzis")
 
-    s = db.query(Secretariat).filter_by(id=id).first()
-    if not s:
+    secretar = db.query(Secretariat).filter_by(id=id).first()
+    if not secretar:
         raise HTTPException(status_code=404, detail="Secretar inexistent")
 
-    s.firstName = firstName.strip()
-    s.lastName = lastName.strip()
-    s.emailAddress = emailAddress.strip().lower()
-    s.facultyName = facultyName.strip()
-    s.departmentName = departmentName.strip()
+    secretar.firstName = firstName.strip()
+    secretar.lastName = lastName.strip()
+    secretar.emailAddress = emailAddress.strip().lower()
+    secretar.facultyName = facultyName.strip()
+    secretar.departmentName = departmentName.strip()
 
     db.commit()
-    return RedirectResponse("/admin/secretariat", status_code=303)
-
+    return {"status": "success"}
 
 @app.post("/admin/secretariat/delete")
 async def sterge_secretar(
@@ -1180,7 +1217,8 @@ async def descarca_sali_si_salveaza_excel(
         raise HTTPException(status_code=403, detail="Acces interzis")
 
     url = "https://orar.usv.ro/orar/vizualizare/data/sali.php?json"
-    folder = "vizualizare_date"
+    BASE_DIR = os.path.dirname(__file__)
+    folder   = os.path.join(BASE_DIR, "vizualizare_date")
     filename = "sali.xlsx"
     output_file = os.path.join(folder, filename)
 
@@ -1205,33 +1243,70 @@ async def descarca_sali_si_salveaza_excel(
 
 # Endpoint POST pentru incarcarea fisierului modificat si salvarea in DB
 @app.post("/secretariat/incarca-sali")
-async def incarca_sali_din_excel(
-    file: UploadFile = File(...),
-    db: Session = Depends(get_db),
-    current_user: dict = Depends(get_current_user)
+async def incarca_sali(
+    file: UploadFile,
+    force: bool = Query(False),
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
 ):
     if current_user["role"] != "secretariat":
         raise HTTPException(status_code=403, detail="Acces interzis")
 
+    # 1) Citește Excel-ul
+    df = pd.read_excel(file.file)
+
     try:
-        contents = await file.read()
-        df = pd.read_excel(BytesIO(contents))
+        if force:
+            db.execute(text("DELETE FROM propuneri_examene"))
+            db.commit()
 
-        # Verificam coloanele esentiale
-        if 'name' not in df.columns:
-            raise HTTPException(status_code=400, detail="Fișierul Excel trebuie să conțină coloana 'name'")
+        # 2) Șterge toate sălile
+        db.execute(text("DELETE FROM sali"))
 
-        db.query(Sali).delete()  # Ștergem tot
+        # 3) Listează coloanele EXACT cum apar în DB, între ghilimele
+        cols = ["id", "name", "shortName", "buildingName"]
+        # construiește lista cu ghilimele:
+        col_list = ", ".join([f'"{c}"' for c in cols])
+        # parametri pentru VALUES
+        placeholders = ", ".join([f":{c}" for c in cols])
 
-        for _, row in df.iterrows():
-            sala = Sali(name=row["name"].strip(), building=row.get("building", "").strip())
-            db.add(sala)
-
+        # 4) Inserează fiecare rând
+        for row in df.to_dict(orient="records"):
+            db.execute(
+                text(f'INSERT INTO sali ({col_list}) VALUES ({placeholders})'),
+                row
+            )
         db.commit()
-        return RedirectResponse("/secretariat", status_code=303)
 
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Eroare la încărcarea fișierului: {str(e)}")
+        return JSONResponse(status_code=200, content={"imported": len(df)})
+
+    except IntegrityError as e:
+        db.rollback()
+        if "propuneri_examene_id_sala_fkey" in str(e.orig):
+            raise HTTPException(status_code=409, detail="ForeignKeyViolation")
+        raise HTTPException(status_code=500, detail=str(e))
+
+    except HTTPException as e:
+        return JSONResponse(
+            status_code=e.status_code,
+            content={"detail": e.detail},
+            headers={
+                "Access-Control-Allow-Origin":      "http://localhost:3000",
+                "Access-Control-Allow-Credentials": "true",
+            }
+        )
+@app.options("/secretariat/incarca-sali")
+async def options_incarca_sali():
+    return JSONResponse(
+        status_code=204,
+        headers={
+            "Access-Control-Allow-Origin":   "http://localhost:3000",
+            "Access-Control-Allow-Methods":  "POST,OPTIONS",
+            "Access-Control-Allow-Headers":  "*",
+            "Access-Control-Allow-Credentials": "true",
+        },
+    )
+
 
 @app.get("/secretariat", response_class=HTMLResponse)
 async def secretariat_dashboard(
@@ -1278,77 +1353,8 @@ async def import_sali_csv(current_user: dict = Depends(get_current_user), db: Se
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Eroare la importul fișierului sali.csv: {str(e)}")
-@app.get("/secretariat/sali", response_class=HTMLResponse)
-async def vizualizeaza_sali(
-    request: Request,
-    db: Session = Depends(get_db),
-    current_user: dict = Depends(get_current_user)
-):
-    if current_user["role"] != "secretariat":
-        raise HTTPException(status_code=403, detail="Acces interzis")
 
-    sali = db.query(Sali).order_by(Sali.id).all()
-    return templates.TemplateResponse("secretariat_vizualizare_sali.html", {
-        "request": request,
-        "sali": sali
-    })
-    
-@app.post("/secretariat/sali/update")
-async def actualizeaza_sali(
-    request: Request,
-    db: Session = Depends(get_db),
-    current_user: dict = Depends(get_current_user)
-):
-    if current_user["role"] != "secretariat":
-        raise HTTPException(status_code=403, detail="Acces interzis")
 
-    form = await request.form()
-    sali = db.query(Sali).all()
-
-    for sala in sali:
-        sala.name = form.get(f"name_{sala.id}", "").strip()
-        sala.shortName = form.get(f"shortName_{sala.id}", "").strip()
-        sala.buildingName = form.get(f"buildingName_{sala.id}", "").strip()
-
-    db.commit()
-    return RedirectResponse("/secretariat/sali", status_code=303)
-@app.post("/secretariat/sali/delete/{id}")
-async def sterge_sala(
-    id: int,
-    db: Session = Depends(get_db),
-    current_user: dict = Depends(get_current_user)
-):
-    if current_user["role"] != "secretariat":
-        raise HTTPException(status_code=403, detail="Acces interzis")
-
-    sala = db.query(Sali).filter_by(id=id).first()
-    if not sala:
-        raise HTTPException(status_code=404, detail="Sala nu a fost găsită")
-
-    db.delete(sala)
-    db.commit()
-    return RedirectResponse("/secretariat/sali", status_code=303)
-@app.post("/secretariat/sali/add")
-async def adauga_sala(
-    name: str = Form(...),
-    shortName: str = Form(""),
-    buildingName: str = Form(""),
-    db: Session = Depends(get_db),
-    current_user: dict = Depends(get_current_user)
-):
-    if current_user["role"] != "secretariat":
-        raise HTTPException(status_code=403, detail="Acces interzis")
-
-    noua = Sali(
-        name=name.strip(),
-        shortName=shortName.strip(),
-        buildingName=buildingName.strip()
-    )
-    db.execute(text("SELECT setval('sali_id_seq', (SELECT MAX(id) FROM sali))"))
-    db.add(noua)
-    db.commit()
-
-    return RedirectResponse("/secretariat/sali", status_code=303)
 @app.get("/secretariat/sefgrupe", response_class=HTMLResponse)
 async def afiseaza_sefgrupe(
     request: Request,
@@ -2131,4 +2137,1404 @@ def export_planificare_pdf(
         io.BytesIO(pdf_bytes),
         media_type="application/pdf",
         headers={"Content-Disposition": "attachment; filename=planificare_examene.pdf"}
+    )
+
+@app.get("/cadru/propuneri/json")
+async def get_propuneri_json(
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if current_user["role"] != "cadru":
+        raise HTTPException(status_code=403, detail="Acces permis doar cadrelor didactice")
+
+    cadru = db.query(Cadre).filter(Cadre.emailAddress == current_user["email"]).first()
+    if not cadru:
+        raise HTTPException(status_code=404, detail="Cadru didactic nu a fost găsit")
+
+    propuneri = db.query(PropunereExamen).join(Disciplina).filter(
+        Disciplina.id_cadru == cadru.id,
+        PropunereExamen.status == "trimisa"
+    ).all()
+
+    toate_sali = db.query(Sali).all()
+    colegi = db.query(Cadre).filter(
+        Cadre.departmentName == cadru.departmentName,
+        Cadre.id != cadru.id
+    ).all()
+
+    sali_disponibile = {}
+    asistenti_disponibili = {}
+
+    for prop in propuneri:
+        start = prop.data.replace(tzinfo=None)
+        end = start + timedelta(hours=prop.durata)
+
+        # calcul sali ocupate…
+        ocupate = db.query(PropunereExamen).filter(
+            PropunereExamen.id_sala.isnot(None),
+            PropunereExamen.status == "acceptata"
+        ).all()
+
+        sali_ocupate_ids = {
+            p.id_sala for p in ocupate
+            if start < p.data.replace(tzinfo=None) + timedelta(hours=p.durata)
+            and end > p.data.replace(tzinfo=None)
+        }
+
+        sali_disponibile[prop.id] = [
+            {"id": s.id, "name": s.name}
+            for s in toate_sali if s.id not in sali_ocupate_ids
+        ]
+
+        # construire listă asistenți cu câmpuri firstName/lastName
+        disponibili = []
+        for a in colegi:
+            ex_propuneri = db.query(PropunereExamen).filter(
+                PropunereExamen.id_asistent == a.id,
+                PropunereExamen.status == "acceptata"
+            ).all()
+
+            conflict = any(
+                start < ep.data.replace(tzinfo=None) + timedelta(hours=ep.durata) and
+                end > ep.data.replace(tzinfo=None)
+                for ep in ex_propuneri
+            )
+            if not conflict:
+                disponibili.append({
+                    "id": a.id,
+                    "firstName": a.firstName,
+                    "lastName": a.lastName
+                })
+
+        asistenti_disponibili[prop.id] = disponibili
+
+    return {
+        "cadru": {
+            "firstName": cadru.firstName,
+            "lastName": cadru.lastName
+        },
+        "propuneri": [
+            {
+                "id": p.id,
+                "disciplina": {
+                    "topic": p.disciplina.topic,
+                    "subgrupa": {
+                        "studyYear": p.disciplina.subgrupa.studyYear,
+                        "groupName": p.disciplina.subgrupa.groupName,
+                        "subgroupIndex": p.disciplina.subgrupa.subgroupIndex
+                    }
+                },
+                "data": p.data.isoformat(),
+                "durata": p.durata
+            }
+            for p in propuneri
+        ],
+        "asistenti_disponibili": asistenti_disponibili,
+        "sali_disponibile": sali_disponibile
+    }
+@app.get("/me")
+async def get_current_user_data(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    user = None
+    if current_user["role"] == "admin":
+        user = db.query(Admin).filter_by(emailAddress=current_user["email"]).first()
+    elif current_user["role"] == "cadru":
+        user = db.query(Cadre).filter_by(emailAddress=current_user["email"]).first()
+    elif current_user["role"] == "secretariat":
+        user = db.query(Secretariat).filter_by(emailAddress=current_user["email"]).first()
+    elif current_user["role"] == "sef_grupa":
+        user = db.query(Sefgrupe).filter_by(emailAddress=current_user["email"]).first()
+
+    if not user:
+        raise HTTPException(status_code=404, detail="Utilizatorul nu a fost găsit")
+
+    return {
+        "email": current_user["email"],
+        "first_name": user.firstName,
+        "last_name": user.lastName,
+        "phone_number": user.phoneNumber,
+        "role": current_user["role"]
+    }
+
+@app.get("/admin/facultati/json")
+async def lista_facultati_json(db: Session = Depends(get_db), current_user: dict = Depends(get_current_user)):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    facultati = db.query(Facultati).order_by(Facultati.id.desc()).all()
+    return [
+        {"id": f.id, "longName": f.longName, "shortName": f.shortName}
+        for f in facultati
+    ]
+@app.get("/api/admin/cadre")
+async def admin_cadre_json(db: Session = Depends(get_db), current_user: dict = Depends(get_current_user)):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    cadre_usm = db.query(Cadre).filter(Cadre.emailAddress.ilike('%@usm.ro')).all()
+    return [
+        {
+            "id": c.id,
+            "firstName": c.firstName,
+            "lastName": c.lastName,
+            "emailAddress": c.emailAddress,
+            "phoneNumber": c.phoneNumber,
+            "facultyName": c.facultyName,
+            "departmentName": c.departmentName,
+        } for c in cadre_usm
+    ]
+
+@app.get("/admin/secretariat/json")
+async def lista_secretari_json(
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    secretari = db.query(Secretariat).order_by(Secretariat.lastName, Secretariat.firstName).all()
+    return [
+        {
+            "id": s.id,
+            "firstName": s.firstName,
+            "lastName": s.lastName,
+            "emailAddress": s.emailAddress,
+            "facultyName": s.facultyName,
+            "departmentName": s.departmentName
+        } for s in secretari
+    ]
+
+
+@app.get("/admin/profil", response_model=dict)
+async def get_admin_profil(
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    admin = db.query(Admin).filter_by(id=current_user["id"]).first()
+    if not admin:
+        raise HTTPException(status_code=404, detail="Admin inexistent")
+
+    return {
+        "id": admin.id,
+        "firstName": admin.firstName,
+        "lastName": admin.lastName,
+        "emailAddress": admin.emailAddress,
+        "facultyName": admin.facultyName,
+        "departmentName": admin.departmentName
+    }
+
+@app.post("/admin/profil/update")
+async def update_admin_profil(
+    id: int = Form(...),
+    firstName: str = Form(...),
+    lastName: str = Form(...),
+    facultyName: str = Form(...),
+    departmentName: str = Form(...),
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    admin = db.query(Admin).filter_by(id=id).first()
+    if not admin:
+        raise HTTPException(status_code=404, detail="Admin inexistent")
+
+    admin.firstName = firstName.strip()
+    admin.lastName = lastName.strip()
+    admin.facultyName = facultyName.strip()
+    admin.departmentName = departmentName.strip()
+
+    db.commit()
+    return {"status": "success"}
+
+@app.get("/api/sefgrupa/discipline-status", response_class=JSONResponse)
+async def sefgrupa_discipline_status_json(
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if current_user["role"] != "sef_grupa":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    sef = db.query(Sefgrupe).filter(Sefgrupe.emailAddress == current_user["email"]).first()
+    if not sef:
+        raise HTTPException(status_code=404, detail="Șef de grupă nu a fost găsit")
+
+    # 1) Preluăm toate disciplinele șefului de grupă
+    discipline = db.query(Disciplina).filter(Disciplina.id_subgrupa == sef.id_subgrupe).all()
+    # 2) Preluăm toate propunerile asociate șefului (trimise, acceptate, respinse)
+    propuneri = db.query(PropunereExamen).filter(PropunereExamen.id_sefgrupa == sef.id).all()
+    propuneri_map = {p.id_disciplina: p for p in propuneri}
+
+    trimise, acceptate, respinse, netrimise = [], [], [], []
+
+    for d in discipline:
+        prop = propuneri_map.get(d.id)
+        sub = d.subgrupa  # relația cu Subgrupe
+
+        info = {
+            "id": d.id,
+            "numeDisciplina": d.topic,
+            "an": sub.studyYear,
+            "grupa": f"{sub.groupName}{sub.subgroupIndex}"
+        }
+
+        if prop:
+            info.update({
+                "dataExamen": prop.data.isoformat(),
+                "durata": prop.durata,
+                "status": prop.status,
+                "motiv": prop.motiv_respingere
+            })
+            if prop.status == "trimisa":
+                trimise.append(info)
+            elif prop.status == "acceptata":
+                acceptate.append(info)
+            elif prop.status == "respinsa":
+                respinse.append(info)
+        else:
+            netrimise.append(info)
+
+    return JSONResponse({
+        "trimise": trimise,
+        "acceptate": acceptate,
+        "respinse": respinse,
+        "netrimise": netrimise,
+        "sef": {
+            "id": sef.id,
+            "firstName": sef.firstName,
+            "lastName": sef.lastName
+        }
+    })
+
+@app.get("/api/sefgrupa/discipline-nepropuse")
+async def get_discipline_nepropuse(
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if current_user["role"] != "sef_grupa":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    sef = db.query(Sefgrupe).filter(Sefgrupe.emailAddress == current_user["email"]).first()
+    if not sef:
+        raise HTTPException(status_code=404, detail="Șef de grupă nu găsit")
+
+    discipline = db.query(Disciplina).filter(Disciplina.id_subgrupa == sef.id_subgrupe).all()
+    propuneri = db.query(PropunereExamen).filter(PropunereExamen.id_sefgrupa == sef.id).all()
+    propuse_ids = {p.id_disciplina for p in propuneri}
+
+    rezultat = [
+        {"id": d.id, "numeDisciplina": d.topic}
+        for d in discipline if d.id not in propuse_ids
+    ]
+    return rezultat
+
+@app.get("/api/sefgrupa/examene-acceptate")
+async def examene_acceptate_sefgrupa(
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    if current_user["role"] != "sef_grupa":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    sef = db.query(Sefgrupe).filter(Sefgrupe.emailAddress == current_user["email"]).first()
+    if not sef:
+        raise HTTPException(status_code=404, detail="Șef de grupă nu găsit")
+
+    examene = (
+        db.query(Examen, Disciplina)
+        .join(Disciplina, Disciplina.id == Examen.id_disciplina)
+        .filter(Disciplina.id_subgrupa == sef.id_subgrupe)
+        .filter(Examen.status == "acceptata")
+        .all()
+    )
+
+    return [
+        {
+            "id": ex.Examen.id,
+            "numeDisciplina": d.topic,
+            "data": ex.Examen.data.strftime("%Y-%m-%d"),
+            "ora": ex.Examen.data.strftime("%H:%M"),
+            "sala": ex.Examen.sala,
+        }
+        for ex, d in examene
+    ]
+
+@app.put("/sefgrupa/update")
+async def update_sefgrupa(
+    request: Request,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
+    # 1. Citește payload-ul raw cu chei snake_case
+    payload = await request.json()
+
+    # 2. Maparea manuală snake_case → camelCase
+    mapping = {
+        "first_name":   "firstName",
+        "last_name":    "lastName",
+        "phone_number": "phoneNumber",
+    }
+    for snake_key, camel_key in mapping.items():
+        if snake_key in payload:
+            payload[camel_key] = payload.pop(snake_key)
+
+    # 3. Preia instanța din DB
+    sef = db.query(Sefgrupe).filter_by(id=current_user["id"]).first()
+    if not sef:
+        raise HTTPException(status_code=404, detail="Șeful de grupă nu există")
+
+    # 4. Aplică update pe atributele camelCase
+    for key, val in payload.items():
+        if hasattr(sef, key):
+            setattr(sef, key, val)
+
+    # 5. Commit și răspuns
+    db.add(sef)
+    db.commit()
+    return {"status": "ok"}
+
+@app.get("/sefgrupa/me")
+async def get_sefgrupa_me(
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user),
+):
+    if current_user["role"] != "sef_grupa":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    sef = db.query(Sefgrupe).filter_by(id=current_user["id"]).first()
+    if not sef:
+        raise HTTPException(status_code=404, detail="Șef de grupă nu găsit")
+
+    return {
+        "id":          sef.id,
+        "email":       sef.emailAddress,
+        "firstName":   sef.firstName,
+        "lastName":    sef.lastName,
+        "phoneNumber": sef.phoneNumber or ""
+    }
+
+
+@app.get("/cadru/examene-acceptate/json")
+def get_examene_acceptate_json(
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    # 1. Verifică rol și existența cadrului
+    if current_user["role"] != "cadru":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+    cadru = db.query(Cadre).filter(Cadre.emailAddress == current_user["email"]).first()
+    if not cadru:
+        raise HTTPException(status_code=404, detail="Cadru didactic nu găsit")
+
+    # 2. Adună examenele/propunerile cu status=acceptata
+    #    (modelul vostru poate fi PropunereExamen sau Examen, după cum l‐aţi numit)
+    examene = (
+        db.query(PropunereExamen)
+        .join(Disciplina)
+        .filter(
+            Disciplina.id_cadru == cadru.id,
+            PropunereExamen.status == "acceptata"
+        )
+        .all()
+    )
+
+    # 3. Construiește lista JSON-urilor
+    lista_json = []
+    for e in examene:
+        # e.disciplina e relația către obiectul Disciplina
+        sub = e.disciplina.subgrupa  # presupunem că Disciplina are subgrupa
+        sala_obj = e.sala            # relație Examen -> Sali, poate None
+        asistent_obj = e.asistent    # relație Examen -> Cadre, poate None
+
+        lista_json.append({
+            "id": e.id,
+            "disciplina": e.disciplina.topic,
+            "studyYear": sub.studyYear,
+            "groupName": sub.groupName,
+            "subgroupIndex": sub.subgroupIndex,
+            "data": e.data.isoformat(),
+            "durata": e.durata,
+            "sala": sala_obj.name if sala_obj else None,
+            # Mai jos, asigur că trimit fie numele asistentului, fie None
+            "asistentFirstName": asistent_obj.firstName if asistent_obj else None,
+            "asistentLastName": asistent_obj.lastName if asistent_obj else None
+        })
+
+    return JSONResponse({
+        "cadru": {
+            "firstName": cadru.firstName,
+            "lastName": cadru.lastName
+        },
+        "examene": lista_json
+    })
+
+
+@app.get("/cadru/export-excel-asistent")
+async def export_examene_asistent_excel(
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    # 1) Verificăm rol și obținem obiectul Cadru
+    if current_user["role"] != "cadru":
+        raise HTTPException(status_code=403, detail="Acces permis doar cadrelor didactice")
+
+    cadru = db.query(Cadre).filter_by(emailAddress=current_user["email"]).first()
+    if not cadru:
+        raise HTTPException(status_code=404, detail="Cadru didactic nu găsit")
+
+    # 2) Creăm un workbook nou cu un singur sheet: „Examene Asistent”
+    wb = Workbook()
+    asistent_ws = wb.active
+    asistent_ws.title = "Examene Asistent"
+
+    # 3) Adăugăm antetele coloanelor
+    asistent_ws.append([
+        "Disciplina", 
+        "An", 
+        "Grupa", 
+        "Data și Ora", 
+        "Durata", 
+        "Sala", 
+        "Titular"
+    ])
+
+    # 4) Preluăm din baza de date doar examenele unde rolul curent e asistent
+    examene_asistent = (
+        db.query(PropunereExamen)
+          .join(Disciplina)
+          .join(Subgrupe)
+          .filter(
+              PropunereExamen.id_asistent == cadru.id,
+              PropunereExamen.status == "acceptata"
+          )
+          .all()
+    )
+
+    # 5) Populăm rândurile în worksheet
+    for p in examene_asistent:
+        sub = p.disciplina.subgrupa
+        grupa_str = f"{sub.studyYear} {sub.groupName}{sub.subgroupIndex}"
+        sala_name = p.sala.name if p.sala else "-"
+        titular = f"{p.disciplina.cadru.firstName} {p.disciplina.cadru.lastName}"
+
+        asistent_ws.append([
+            p.disciplina.topic,
+            sub.studyYear,
+            grupa_str,
+            p.data.strftime("%Y-%m-%d %H:%M"),
+            p.durata,
+            sala_name,
+            titular
+        ])
+
+    # 6) Salvăm workbook-ul într-un BytesIO și îl trimitem ca StreamingResponse
+    stream = BytesIO()
+    wb.save(stream)
+    stream.seek(0)
+
+    return StreamingResponse(
+        stream,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={
+            "Content-Disposition": "attachment; filename=examene_asistent.xlsx"
+        }
+    )
+@app.get("/secretariat/api/sali")
+async def api_list_sali(db: Session = Depends(get_db),
+                        current_user: dict = Depends(get_current_user)):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+    sali = db.query(Sali).order_by(Sali.id).all()
+    return [ {"id": s.id, "name": s.name, "shortName": s.shortName, "buildingName": s.buildingName} for s in sali ]
+
+@app.post("/secretariat/api/sali")
+async def api_create_sali(
+    payload: dict = Body(..., example={"name":"Sală 1","shortName":"S1","buildingName":"Corp A"}),
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # 1) Găsiți id-ul maxim din tabel
+    max_id = db.query(func.max(Sali.id)).scalar() or 0
+    next_id = max_id + 1
+
+    # 2) Creați entitatea cu ID-ul calculat
+    sala = Sali(id=next_id, **payload)
+    db.add(sala)
+    db.commit()
+    db.refresh(sala)
+
+    return {"id": sala.id, **payload}
+
+# Actualizează datele unei săli
+@app.put("/secretariat/api/sali/{id}")
+async def api_update_sali(
+    id: int,
+    payload: dict = Body(...),
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+    sala = db.query(Sali).get(id)
+    if not sala:
+        raise HTTPException(404, "Sala inexistentă")
+    for k,v in payload.items():
+        setattr(sala, k, v)
+    db.commit()
+    db.refresh(sala)
+    return {
+    "id": sala.id,
+    "name": sala.name,
+    "shortName": sala.shortName,
+    "buildingName": sala.buildingName
+    }
+# Şterge o sală
+@app.delete("/secretariat/api/sali/{id}")
+async def api_delete_sali(
+    id: int,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+    sala = db.query(Sali).get(id)
+    if not sala:
+        raise HTTPException(404, "Sala nu a fost găsită")
+    db.delete(sala)
+    db.commit()
+    return JSONResponse(status_code=200, content={"deleted": id})
+
+@app.post("/secretariat/import-sefi-csv")
+async def import_sefi_csv(
+    file: UploadFile,
+    force: bool = Query(False),
+    current_user: dict = Depends(get_current_user),
+    db: Session        = Depends(get_db)
+):
+    # 1) Autorizare
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # 2) Preluare Secretariat pentru facultyName
+    sec = db.query(Secretariat).get(current_user["id"])
+    if not sec:
+        raise HTTPException(404, "Utilizator secretariat inexistent")
+    faculty_name = sec.facultyName
+
+    # 3) Găsire id_facultate
+    facultate = db.query(Facultati).filter(Facultati.longName == faculty_name).first()
+    if not facultate:
+        raise HTTPException(404, f"Facultatea '{faculty_name}' nu există")
+    fac_id = facultate.id
+
+    # 4) Pregătire id incremental pentru inserări noi
+    max_id = db.query(func.max(Sefgrupe.id)).scalar() or 0
+    next_id = max_id + 1
+
+    # 5) Citire și validare Excel
+    try:
+        df = pd.read_excel(file.file)
+    except Exception as e:
+        raise HTTPException(400, f"Fișier invalid: {e}")
+
+    required_cols = {"lastName", "firstName", "emailAddress", "id_subgrupe", "id_facultate"}
+    missing = required_cols - set(df.columns)
+    if missing:
+        raise HTTPException(400, f"Lipsește coloana(lele): {', '.join(sorted(missing))}")
+
+    # 6) Filtrare doar rânduri pentru facultatea curentă
+    df = df[df["id_facultate"] == fac_id]
+
+    # 7) Upsert: update dacă există sau insert dacă nu
+    inserted = 0
+    updated  = 0
+
+    for raw in df.to_dict(orient="records"):
+        sub_id = int(raw["id_subgrupe"])
+        # căutăm un șef de grupă deja înregistrat pentru subgrupa și facultate
+        existing = (
+            db.query(Sefgrupe)
+              .filter_by(id_facultate=fac_id, id_subgrupe=sub_id)
+              .first()
+        )
+
+        if existing:
+            # actualizare câmpuri
+            existing.lastName     = raw["lastName"].strip()
+            existing.firstName    = raw["firstName"].strip()
+            existing.emailAddress = raw["emailAddress"].strip()
+            existing.phoneNumber  = raw.get("phoneNumber")
+            updated += 1
+        else:
+            # inserare nouă
+            sg = Sefgrupe(
+                id            = next_id,
+                lastName      = raw["lastName"].strip(),
+                firstName     = raw["firstName"].strip(),
+                emailAddress  = raw["emailAddress"].strip(),
+                phoneNumber   = raw.get("phoneNumber"),
+                id_facultate  = fac_id,
+                id_subgrupe   = sub_id
+            )
+            db.add(sg)
+            next_id  += 1
+            inserted += 1
+
+    db.commit()
+
+    return JSONResponse(
+        status_code=200,
+        content={
+            "imported": inserted,
+            "updated":  updated,
+            "message":  f"✔ Inserări noi: {inserted}, Actualizări: {updated} în facultatea “{faculty_name}”."
+        }
+    )
+
+@app.get("/secretariat/api/sefi")
+async def api_list_sefi(
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # 1) Afli facultatea secretariatului
+    sec = db.query(Secretariat).get(current_user["id"])
+    if not sec:
+        raise HTTPException(404, "Utilizator secretariat inexistent")
+    fac = db.query(Facultati).filter(Facultati.longName == sec.facultyName).first()
+    if not fac:
+        raise HTTPException(404, f"Facultatea '{sec.facultyName}' nu există")
+    fac_id = fac.id
+
+    # 2) Listezi doar șefii din acea facultate
+    sefi = (
+        db.query(Sefgrupe)
+          .filter(Sefgrupe.id_facultate == fac_id)
+          .order_by(Sefgrupe.id)
+          .all()
+    )
+    return [
+        {
+            "id": s.id,
+            "lastName": s.lastName,
+            "firstName": s.firstName,
+            "emailAddress": s.emailAddress,
+            "phoneNumber": s.phoneNumber,
+            "studyYear": s.subgrupa.studyYear,
+            "groupName": s.subgrupa.groupName,
+            "subgroupIndex": s.subgrupa.subgroupIndex
+        }
+        for s in sefi
+    ]
+
+@app.post("/secretariat/api/sefi")
+async def api_create_sef(
+    payload: dict = Body(...),
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # determină facultatea
+    sec = db.query(Secretariat).get(current_user["id"])
+    if not sec:
+        raise HTTPException(404, "Utilizator secretariat inexistent")
+    fac = db.query(Facultati).filter(Facultati.longName == sec.facultyName).first()
+    if not fac:
+        raise HTTPException(404, f"Facultatea '{sec.facultyName}' nu există")
+    fac_id = fac.id
+
+    # creează șeful
+    s = Sefgrupe(
+        lastName     = payload["lastName"],
+        firstName    = payload["firstName"],
+        emailAddress = payload["emailAddress"],
+        phoneNumber  = payload.get("phoneNumber"),
+        id_facultate = fac_id,
+        id_subgrupe  = payload["id_subgrupe"]
+    )
+    db.add(s)
+    db.commit()
+    db.refresh(s)
+
+    return {
+        "id": s.id,
+        **payload,
+        "studyYear":     s.subgrupa.studyYear,
+        "groupName":     s.subgrupa.groupName,
+        "subgroupIndex": s.subgrupa.subgroupIndex
+    }
+
+@app.put("/secretariat/api/sefi/{id}")
+async def api_update_sef(
+    id: int,
+    payload: dict = Body(...),
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # opțional: poți verifica tot aici că id-ul pe care-l updatezi aparține facultății
+    s = db.query(Sefgrupe).get(id)
+    if not s:
+        raise HTTPException(404, "Șef de grupă inexistent")
+    # actualizează câmpurile permise
+    for k in ["lastName", "firstName", "emailAddress", "phoneNumber", "id_subgrupe"]:
+        if k in payload:
+            setattr(s, k, payload[k])
+    db.commit()
+    db.refresh(s)
+
+    return {
+        "id":            s.id,
+        "lastName":      s.lastName,
+        "firstName":     s.firstName,
+        "emailAddress":  s.emailAddress,
+        "phoneNumber":   s.phoneNumber,
+        "studyYear":     s.subgrupa.studyYear,
+        "groupName":     s.subgrupa.groupName,
+        "subgroupIndex": s.subgrupa.subgroupIndex
+    }
+
+@app.delete("/secretariat/api/sefi/{id}")
+async def api_delete_sef(
+    id: int,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    s = db.query(Sefgrupe).get(id)
+    if not s:
+        raise HTTPException(404, "Șef de grupă inexistent")
+    # opțional: verifici și aici id_facultate == fac_id, similar cu list și create
+    db.delete(s)
+    db.commit()
+    return JSONResponse(status_code=200, content={"deleted": id})
+
+
+@app.get("/secretariat/api/subgrupe")
+async def api_list_subgrupe(
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    # 1) Autorizație
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # 2) Preluăm secretariatul pentru facultyName
+    sec = db.query(Secretariat).get(current_user["id"])
+    if not sec:
+        raise HTTPException(404, "Utilizator secretariat inexistent")
+    faculty_name = sec.facultyName
+
+    # 3) Găsim id-ul facultății
+    fac = db.query(Facultati).filter(Facultati.longName == faculty_name).first()
+    if not fac:
+        raise HTTPException(404, f"Facultatea '{faculty_name}' nu există")
+    fac_id = fac.id
+
+    # 4) Obținem subgrupe doar pentru această facultate
+    subgrupe = (
+        db.query(Subgrupe)
+          .filter(Subgrupe.facultyId == fac_id)
+          .order_by(Subgrupe.studyYear, Subgrupe.groupName, Subgrupe.subgroupIndex)
+          .all()
+    )
+
+    # 5) Returnăm lista
+    return [
+        {
+            "id":            sg.id,
+            "studyYear":     sg.studyYear,
+            "groupName":     sg.groupName,
+            "subgroupIndex": sg.subgroupIndex
+        }
+        for sg in subgrupe
+    ]
+@app.get("/secretariat/discipline", response_class=HTMLResponse)
+async def discipline_admin_page(
+    request: Request,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    # Găsește facultatea secretariatului
+    sec = db.query(Secretariat).filter_by(id=current_user["id"]).first()
+    fac = db.query(Facultati).filter_by(longName=sec.facultyName).first()
+    # Adună toate subgrupe pentru facultate
+    sub_ids = [s.id for s in db.query(Subgrupe).filter_by(facultyId=fac.id).all()]
+    # Preia toate disciplinele pentru acele subgrupe
+    discipline = db.query(Disciplina).filter(Disciplina.id_subgrupa.in_(sub_ids)).all()
+
+    return templates.TemplateResponse("secretariat_discipline_admin.html", {
+        "request": request,
+        "discipline": discipline
+    })
+
+
+@app.get("/secretariat/api/discipline")
+async def api_list_discipline(
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    # 1) Autorizație
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # 2) Afli facultatea secretariatului
+    sec = db.query(Secretariat).get(current_user["id"])
+    if not sec:
+        raise HTTPException(404, "Utilizator secretariat inexistent")
+    fac = (
+        db.query(Facultati)
+          .filter(Facultati.longName == sec.facultyName)
+          .first()
+    )
+    if not fac:
+        raise HTTPException(404, f"Facultatea '{sec.facultyName}' nu există")
+    fac_id = fac.id
+
+    # 3) Listezi doar disciplinele pentru subgrupe din facultate
+    sub_ids = [sg.id for sg in fac.subgrupe]
+    discipline = (
+        db.query(Disciplina)
+          .filter(Disciplina.id_subgrupa.in_(sub_ids))
+          .order_by(Disciplina.id)
+          .all()
+    )
+
+    # 4) Returnezi lista
+    return [
+        {
+            "id":          d.id,
+            "topic":       d.topic,
+            "id_subgrupa": d.id_subgrupa,
+            "id_cadru":    d.id_cadru
+        }
+        for d in discipline
+    ]
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+@app.post("/secretariat/api/discipline")
+async def api_create_disciplina(
+    payload: dict = Body(...),
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    # autorizație
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # determină facultatea și subgrupe
+    sec = db.query(Secretariat).get(current_user["id"])
+    if not sec:
+        raise HTTPException(404, "Utilizator secretariat inexistent")
+    fac = (
+        db.query(Facultati)
+          .filter(Facultati.longName == sec.facultyName)
+          .first()
+    )
+    if not fac:
+        raise HTTPException(404, f"Facultatea '{sec.facultyName}' nu există")
+    sub_ids = [sg.id for sg in fac.subgrupe]
+
+    # validări payload
+    if payload.get("id_subgrupa") not in sub_ids:
+        raise HTTPException(403, "Subgrupa nu aparține facultății tale")
+    if not db.query(Cadre).get(payload.get("id_cadru")):
+        raise HTTPException(404, "Cadru didactic inexistent")
+
+    # → aflăm maximul curent de id
+    max_id: int = db.query(func.max(Disciplina.id)).scalar() or 0
+    new_id = max_id + 1
+
+    # creare obiect cu id manual
+    d = Disciplina(
+        id=new_id,
+        topic=payload["topic"],
+        id_subgrupa=payload["id_subgrupa"],
+        id_cadru=payload["id_cadru"]
+    )
+
+    db.add(d)
+    db.commit()
+    db.refresh(d)
+
+    return {
+        "id":          d.id,
+        "topic":       d.topic,
+        "id_subgrupa": d.id_subgrupa,
+        "id_cadru":    d.id_cadru
+    }
+# ──────────────────────────────────────────────────────────────────────────────
+@app.put("/secretariat/api/discipline/{id}")
+async def api_update_disciplina(
+    id: int,
+    payload: dict = Body(...),
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    # 1) Autorizație
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # 2) Găsești disciplina
+    d = db.query(Disciplina).get(id)
+    if not d:
+        raise HTTPException(404, "Disciplina nu există")
+
+    # 3) Verifici că e din facultatea ta
+    sec = db.query(Secretariat).get(current_user["id"])
+    fac = (
+        db.query(Facultati)
+          .filter(Facultati.longName == sec.facultyName)
+          .first()
+    )
+    sub_ids = [sg.id for sg in fac.subgrupe]
+    if d.id_subgrupa not in sub_ids:
+        raise HTTPException(403, "Nu ai acces la această disciplină")
+
+    # 4) Aplici modificările permise
+    if "topic" in payload:
+        d.topic = payload["topic"]
+    if "id_subgrupa" in payload:
+        if payload["id_subgrupa"] not in sub_ids:
+            raise HTTPException(403, "Subgrupa nu aparține facultății tale")
+        d.id_subgrupa = payload["id_subgrupa"]
+    if "id_cadru" in payload:
+        if not db.query(Cadre).get(payload["id_cadru"]):
+            raise HTTPException(404, "Cadru didactic inexistent")
+        d.id_cadru = payload["id_cadru"]
+
+    db.commit()
+    db.refresh(d)
+
+    return {
+        "id":          d.id,
+        "topic":       d.topic,
+        "id_subgrupa": d.id_subgrupa,
+        "id_cadru":    d.id_cadru
+    }
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+@app.delete("/secretariat/api/discipline/{id}")
+async def api_delete_disciplina(
+    id: int,
+    db: Session = Depends(get_db),
+    current_user: dict = Depends(get_current_user)
+):
+    # 1) Autorizație
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # 2) Găsești disciplina
+    d = db.query(Disciplina).get(id)
+    if not d:
+        raise HTTPException(404, "Disciplina nu există")
+
+    # 3) Verifici că e din facultatea ta
+    sec = db.query(Secretariat).get(current_user["id"])
+    fac = (
+        db.query(Facultati)
+          .filter(Facultati.longName == sec.facultyName)
+          .first()
+    )
+    sub_ids = [sg.id for sg in fac.subgrupe]
+    if d.id_subgrupa not in sub_ids:
+        raise HTTPException(403, "Nu ai acces la această disciplină")
+
+    # 4) Ștergere
+    db.delete(d)
+    db.commit()
+
+    return JSONResponse(content={"deleted": id}, status_code=200)
+
+@app.get("/secretariat/api/examene", response_model=List[dict])
+def list_examene(
+    current_user: dict = Depends(get_current_user),
+    db: Session       = Depends(get_db),
+):
+    # 1) Autorizează doar rolul de secretariat
+    if current_user["role"] != "secretariat":
+        raise HTTPException(status_code=403, detail="Acces interzis")
+
+    # 2) Găsește obiectul Secretariat al utilizatorului
+    sec = db.query(Secretariat).filter_by(id=current_user["id"]).first()
+    if not sec:
+        raise HTTPException(status_code=404, detail="Secretariat negăsit")
+    faculty_short = sec.facultyName
+
+    # 3) Construiește query-ul: status + join-uri + filtrul pe facultate
+    statuses = ["trimisa", "acceptata"]
+    exam_q = (
+        db.query(PropunereExamen)
+          .filter(PropunereExamen.status.in_(statuses))
+          .join(Disciplina,    PropunereExamen.id_disciplina == Disciplina.id)
+          .join(Subgrupe,      Disciplina.id_subgrupa       == Subgrupe.id)
+          .join(Facultati,     Subgrupe.facultyId          == Facultati.id)
+          .filter(Facultati.longName == sec.facultyName)
+    )
+
+    examene = exam_q.all()
+
+    return [
+        {
+            "id": e.id,
+            "disciplina": {
+                "id":    e.disciplina.id,
+                "topic": e.disciplina.topic,
+                "subgrupa": {
+                    "studyYear":     e.disciplina.subgrupa.studyYear,
+                    "groupName":     e.disciplina.subgrupa.groupName,
+                    "subgroupIndex": e.disciplina.subgrupa.subgroupIndex
+                }
+            },
+            "sala": {
+                "id":   e.sala.id if e.sala else None,
+                "name": e.sala.name if e.sala else None
+            },
+            "data":        e.data.isoformat(),
+            "durata":      e.durata,
+            "asistent": {
+                "id":        e.asistent.id,
+                "firstName": e.asistent.firstName,
+                "lastName":  e.asistent.lastName
+            } if e.asistent else None,
+            "status":      e.status,
+        }
+        for e in examene
+    ]
+
+# ——————————————————————————————————————————————————————————————————————————————
+# MODIFICARE EXAMEN — doar dacă status == “trimisa”
+# ——————————————————————————————————————————————————————————————————————————————
+@app.put("/secretariat/api/examene/{exam_id}", response_model=dict)
+def update_examen(
+    exam_id: int,
+    payload: dict,
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    # ... (autorizare, găsire exam, status check)
+    allowed = {"data", "id_sala", "id_asistent"}
+
+    for key in list(payload.keys()):
+        if key not in allowed:
+            payload.pop(key)
+
+    # dacă vrei să refuzi complet payload cu date interzise:
+    # extras_keys = set(payload) - allowed
+    # if extras_keys:
+    #     raise HTTPException(400, f"Câmpuri nepermise: {extras_keys}")
+
+    # atribuim
+    if "data" in payload:
+        exam.data = datetime.fromisoformat(payload["data"])
+    if "id_sala" in payload:
+        exam.id_sala = payload["id_sala"]
+    if "id_asistent" in payload:
+        exam.id_asistent = payload["id_asistent"]
+
+    db.commit()
+    db.refresh(exam)
+    return {
+        "id":            exam.id,
+        "id_disciplina": exam.id_disciplina,
+        "id_sala":       exam.id_sala,
+        "data":          exam.data.isoformat(),
+        "durata":        exam.durata,
+        "id_asistent":   exam.id_asistent,
+        "status":        exam.status,
+    }
+
+# ——————————————————————————————————————————————————————————————————————————————
+# ȘTERGERE EXAMEN — oricare, dar doar din facultatea curentă
+# ——————————————————————————————————————————————————————————————————————————————
+@app.delete("/secretariat/api/examene/{exam_id}", status_code=204)
+def delete_examen(
+    exam_id: int,
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+    exam = (
+        db.query(PropunereExamen)
+          .join(Disciplina, PropunereExamen.id_disciplina == Disciplina.id)
+          .join(Subgrupe, Disciplina.id_subgrupa == Subgrupe.id)
+          .join(Facultati, Subgrupe.facultyId == Facultati.id)
+          .filter(PropunereExamen.id == exam_id)
+          .filter(Facultati.shortName == db.query(Secretariat)
+                                              .filter_by(id=current_user["id"])
+                                              .first()
+                                              .facultyName)
+          .first()
+    )
+    if not exam:
+        raise HTTPException(404, "Examen negăsit sau nu aparține facultății tale")
+    db.delete(exam)
+    db.commit()
+    return
+
+
+@app.get("/secretariat/api/asistenti", response_model=list[dict])
+def list_asistenti(
+    current_user: dict = Depends(get_current_user),
+    db: Session       = Depends(get_db)
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+    sec = db.query(Secretariat).filter_by(id=current_user["id"]).first()
+    fac = db.query(Facultati).filter_by(longName=sec.facultyName).first()
+    # toate subgrupe + discipline din facultate
+    sub_ids = [sg.id for sg in fac.subgrupe]
+    disc_ids = [d.id for d in db.query(Disciplina).filter(Disciplina.id_subgrupa.in_(sub_ids)).all()]
+    # cadre care nu sunt titulari pentru aceste discipline
+    asistenti = (
+        db.query(Cadre)
+          .filter(Cadre.id.notin_(
+              db.query(Disciplina.id_cadru).filter(Disciplina.id.in_(disc_ids))
+          ))
+          .filter(Cadre.facultyName == sec.facultyName)
+          .all()
+    )
+    return [
+        {"id": a.id, "firstName": a.firstName, "lastName": a.lastName}
+        for a in asistenti
+    ]
+
+
+@app.get("/secretariat/api/situatie_examene", response_model=dict)
+def list_discipline_with_exam_status(
+    current_user: dict = Depends(get_current_user),
+    db: Session       = Depends(get_db),
+    search:    str    = Query(None, description="filtrează după nume disciplină sau subgrupă"),
+    page:      int    = Query(1, ge=1, description="numărul paginii (începând de la 1)"),
+    page_size: int    = Query(50, ge=1, le=100, description="număr elemente per pagină"),
+):
+    # 1) autorizare
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    # 2) definești `sec` înainte de a-l folosi
+    sec = db.query(Secretariat).filter_by(id=current_user["id"]).first()
+    if not sec:
+        raise HTTPException(404, "Secretariat negăsit")
+    
+    # subquery pentru status + sort_key, similar cu ce ai deja
+    status_case = case(
+        (PropunereExamen.status == None,       "netrimisa"),
+        (PropunereExamen.status == "acceptata","acceptata"),
+        (PropunereExamen.status == "trimisa",  "trimisa"),
+        else_="netrimisa"
+    ).label("status")
+    order_case = case(
+        (PropunereExamen.status == "acceptata", 0),
+        (PropunereExamen.status == "trimisa",   1),
+        else_= 2
+    )
+    
+    # baza de query pe Disciplina (+ join-urile necesare)
+    q = (
+      db.query(
+        Disciplina.id.label("disciplinaId"),
+        Disciplina.topic.label("topic"),
+        Subgrupe.groupName.label("groupName"),
+        Subgrupe.subgroupIndex.label("subgroupIndex"),
+        status_case,
+        order_case.label("order_key")
+      )
+      .outerjoin(PropunereExamen, PropunereExamen.id_disciplina == Disciplina.id)
+      .join(Subgrupe,    Disciplina.id_subgrupa == Subgrupe.id)
+      .join(Facultati,   Subgrupe.facultyId       == Facultati.id)
+      .filter(Facultati.longName == sec.facultyName)
+    )
+    
+    # aplică filtrul de search dacă există
+    if search:
+        term = f"%{search.lower()}%"
+        q = q.filter(
+          or_(
+            Disciplina.topic.ilike(term),
+            Subgrupe.groupName.concat(Subgrupe.subgroupIndex.cast(String)).ilike(term)
+          )
+        )
+    
+    # calculează total pentru paginare
+    total = q.count()
+    
+    # aplică sort și pagination
+    items = (
+      q.order_by("order_key", Disciplina.topic)
+       .offset((page-1)*page_size)
+       .limit(page_size)
+       .all()
+    )
+    
+    # construiește payload-ul
+    data = [
+      {
+        "disciplinaId":   row.disciplinaId,
+        "topic":          row.topic,
+        "subgrupa": {
+          "groupName":     row.groupName,
+          "subgroupIndex": row.subgroupIndex
+        },
+        "status":         row.status
+      }
+      for row in items
+    ]
+    
+    return {
+      "total": total,
+      "page": page,
+      "page_size": page_size,
+      "items": data
+    }
+
+
+def _get_situatie_examene(db: Session, faculty_long: str):
+    # definim expresiile CASE pentru status și pentru sort key
+    status_case = case(
+        (PropunereExamen.status == None,         "netrimisa"),
+        (PropunereExamen.status == "acceptata",  "acceptata"),
+        (PropunereExamen.status == "trimisa",    "trimisa"),
+        else_="netrimisa"
+    ).label("status")
+
+    order_case = case(
+        (PropunereExamen.status == "acceptata", 0),
+        (PropunereExamen.status == "trimisa",   1),
+        else_=2
+    ).label("order_key")
+
+    q = (
+        db.query(
+            Disciplina.topic.label("Disciplina"),
+            (Subgrupe.groupName + Subgrupe.subgroupIndex.cast(String)).label("Subgrupă"),
+            Sali.name.label("Sală"),
+            PropunereExamen.data.label("Data"),
+            PropunereExamen.durata.label("Durata"),
+            (Cadre.firstName + " " + Cadre.lastName).label("Asistent"),
+            status_case,
+            order_case
+        )
+        .outerjoin(PropunereExamen, PropunereExamen.id_disciplina == Disciplina.id)
+        .join(Subgrupe,   Disciplina.id_subgrupa      == Subgrupe.id)
+        .join(Facultati,  Subgrupe.facultyId          == Facultati.id)
+        .outerjoin(Sali,  PropunereExamen.id_sala     == Sali.id)
+        .outerjoin(Cadre, PropunereExamen.id_asistent == Cadre.id)
+        .filter(Facultati.longName == faculty_long)
+        .order_by(order_case, Disciplina.topic)
+    )
+
+    return [row._asdict() for row in q.all()]
+
+@app.get("/secretariat/api/examene/export/excel")
+def export_examene_excel(
+    current_user: dict = Depends(get_current_user),
+    db: Session       = Depends(get_db),
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+
+    sec = db.query(Secretariat).filter_by(id=current_user["id"]).first()
+    if not sec:
+        raise HTTPException(404, "Secretariat negăsit")
+
+    data = _get_situatie_examene(db, sec.facultyName)
+
+    df = pd.DataFrame(data)
+    if "order_key" in df.columns:
+        df = df.drop(columns=["order_key"])
+    output = io.BytesIO()
+    df.to_excel(output, index=False)
+    output.seek(0)
+
+    return StreamingResponse(
+        output,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": "attachment; filename=examene_situatie.xlsx"}
+    )
+
+@app.get("/secretariat/api/examene/export/pdf")
+def export_examene_pdf(
+    current_user: dict = Depends(get_current_user),
+    db: Session       = Depends(get_db),
+):
+    if current_user["role"] != "secretariat":
+        raise HTTPException(403, "Acces interzis")
+    sec = db.query(Secretariat).filter_by(id=current_user["id"]).first()
+    data = _get_situatie_examene(db, sec.facultyName)
+
+    # Construiește lista de header-uri fără 'order_key'
+    headers = [h for h in data[0].keys() if h != "order_key"] if data else []
+
+    # Pregătește stilul pentru wrap
+    styles = getSampleStyleSheet()
+    normal_wrap = styles["BodyText"]
+    normal_wrap.fontName = "DejaVuSans"
+    normal_wrap.fontSize = 8
+    normal_wrap.leading = 10
+
+    # Construiește table_data cu Paragraph pentru wrap și fără order_key
+    table_data = [headers]
+    for row in data:
+        table_data.append([
+            Paragraph(str(row["Disciplina"]), normal_wrap),
+            Paragraph(str(row["Subgrupă"]), normal_wrap),
+            Paragraph(str(row["Sală"] or "-"), normal_wrap),
+            Paragraph(str(row["Data"]), normal_wrap),
+            Paragraph(str(row["Durata"]), normal_wrap),
+            Paragraph(str(row["Asistent"] or "-"), normal_wrap),
+            Paragraph(str(row["status"]), normal_wrap),
+        ])
+
+    # Ajustează colWidths conform numărului de coloane (7 coloane fără order_key)
+    col_widths = [100, 40, 60, 60, 40, 80, 50]
+
+    # Crează tabelul
+    table = Table(table_data, colWidths=col_widths, repeatRows=1)
+    table.setStyle(TableStyle([
+        ("FONTNAME",      (0, 0), (-1, -1), "DejaVuSans"),
+        ("BACKGROUND",   (0, 0), (-1, 0), colors.lightgrey),
+        ("TEXTCOLOR",    (0, 0), (-1, 0), colors.black),
+        ("GRID",         (0, 0), (-1, -1), 0.5, colors.grey),
+        ("FONTSIZE",     (0, 0), (-1, -1), 8),
+        ("VALIGN",       (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING",  (0, 0), (-1, -1), 4),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 4),
+    ]))
+
+    # Pregătește PDF-ul
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(
+        buffer,
+        pagesize=letter,
+        leftMargin=30, rightMargin=30,
+        topMargin=30, bottomMargin=30
+    )
+    doc.build([table])
+    buffer.seek(0)
+
+    return StreamingResponse(
+        buffer,
+        media_type="application/pdf",
+        headers={"Content-Disposition": "attachment; filename=examene_situatie.pdf"}
     )
