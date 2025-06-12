@@ -1,6 +1,0 @@
-Back-end
-.\venv\Scripts\activate
-uvicorn main:app --reload
-
-Fron-end
-npm start

@@ -44,7 +44,7 @@ export default function CadruEditModal({ open, onClose, cadru, onSave }) {
   };
 
   return (
-    <Dialog open={open} onClose={onClose} className="fixed z-50 inset-0 overflow-y-auto">
+    <Dialog open={open} onClose={onClose} className="fixed z-50 inset-0 overflow-y-auto bg-black bg-opacity-20">
       <div className="flex items-center justify-center min-h-screen px-4">
         <Dialog.Panel className="bg-white rounded-lg shadow-xl w-full max-w-lg p-6 relative">
           <button onClick={onClose} className="absolute top-3 right-3 text-gray-500 hover:text-red-600">
