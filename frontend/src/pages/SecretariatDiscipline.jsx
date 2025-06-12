@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
-import {  ArrowLeft } from 'lucide-react';
+import {  ArrowLeft,LogOut,ArrowBigUp,LucideRecycle } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 export default function SecretariatDiscipline() {
+  const navigate = useNavigate();
   const [genProgress, setGenProgress] = useState(0);
   const [impProgress, setImpProgress] = useState(0);
   const [loadingGen, setLoadingGen] = useState(false);
   const [loadingImp, setLoadingImp] = useState(false);
   const [genMessage, setGenMessage] = useState('');
   const [impMessage, setImpMessage] = useState('');
-
+const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
   // Trigger generation of disciplines
   const handleGenerate = async () => {
     setLoadingGen(true);
@@ -69,7 +77,14 @@ export default function SecretariatDiscipline() {
   };
 
   return (
-    <div className="p-6 max-w-md mx-auto space-y-4">
+  <div className="min-h-screen bg-gradient-to-r from-green-100 to-cyan-100 py-10">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
+    <div className="max-w-3xl mx-auto bg-white rounded-lg shadow p-6">
             <button onClick={() => window.history.back()} className="mb-4 flex items-center text-gray-700 hover:text-gray-900">
         <ArrowLeft className="mr-2" size={20}/> Înapoi
       </button>
@@ -79,9 +94,9 @@ export default function SecretariatDiscipline() {
           <button
             onClick={handleGenerate}
             disabled={loadingGen}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 disabled:opacity-50"
+            className="bg-green-500 text-white flex flex-row px-4 py-2 rounded hover:bg-green-600 disabled:opacity-50"
           >
-            Generează discipline
+            <LucideRecycle className="mr-2" size={20}/>Generează discipline
           </button>
           {loadingGen && (
             <div className="mt-2">
@@ -97,9 +112,9 @@ export default function SecretariatDiscipline() {
           <button
             onClick={handleImport}
             disabled={loadingImp}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50"
+            className="bg-blue-500 text-white px-4 py-2 flex flex-row rounded hover:bg-blue-600 disabled:opacity-50"
           >
-            Importă discipline
+            <ArrowBigUp className="mr-2" size={20}/>Importă discipline
           </button>
           {loadingImp && (
             <div className="mt-2">
@@ -112,6 +127,7 @@ export default function SecretariatDiscipline() {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 }

@@ -1,13 +1,17 @@
 // CadruPropuneri.jsx
 import React, { useEffect, useState } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft,LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 function CadruPropuneri() {
   const [propuneri, setPropuneri] = useState([]);
   const [asistentiDisponibili, setAsistentiDisponibili] = useState({});
   const [saliDisponibile, setSaliDisponibile] = useState({});
-  
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+    await fetch("http://localhost:8000/logout", { credentials: "include" });
+    navigate("/login");
+  };
   const navigate = useNavigate();
 
   // ora la care trebuie să fie terminat examenul cel târziu
@@ -60,15 +64,20 @@ function CadruPropuneri() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-indigo-100 flex justify-center p-8 pt-8">
-      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-8">
+    <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-indigo-100 relative">
+       {/* Butonul deconectare fixat */}
       <button
-        onClick={() => navigate('/cadru')}
-        className="mb-6 inline-flex items-center text-blue-600 hover:underline"
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
       >
-        <ArrowLeft className="mr-2" /> Înapoi la dashboard
+        <LogOut className="mr-2" size={18} />
+        Deconectare
       </button>
-
+      <div className="flex justify-center p-6">
+      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-8">
+        <button onClick={() => navigate('/cadru')} className="mb-4 flex items-center">
+          <ArrowLeft size={20} className="mr-2" /> Înapoi
+        </button>
       <h1 className="text-3xl font-bold mb-4">Propuneri de examene de confirmat</h1>
 
       {propuneri.length === 0 ? (
@@ -207,6 +216,7 @@ function CadruPropuneri() {
         </ul>
       )}
       </div>
+    </div>
     </div>
   );
 }

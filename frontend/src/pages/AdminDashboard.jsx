@@ -13,25 +13,25 @@ function AdminDashboard() {
   const cards = [
     {
       title: "Gestionare facultăți",
-      icon: <GraduationCap size={40} />,
+      icon: <GraduationCap size={50} />,
       color: "bg-blue-500",
       route: "/admin/facultati",
     },
     {
       title: "Gestionare Cadre",
-      icon: <Users size={40} />,
+      icon: <Users size={50} />,
       color: "bg-green-500",
       route: "/admin/cadre",
     },
     {
       title: "Gestionare Secretariat",
-      icon: <Users size={40} />,
+      icon: <Users size={50} />,
       color: "bg-green-500",
       route: "/admin/secretariat",
     },
     {
       title: "Setări generale",
-      icon: <Settings size={40} />,
+      icon: <Settings size={50} />,
       color: "bg-gray-500",
       route: "/admin/setari",
     },
@@ -51,37 +51,38 @@ function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen py-10 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100">
-      <div className="max-w-5xl mx-auto px-6">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">
+    <div className="min-h-screen py-6 bg-gradient-to-r from-green-100 to-cyan-100 relative flex flex-col justify-center items-center p-6">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} />
+        Deconectare
+      </button>
+
+      <div className="max-w-6xl w-full mx-auto">
+        <h1 className="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-5xl font-bold text-gray-800">
           Panou Administrativ
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {cards.map((card) => (
-            <div
-              key={card.title}
-              onClick={() => navigate(card.route)}
-              className={`cursor-pointer ${card.color} hover:scale-105 transition-transform rounded-xl shadow-xl p-6 text-white flex flex-col items-center`}
-            >
-              {card.icon}
-              <h2 className="text-xl font-semibold text-center mt-4">
-                {card.title}
-              </h2>
-            </div>
-          ))}
+          {/* Card-urile centrate */}
+        <div className="flex justify-center mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+            {cards.map((card) => (
+              <div
+                key={card.title}
+                onClick={() => navigate(card.route)}
+                className={`${card.color} cursor-pointer rounded-2xl shadow-lg p-10 text-white flex flex-col items-center hover:scale-110 transition-transform`}
+              >
+                {card.icon}
+                <h2 className="text-3xl font-semibold text-center mt-4">
+                  {card.title}
+                </h2>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Buton logout */}
-        <div className="flex justify-center">
-          <button
-            onClick={handleLogout}
-            className="flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg shadow"
-          >
-            <LogOut className="mr-2" size={20} />
-            Deconectare
-          </button>
-        </div>
       </div>
     </div>
   );

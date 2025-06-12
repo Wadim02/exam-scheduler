@@ -40,31 +40,34 @@ export default function SefDashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-green-100 to-cyan-100 py-10 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-gray-800 text-center">📚 Panou Șef de Grupă</h1>
+    <div className="min-h-screen py-6 bg-gradient-to-r from-green-100 to-cyan-100 relative flex flex-col justify-center items-center p-6">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} />
+        Deconectare
+      </button>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+      <div className="max-w-4xl w-full mx-auto px-6">
+        <h1 className="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-5xl font-bold text-gray-800">
+          Panou Șef de Grupă
+        </h1>
+        <div className="flex justify-center mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-8">
           {tiles.map((tile) => (
             <div
               key={tile.title}
               onClick={() => navigate(tile.route)}
-              className={`cursor-pointer p-6 rounded-xl shadow-lg text-white flex flex-col items-center justify-center hover:scale-105 transition ${tile.color}`}
+              className={`cursor-pointer ${tile.color} rounded-2xl shadow-lg p-8 text-white flex flex-col items-center hover:scale-110 transition-transform`}
             >
-              {tile.icon}
-              <span className="text-xl font-semibold mt-4">{tile.title}</span>
+              {React.cloneElement(tile.icon, { size: 50 })}
+              <span className="text-2xl font-semibold mt-4 text-center">
+                {tile.title}
+                </span>
             </div>
           ))}
         </div>
-
-        <div className="flex justify-center mt-10">
-          <button
-            onClick={handleLogout}
-            className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded shadow flex items-center"
-          >
-            <LogOut className="mr-2" size={18} />
-            Deconectare
-          </button>
         </div>
       </div>
     </div>

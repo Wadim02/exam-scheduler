@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { Trash2, PlusCircle, ArrowLeft, Pencil } from "lucide-react";
+import { Trash2, PlusCircle, ArrowLeft, Pencil,LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import AdminCadruEditModal from "./AdminCadruEditModal";
 
@@ -34,7 +34,13 @@ const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 const currentCadre = filteredCadre.slice(indexOfFirstItem, indexOfLastItem);
 const totalPages = Math.max(1, Math.ceil(filteredCadre.length / itemsPerPage));
   const navigate = useNavigate();
-
+const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
   const loadCadre = useCallback(() => {
     fetch("http://localhost:8000/api/admin/cadre", { credentials: "include" })
       .then((res) => {
@@ -136,7 +142,19 @@ const totalPages = Math.max(1, Math.ceil(filteredCadre.length / itemsPerPage));
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-teal-100 via-cyan-100 to-teal-100 py-10">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
       <div className="max-w-6xl mx-auto px-6 relative">
+        <button
+          onClick={() => navigate("/admin")}
+          className="mb-4 flex items-center "
+        >
+          <ArrowLeft className="mr-2" size={20} /> Înapoi
+        </button>
         {message && (
           <div className={`fixed top-6 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded shadow-lg text-white z-50 ${
             message.type === "success" ? "bg-green-600" : "bg-red-600"
@@ -145,13 +163,7 @@ const totalPages = Math.max(1, Math.ceil(filteredCadre.length / itemsPerPage));
           </div>
         )}
 
-        <button
-          onClick={() => navigate("/admin")}
-          className="inline-flex items-center px-4 py-2 mb-6 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md transition duration-300"
-        >
-          <ArrowLeft className="mr-2" size={18} />
-          Înapoi la pagina principală
-        </button>
+        
         <div className="mb-6">
   <input
     type="text"

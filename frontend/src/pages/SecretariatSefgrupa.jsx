@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import { ArrowLeft} from 'lucide-react';
+import { ArrowLeft,LogOut,ArrowBigUp} from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 export default function SecretariatImportSefGrupa() {
   const [file, setFile] = useState(null);
   const [importing, setImporting] = useState(false);
   const [message, setMessage] = useState(null);
-
+  const navigate = useNavigate();
+const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
   const handleImport = async (e, force = false) => {
     e && e.preventDefault();
     if (!file) {
@@ -63,14 +71,21 @@ export default function SecretariatImportSefGrupa() {
   };
 
   return (
-    <div className="p-6 max-w-2xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gradient-to-r from-green-100 to-cyan-100 py-10">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
+    <div className="max-w-3xl mx-auto bg-white rounded-lg shadow p-6">
             <button
   onClick={() => window.history.back()}
   className="mb-4 flex items-center text-gray-700 hover:text-gray-900"
 >
   <ArrowLeft className="mr-2" size={20} /> Înapoi
 </button>
-      <h1 className="text-2xl font-bold">📥 Încarcă fișier Excel cu șefii de grupă</h1>
+      <h1 className="text-2xl font-bold"> Încarcă fișier Excel cu șefii de grupă</h1>
 
       {message && (
         <div
@@ -98,11 +113,11 @@ export default function SecretariatImportSefGrupa() {
         <button
           type="submit"
           disabled={importing}
-          className={`px-4 py-2 rounded text-white ${
+          className={`px-4 py-2 rounded text-white flex flex-row ${
             importing ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'
           }`}
         >
-          {importing ? 'Se importă...' : 'Importă șefi de grupă'}
+          <ArrowBigUp className="mr-2" size={20} /> {importing ? 'Se importă...' : 'Importă șefi de grupă'}
         </button>
       </form>
 
@@ -112,6 +127,7 @@ export default function SecretariatImportSefGrupa() {
       >
         👥 Editează șefi de grupă
       </button>
+    </div>
     </div>
   );
 }

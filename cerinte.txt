@@ -1,0 +1,135 @@
+Categorii de utilizatori ai aplicației
+
+3.1 Rol: secretariat
+Utilizatorul Secretariat (SEC) trebuie să:
+[1] Acces aplicație:
+a. Utilizatorii de tip secretariat se conectează folosind sistemul de autentificare „Sign
+In With Google”, iar autentificarea este verificată în raport cu adresa de email
+asociată la nivelul facultății, care este înregistrată în aplicație.
+b. SEC se poate deconecta din aplicație.
+[2] Utilizarea aplicației:
+a. SEC va putea descărca fișiere Excel template din interfața aplicației (detalii în
+Anexă). Acestea pot fi folosite pentru a încărca datele relevante în aplicație.
+b. SEC va genera lista de discipline (la care se susține examen sau colocviu) pentru
+fiecare program de studiu, an și grupă, împreună cu numele și emailul oficial (de
+tip @usm.ro) a cadrelor didactice titulare. Lista va fi stocată în fișier Excel cu
+template predefinit. Informațiile vor fi preluate de către program din aplicația Orar,
+conform endpoint-urilor API descrise în Anexă.
+c. SEC va încărca lista șefilor de grupă (nume și email de tip @student.usv.ro).
+d. SEC va genera lista de săli disponibile pentru examinare (preluate din aplicația
+Orar).SEC va configura perioadele permise pentru colocviu și respectiv examen.
+Alocarea datelor de colocviu/examen se poate face doar în limitele acest date.
+e. Aplicația va notifica prin email șefii de grupă, cu privire la încărcarea noilor date.
+f. SEC poate verifica gradul de completare a datelor de examen (cu sublinierea celor
+care încă nu au fost stabilite încă).
+g. SEC poate modifica manual date de examen, locații sau personal titular/asistent,
+acolo unde este cazul.
+h. SEC poate descărca planificarea examenelor în format Excel.
+i. SEC poate descărca planificarea examenelor în format PDF.
+
+3.2 Rol: șef grupă (SG)
+[3] Acces aplicație:
+a. Utilizatorii de tip SG se conectează folosind sistemul de autentificare „Sign In
+With Google”, iar autentificarea este verificată în raport cu adresa de email asociată
+la nivelul facultății, care este înregistrată în aplicație.
+b. SG se poate deconecta din aplicație.
+[4] Utilizarea aplicației:
+a. SG va fi informat printr-un email că au fost încărcate disciplinele corespunzătoare
+grupei pentru care este șef de grupă.
+b. Pentru fiecare disciplină, SG va completa data propusă (din perioada de
+colocviu/examen) în câmpul asociat disciplinei și trimite spre validare propunerea.
+Aplicația notifică prin email cadrul didactic titular de completarea datei respective.
+c. Dacă cadrul didactic respinge data propusă, SG poate re-introduce respectiva dată.
+SG va fi notificat prin email de respingere.
+d. Dacă cadrul didactic acceptă data propusă, SG va putea vizualiza acceptul oficial,
+dar nu va mai putea modifica informațiile respective.
+
+3.3 Rol: cadru didactic (CD)
+[5] Acces aplicație:
+a. Utilizatorii de tip CD se conectează folosind sistemul de autentificare „Sign In
+With Google”, iar autentificarea este verificată în raport cu adresa de email asociată
+la nivelul facultății, care este înregistrată în aplicație.
+b. CD se poate deconecta din aplicație.
+[6] Utilizarea aplicației:
+a. CD va fi informat prin email că au fost propuse date de susținere a
+colocviilor/examenelor pentru validare.
+b. CD va putea vizualiza disciplinele pentru care s-au propus date de
+colocviu/examen de către SG.
+c. CD poate respinge data propusă de SG. În acest caz un email va fi trimis pe adresa
+SG, în mod automat.
+d. Dacă CD acceptă data propusă, va putea seta sala/sălile de colocviu/examen,
+asistentul/asistenții și intervalul de timp (increment de 1 oră) pentru desfășurarea
+colocviilor/examenelor. Nu se acceptă suprapuneri de sală/interval/asistenți sau
+titulari.
+e. CD va avea acces la lista de examene din aplicație (doar pentru disciplinele la care
+este titular sau asistent).
+
+3.6 Rol: administrator (ADM)
+[7] Acces aplicație:
+a. Administratorul se conectează folosind un nume de utilizator și o parolă.
+b. Acces aplicație: administratorul se poate deconecta din aplicație.
+[8] Configurarea aplicației:
+a. Se permite actualizarea credențialelor de acces pentru administrator.
+b. Se permite editarea informațiilor specifice facultăților:
+• nume complet facultate;
+• nume scurt facultate;
+• lista cadrelor didactice și a adreselor de email aferente (domeniu
+@usm.ro).
+
+c. Se permite adăugarea de noi utilizatori cu rol de operator pentru SEC:
+• nume și prenume utilizator;
+• titlu (ex. ing./ec./etc.);
+• email secretară (domeniu @usm.ro).
+
+d. Observație: datele facultății (personal, structură, secretare etc.) nu vor fi șterse în
+cadrul procesului de resetare.
+
+4. Cerințe de securitate
+Se impune implementarea măsurilor de securitate adecvate pentru a proteja datele
+aplicației.
+
+7. Model fișier introducere date
+Fișierele-template Excel folosite pentru a încărca date for fi furnizate pe viitor.
+
+
+
+
+
+
+
+
+
+
+
+
+Limbaje de programare și tehnologii
+• Core: Python 3
+• Back-end: Flask, FastAPI
+• Front-end: la alegere
+• Baze de date: PostgreSQL, MariaDB sau SQLite3
+• Alte tehnologii: Docker
+
+Manipularea datelor
+• Datele încărcate vor fi în format Excel (.xlsx). Template-ul fișierelor va fi furnizat în
+aplicație.
+• Se va prelua din aplicația Orar conform programului de studii/anului:
+o numele disciplinelor;
+o titularul disciplinei (cadru didactic curs);
+o cadrele didactice de aplicații practice (asistenți de examen);
+o corpurile de clădire în care se susțin respectivele discipline precum și lista de
+săli din clădirile USV identificate.
+
+• API-ul Google nu mai permite trimiterea de mesaje email din aplicații, dar se pot folosi
+servicii gratuite în acest scop (ex. Sendgrid).
+
+
+
+Punctele de acces pentru aplicația Orar
+Formatul implicit este CSV. Pentru JSON, se poate folosi parametrul json în query string:
+• https://orar.usv.ro/orar/vizualizare/data/cadre.php?json
+• https://orar.usv.ro/orar/vizualizare/data/sali.php?json
+• https://orar.usv.ro/orar/vizualizare/data/facultati.php?json
+• https://orar.usv.ro/orar/vizualizare/data/subgrupe.php?json
+• https://orar.usv.ro/orar/vizualizare/data/orarSPG.php?ID=723&mod=prof&json
+Orar pentru o semi-grupă:
+• https://orar.usv.ro/orar/vizualizare/data/orarSPG.php?ID=1028&mod=grupa&json

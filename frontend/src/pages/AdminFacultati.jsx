@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Trash2, Save, PlusCircle, ArrowLeft } from "lucide-react";
+import { Trash2, Save, PlusCircle, ArrowLeft,LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminFacultati() {
@@ -16,6 +16,14 @@ export default function AdminFacultati() {
       .then((data) => setFacultati(data))
       .catch(() => alert("Eroare încărcare facultăți"));
   }, []);
+
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -64,15 +72,20 @@ export default function AdminFacultati() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-teal-100 via-cyan-100 to-teal-100 py-10">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
       <div className="max-w-5xl mx-auto px-6">
 
         {/* Buton modern pentru inapoi */}
         <button
           onClick={() => navigate("/admin")}
-          className="inline-flex items-center px-4 py-2 mb-6 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-md transition duration-300"
+          className="mb-4 flex items-center "
         >
-          <ArrowLeft className="mr-2" size={18} />
-          Înapoi la pagina principală
+          <ArrowLeft className="mr-2" size={20} /> Înapoi
         </button>
 
         <h3 className="text-2xl font-semibold text-gray-700 mb-4">
@@ -113,7 +126,7 @@ export default function AdminFacultati() {
 
         <hr className="my-8" />
 
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">📚 Administrare Facultăți</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-6"> Administrare Facultăți</h2>
 
         <form id="adminFacultatiForm" onSubmit={handleUpdate}>
           <table className="w-full text-left bg-white rounded-lg shadow">

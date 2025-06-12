@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Pencil, Trash2, Save, X, ArrowLeft } from 'lucide-react';
+import { Pencil, Trash2, Save, X, ArrowLeft,LogOut } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 function EditExamModal({ open, onClose, exam, onSave }) {
   const [form, setForm] = useState({ ...exam });
@@ -8,7 +9,6 @@ function EditExamModal({ open, onClose, exam, onSave }) {
   const [sali, setSali] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-
   useEffect(() => {
     setForm({ ...exam });
     setError('');
@@ -39,7 +39,7 @@ useEffect(() => {
     try {
       const payload = {
         data: form.data,
-        id_sala: form.id_sala,
+        id_sala: form.id_sala ? form.id_sala : null,
         id_asistent: form.id_asistent || null,
       };
       const res = await fetch(
@@ -63,7 +63,7 @@ useEffect(() => {
   };
 
   return (
-    <Dialog open={open} onClose={onClose} className="fixed inset-0 z-50 flex items-center justify-center">
+    <Dialog open={open} onClose={onClose} className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20">
       <Dialog.Panel className="bg-white p-6 rounded shadow-lg w-full max-w-lg relative">
         <button onClick={onClose} className="absolute top-3 right-3 text-gray-500 hover:text-red-600">
           <X size={20} />
@@ -130,6 +130,14 @@ useEffect(() => {
 }
 
 export default function SecretariatExameneEdit() {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
   const [examene, setExamene] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -172,7 +180,14 @@ export default function SecretariatExameneEdit() {
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-r from-green-100 to-cyan-100 py-10">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
+    <div className="max-w-6xl mx-auto bg-white rounded-lg shadow p-6">
       <button
         onClick={() => window.history.back()}
         className="mb-4 flex items-center text-gray-700 hover:text-gray-900"
@@ -227,9 +242,18 @@ export default function SecretariatExameneEdit() {
           open={modalOpen}
           onClose={() => setModalOpen(false)}
           exam={selectedExam}
-          onSave={updated => setExamene(examene.map(x => x.id === updated.id ? updated : x))}
+         onSave={updated => {
+
+   setExamene(examene.map(x =>
+     x.id === updated.id
+       ? { ...x, ...updated }
+       : x
+   ));
+   fetchList();
+ }}
         />
       )}
+    </div>
     </div>
   );
 }

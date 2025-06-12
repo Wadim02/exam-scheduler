@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft,LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function SefDisciplineStatus() {
@@ -9,6 +9,13 @@ export default function SefDisciplineStatus() {
     respinse: [],
     nepropuse: [],
   });
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -66,20 +73,24 @@ export default function SefDisciplineStatus() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-cyan-100 to-blue-100 py-10 px-6">
-      <div className="max-w-6xl mx-auto">
-        <button
-          onClick={() => navigate("/sefgrupa")}
-          className="mb-6 flex items-center text-blue-700 hover:underline"
-        >
-          <ArrowLeft className="mr-2" /> Înapoi la dashboard
+    <div className="min-h-screen bg-gradient-to-r from-blue-100 to-teal-100 py-10 px-6">
+  <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} />
+        Deconectare
+      </button>
+      <div className="max-w-3xl mx-auto bg-white rounded-lg shadow p-6">
+       <button onClick={() => navigate('/sefgrupa')} className="mb-4 flex items-center">
+          <ArrowLeft size={20} className="mr-2" /> Înapoi
         </button>
 
         <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
           📋 Status Discipline
         </h1>
 
-        <div className="flex justify-end mb-6">
+        <div className="flex justify-center mb-6">
           <a
             href="http://localhost:8000/sefgrupa/export-excel"
             target="_blank"
@@ -105,10 +116,11 @@ export default function SefDisciplineStatus() {
                 <p className="text-gray-500 italic">Nicio disciplină</p>
               )}
             </div>
+            
           </div>
 
           {/* Propuse (Trimise) */}
-          <div>
+          <div >
             <h2 className="text-xl font-semibold text-yellow-700 mb-3">
               ⏳ Propuse
             </h2>

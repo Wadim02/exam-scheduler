@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback} from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft,LogOut } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 export default function SituatieExamene() {
+   const navigate = useNavigate();
   const [items, setItems]       = useState([]);
   const [total, setTotal]       = useState(0);
   const [page, setPage]         = useState(1);
@@ -9,6 +11,13 @@ export default function SituatieExamene() {
   const [search, setSearch]     = useState('');
   const [loading, setLoading]   = useState(true);
   const [error, setError]       = useState('');
+   const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -40,7 +49,14 @@ export default function SituatieExamene() {
   const totalPages = Math.ceil(total / pageSize);
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-r from-green-100 to-cyan-100 py-10">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
+    <div className="max-w-6xl mx-auto bg-white rounded-lg shadow p-6">
       <button
         onClick={() => window.history.back()}
         className="mb-4 flex items-center text-gray-700 hover:text-gray-900"
@@ -108,6 +124,7 @@ export default function SituatieExamene() {
           </div>
         </>
       )}
+    </div>
     </div>
   );
 }

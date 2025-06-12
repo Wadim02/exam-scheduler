@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { ArrowLeft, Download } from "lucide-react";
+import { ArrowLeft, Download,LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function CadruAsistent() {
   const [examene, setExamene] = useState([]);
   const [cadru, setCadru] = useState({ firstName: "", lastName: "" });
   const navigate = useNavigate();
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+    await fetch("http://localhost:8000/logout", { credentials: "include" });
+    navigate("/login");
+  };
 
   useEffect(() => {
     // Presupunem că backend-ul expune un endpoint JSON similar:
@@ -19,10 +24,7 @@ export default function CadruAsistent() {
       })
       .then((data) => {
         // Structura așteptată: { cadru: { firstName, lastName }, examene: [ ... ] }
-        setCadru({
-          firstName: data.cadru.firstName,
-          lastName: data.cadru.lastName,
-        });
+        setCadru(data.cadru);
         setExamene(data.examene);
       })
       .catch((err) => {
@@ -31,14 +33,21 @@ export default function CadruAsistent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-indigo-100 flex justify-center p-6">
+    <div className="min-h-screen bg-gradient-to-r from-indigo-100 via-purple-100 to-indigo-100 relative">
+      {/* Butonul deconectare fixat */}
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} />
+        Deconectare
+      </button>
+      <div className="flex justify-center p-6">
       <div className="w-full max-w-3xl bg-white rounded-2xl shadow-lg p-8">
+        
         {/* Buton Înapoi la Dashboard */}
-        <button
-          onClick={() => navigate("/cadru")}
-          className="mb-6 flex items-center text-blue-600 hover:underline"
-        >
-          <ArrowLeft className="mr-2" /> Înapoi la dashboard
+        <button onClick={() => navigate('/cadru')} className="mb-4 flex items-center">
+          <ArrowLeft size={20} className="mr-2" /> Înapoi
         </button>
 
         {/* Titlu cu numele cadrului */}
@@ -64,33 +73,34 @@ export default function CadruAsistent() {
           <ul className="space-y-6">
             {examene.map((e) => {
               // Parsează data și formatează corespunzător
-              const dateObj = new Date(e.data);
-              const dataFormatted = dateObj.toLocaleDateString("ro-RO", {
-                dateStyle: "medium",
-                timeStyle: "short",
-              });
-              const studyYear = e.disciplina.subgrupa.studyYear;
-              const groupName = e.disciplina.subgrupa.groupName;
-              const subgroupIndex = e.disciplina.subgrupa.subgroupIndex;
-              const salaName = e.sala ? e.sala.name : "nedefinită";
-
+              const dt=new Date(e.data);
+              
+              const dataFormatted = dt.toLocaleDateString("ro-RO", { dateStyle: "medium" });
+const oraFormatted  = dt.toLocaleTimeString("ro-RO", {
+  hour: "2-digit",
+  minute: "2-digit"
+});
+const formatted     = `${dataFormatted} ${oraFormatted}`;
+      const grupa = `${e.groupName}${e.subgroupIndex}`;
+      const an = e.studyYear;
+      const sala = e.sala ?? "nedefinită";
               return (
                 <li
                   key={e.id}
                   className="bg-gray-50 p-6 rounded-lg shadow hover:bg-gray-100 transition-colors"
                 >
                   <p className="text-lg font-semibold text-gray-800 mb-1">
-                    {e.disciplina.nume}
+                    {e.disciplina}
                   </p>
                   <p className="text-gray-700 mb-1">
-                    <strong>Data:</strong> {dataFormatted} ({e.durata}h)
+                    <strong>Data și ora:</strong> {formatted} ({e.durata}h)
                   </p>
                   <p className="text-gray-700 mb-1">
-                    <strong>Grupa:</strong> Anul {studyYear}, {groupName}
-                    {subgroupIndex}
+                    <strong>Grupa:</strong> Anul {an}, {grupa}
+                    
                   </p>
                   <p className="text-gray-700">
-                    <strong>Sala:</strong> {salaName}
+                    <strong>Sala:</strong> {sala}
                   </p>
                 </li>
               );
@@ -98,6 +108,7 @@ export default function CadruAsistent() {
           </ul>
         )}
       </div>
+    </div>
     </div>
   );
 }

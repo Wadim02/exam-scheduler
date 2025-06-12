@@ -1,13 +1,19 @@
 // SefSetariCont.jsx
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft,LogOut } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function SefSetariCont() {
   const navigate = useNavigate();
   const API = process.env.REACT_APP_API_URL || "http://localhost:8000";
-
+const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
   const [form, setForm] = useState({
     first_name: "",
     last_name: "",
@@ -61,10 +67,17 @@ export default function SefSetariCont() {
 
   return (
   <div className="min-h-screen bg-gradient-to-r from-cyan-100 to-blue-100 py-10 px-6">
+          <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} />
+        Deconectare
+      </button>
     <div className="max-w-md mx-auto p-6 bg-white rounded shadow">
       <button
-        onClick={() => navigate(-1)}
-        className="mb-6 text-blue-700 hover:underline flex items-center"
+        onClick={() => navigate('/sefgrupa')}
+        className="mb-6 flex items-center"
       >
         <ArrowLeft className="mr-2" /> Înapoi
       </button>

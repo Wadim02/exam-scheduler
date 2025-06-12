@@ -4,7 +4,34 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
 
-  useEffect(() => {
+    useEffect(() => {
+    // 1) Verificăm dacă suntem deja logați
+    fetch("http://localhost:8000/me", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Nu ești autentificat");
+        return res.json();
+      })
+      .then((data) => {
+        // 2) Dacă avem rol, redirecționăm
+        switch (data.role) {
+          case "secretariat":
+            return navigate("/secretariat", { replace: true });
+          case "cadru":
+            return navigate("/cadru", { replace: true });
+          case "sef_grupa":
+            return navigate("/sefgrupa", { replace: true });
+          case "admin":
+            return navigate("/admin", { replace: true });
+          default:
+            return;  
+        }
+      })
+      .catch(() => {
+        
+      });
     window.handleCredentialResponse = (response) => {
       fetch("http://localhost:8000/token", {
         method: "POST",
@@ -29,10 +56,10 @@ function Login() {
               navigate("/secretariat");
               break;
             case "cadru":
-              navigate("/cadru/propuneri");
+              navigate("/cadru");
               break;
             case "sef_grupa":
-              navigate("/sefgrupa/propunere");
+              navigate("/sefgrupa");
               break;
             case "admin":
               navigate("/admin");

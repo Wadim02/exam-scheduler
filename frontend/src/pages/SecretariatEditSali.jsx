@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Pencil, Trash2, Save, X , ArrowLeft} from 'lucide-react';
+import { Pencil, Trash2, Save, X , ArrowLeft,LogOut} from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 function SalaEditModal({ open, onClose, sala, onSave }) {
   const [form, setForm] = useState({ ...sala });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  
 
   useEffect(() => {
     setForm({ ...sala });
@@ -84,6 +86,7 @@ function SalaEditModal({ open, onClose, sala, onSave }) {
 }
 
 export default function SecretariatEditSali() {
+  const navigate = useNavigate();
   const [sali, setSali] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
@@ -93,6 +96,13 @@ export default function SecretariatEditSali() {
   const [newRoom, setNewRoom] = useState({ name: '', shortName: '', buildingName: '' });
   const [loading, setLoading] = useState(false);
   const itemsPerPage = 50;
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
 
   // Încarcă săli odată la montare
   useEffect(() => {
@@ -175,7 +185,14 @@ export default function SecretariatEditSali() {
   const current = filtered.slice(start, start + itemsPerPage);
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-r from-green-100 to-cyan-100 py-10">
+    <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
+    <div className="max-w-5xl mx-auto bg-white rounded-lg shadow p-6">
       <button
   onClick={() => window.history.back()}
   className="mb-4 flex items-center text-gray-700 hover:text-gray-900"
@@ -297,6 +314,7 @@ export default function SecretariatEditSali() {
           onSave={handleSave}
         />
       )}
+    </div>
     </div>
   );
 }

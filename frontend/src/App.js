@@ -2,7 +2,7 @@ import React from "react";
 
 import './index-calendar.css';
 
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 
 import SecretariatDashboard from "./pages/SecretariatDashboard";
@@ -38,7 +38,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
+<Route path="/" element={<Navigate to="/login" replace />} />
 <Route path="/login" element={<Login />} />
 <Route path="/secretariat" element={<ProtectedRoute role="secretariat"> <SecretariatDashboard />  </ProtectedRoute>} />
 <Route path="/secretariat/sali" element={<ProtectedRoute role="secretariat"> <SecretariatSali />  </ProtectedRoute>} />

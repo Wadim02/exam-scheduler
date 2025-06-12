@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import { ArrowLeft} from 'lucide-react';
+import { ArrowLeft,LogOut,ArrowBigUp,ArrowBigDown ,Eye} from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 export default function SecretariatSali() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [importing, setImporting] = useState(false);
   const [importMessage, setImportMessage] = useState('');
-
+  const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
   const downloadRooms = async () => {
     setLoading(true);
     try {
@@ -91,7 +99,14 @@ const performImport = async (force = false) => {
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto space-y-6">
+    <div className="min-h-screen bg-gradient-to-r from-green-100 to-cyan-100 py-10">
+      <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
+    <div className="max-w-3xl mx-auto bg-white rounded-lg shadow p-6">
       <button
   onClick={() => window.history.back()}
   className="mb-4 flex items-center text-gray-700 hover:text-gray-900"
@@ -101,11 +116,11 @@ const performImport = async (force = false) => {
       <h1 className="text-3xl font-bold">Gestionare Săli</h1>
 
       <button
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 flex flex-row"
         onClick={downloadRooms}
         disabled={loading}
       >
-        📥 {loading ? 'Se descarcă...' : 'Descarcă sălile'}
+        <ArrowBigDown className="mr-2" size={20} /> {loading ? 'Se descarcă...' : 'Descarcă sălile'}
       </button>
       {loading && (
         <div className="text-green-600">
@@ -125,20 +140,21 @@ const performImport = async (force = false) => {
         </label>
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 flex flex-row"
           disabled={importing}
         >
-          🚀 {importing ? 'Se importă...' : 'Importă sălile'}
+          <ArrowBigUp className="mr-2" size={20} /> {importing ? 'Se importă...' : 'Importă sălile'}
         </button>
         {importMessage && <div className="text-sm mt-1">{importMessage}</div>}
       </form>
 
       <button
-        className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 mt-6"
+        className="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 mt-6 flex flex-row"
         onClick={() => (window.location.href = '/secretariat/saliedit')}
       >
-        👁️ Vizualizează și editează sălile
+        <Eye className="mr-2" size={20} /> Vizualizează și editează sălile
       </button>
+    </div>
     </div>
   );
 }

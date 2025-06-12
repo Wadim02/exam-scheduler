@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Pencil, Trash2, Save, X, ArrowLeft } from 'lucide-react';
+import { Pencil, Trash2, Save, X, ArrowLeft ,LogOut} from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 function SefGrupaEditModal({ open, onClose, sef, onSave }) {
   const [form, setForm] = useState({ ...sef });
@@ -43,7 +44,7 @@ function SefGrupaEditModal({ open, onClose, sef, onSave }) {
   };
 
   return (
-    <Dialog open={open} onClose={onClose} className="fixed inset-0 z-50 flex items-center justify-center">
+    <Dialog open={open} onClose={onClose} className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20">
       <Dialog.Panel className="bg-white p-6 rounded shadow-lg w-full max-w-lg relative">
         <button onClick={onClose} className="absolute top-3 right-3 text-gray-500 hover:text-red-600">
           <X size={20} />
@@ -99,6 +100,7 @@ function SefGrupaEditModal({ open, onClose, sef, onSave }) {
 }
 
 export default function SecretariatEditSefGrupa() {
+  const navigate = useNavigate();
   const [sefi, setSefi] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
@@ -155,7 +157,13 @@ export default function SecretariatEditSefGrupa() {
       showMessage(err.message, 'error');
     }
   };
-
+const handleLogout = async () => {
+    localStorage.removeItem("token");
+     await fetch("http://localhost:8000/logout", {
+    credentials: "include",
+  });
+    navigate("/login");
+  };
   
 
   const handleDelete = async id => {
@@ -193,7 +201,14 @@ export default function SecretariatEditSefGrupa() {
   const current = filtered.slice(start, start + itemsPerPage);
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+  <div className="min-h-screen bg-gradient-to-r from-green-100 to-cyan-100 py-10">
+    <button
+        onClick={handleLogout}
+        className="fixed top-4 right-4 z-50 flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg"
+      >
+        <LogOut className="mr-2" size={18} /> Deconectare
+      </button>
+    <div className="max-w-6xl mx-auto bg-white rounded-lg shadow p-6">
       {/* Înapoi */}
       <button
         onClick={() => window.history.back()}
@@ -253,7 +268,7 @@ export default function SecretariatEditSefGrupa() {
         </select>
         <button
           type="submit"
-          className="col-span-6 bg-green-600 text-white py-2 rounded hover:bg-green-700"
+          className="bg-green-600 text-white py-2 rounded hover:bg-green-700"
         >
           + Adaugă șef de grupă
         </button>
@@ -339,5 +354,6 @@ export default function SecretariatEditSefGrupa() {
         />
       )}
     </div>
+  </div>
 );
 }
