@@ -1,0 +1,11 @@
+id,professor_id,subgroup_id,topic
+1,1,1,Programming Fundamentals
+2,2,1,Databases
+3,3,1,Computer Architecture
+4,1,2,Programming Fundamentals
+5,2,2,Databases
+6,3,2,Computer Architecture
+7,2,3,Software Engineering
+8,3,3,Operating Systems
+9,1,4,Algorithms
+10,4,5,Engineering Fundamentals

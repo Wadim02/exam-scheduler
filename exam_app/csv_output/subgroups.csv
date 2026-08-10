@@ -1,0 +1,6 @@
+id,facultyId,studyYear,groupName,subgroupIndex
+1,1,1,CS-101,1
+2,1,1,CS-101,2
+3,1,2,CS-201,1
+4,1,2,CS-201,2
+5,2,1,ENG-101,1

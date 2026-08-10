@@ -1,0 +1,6 @@
+id,lastName,firstName,emailAddress,phoneNumber,faculty_id,subgroup_id
+1,Miller,Alex,alex.miller@example.com,060100001,1,1
+2,Wilson,Emma,emma.wilson@example.com,060100002,1,2
+3,Taylor,James,james.taylor@example.com,060100003,1,3
+4,Anderson,Olivia,olivia.anderson@example.com,060100004,1,4
+5,Thomas,Lucas,lucas.thomas@example.com,060100005,2,5

@@ -1,0 +1,5 @@
+id,lastName,firstName,emailAddress,phoneNumber,facultyName,departmentName
+1,Johnson,Michael,michael.johnson@example.com,060000001,Faculty of Computer Science,Computer Science
+2,Smith,Emily,emily.smith@example.com,060000002,Faculty of Computer Science,Software Engineering
+3,Brown,Daniel,daniel.brown@example.com,060000003,Faculty of Computer Science,Computer Systems
+4,Davis,Sophia,sophia.davis@example.com,060000004,Faculty of Engineering,Engineering
